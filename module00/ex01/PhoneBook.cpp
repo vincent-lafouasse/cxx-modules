@@ -5,8 +5,8 @@
 PhoneBook::PhoneBook() : sz(0) {}
 
 Command PhoneBook::prompt_user() {
+    std::cout << "> ";
     std::string input;
-
     std::cin >> input;
     return Command(input);
 }

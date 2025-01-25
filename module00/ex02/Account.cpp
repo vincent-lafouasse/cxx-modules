@@ -3,17 +3,21 @@
 #include <iostream>
 
 static int n_accounts = 0;
+static int total_amount = 0;
+static int n_deposits = 0;
+static int n_withdrawals = 0;
 
 int Account::getNbAccounts(void) {
     return n_accounts;
 }
 int Account::getTotalAmount(void) {
+    return total_amount;
 }
 int Account::getNbDeposits(void) {
-    return 0;
+    return n_deposits;
 }
 int Account::getNbWithdrawals(void) {
-    return 0;
+    return n_withdrawals;
 }
 void Account::displayAccountsInfos(void) {}
 

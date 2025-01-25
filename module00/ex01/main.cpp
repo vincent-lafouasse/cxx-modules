@@ -7,8 +7,12 @@ static void print_prompt();
 int main() {
     PhoneBook phone_book;
 
-    print_prompt();
-    for (std::string line; std::getline(std::cin, line); print_prompt()) {
+    while (1) {
+        std::string line;
+        if (std::cin.eof())
+            break;
+        std::cout << "> ";
+        std::cin >> line;
         if (line.empty())
             continue;
         Command command(line);

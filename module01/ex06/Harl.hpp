@@ -1,7 +1,7 @@
 #pragma once
 
 class Harl {
-public:
+   public:
     void debug() const;
     void info() const;
     void warning() const;

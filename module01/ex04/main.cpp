@@ -4,7 +4,11 @@
 #include <iostream>
 #include <sstream>
 
-bool matches_pattern();
+bool matches_pattern(const std::string& pattern,
+                     const std::string& data,
+                     std::size_t offset) {
+    return data.compare(offset, pattern.size(), pattern) == 0;
+}
 
 std::string load_entire_file(const std::string& path) {
     std::ifstream file(path);
@@ -21,4 +25,14 @@ int main(int ac, char* av[]) {
     std::cout << data;
 
     std::ofstream out(cfg.file + ".replace");
+
+    for (std::size_t i = 0; i < data.size();) {
+        if (matches_pattern(cfg.before, data, i)) {
+            out << cfg.after;
+            i += cfg.before.size();
+        } else {
+            out << data[i];
+            i++;
+        }
+    }
 }

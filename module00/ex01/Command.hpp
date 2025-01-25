@@ -10,7 +10,7 @@ class Command {
         Exit,
         None,
     };
-   Command(const std::string& s);
+    Command(const std::string& s);
 
-   Command::Kind kind;
+    Command::Kind kind;
 };

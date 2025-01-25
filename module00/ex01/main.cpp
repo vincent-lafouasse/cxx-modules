@@ -3,6 +3,11 @@
 int main() {
     PhoneBook phone_book;
 
-    Command command = PhoneBook::prompt_user();
-    phone_book.process_command(command);
+    while (1) {
+        Command command = PhoneBook::prompt_user();
+        if (command.kind == Command::Exit) {
+            break;
+        }
+        phone_book.process_command(command);
+    }
 }

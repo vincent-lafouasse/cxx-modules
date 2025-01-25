@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Contact.hpp"
 #include "Command.hpp"
+#include "Contact.hpp"
 
 #define PHONE_BOOK_SZ 8
 

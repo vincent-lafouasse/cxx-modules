@@ -4,9 +4,9 @@
 
 PhoneBook::PhoneBook() {}
 
-PhoneBook::Command PhoneBook::prompt_user() {
+Command PhoneBook::prompt_user() {
     std::cout << "give me a thing" << std::endl;
-    return Add;
+    return Command("ADD");
 }
 
 void PhoneBook::process_command(Command command) {}

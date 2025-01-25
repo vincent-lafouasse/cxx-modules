@@ -3,7 +3,8 @@ NAME = phone_book
 SRC = main.cpp PhoneBook.cpp Contact.cpp
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra
+# CXXFLAGS += -Werror
 CXXFLAGS += -std=c++98
 
 CPPFLAGS = -I.

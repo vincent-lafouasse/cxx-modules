@@ -1,6 +1,6 @@
 NAME = cool_sed
 
-SRC = main.cpp
+SRC = main.cpp Config.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra

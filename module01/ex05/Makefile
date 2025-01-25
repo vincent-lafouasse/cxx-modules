@@ -1,6 +1,6 @@
 NAME = harl2
 
-SRC = main.cpp
+SRC = main.cpp Harl.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra

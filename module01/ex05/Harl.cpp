@@ -2,6 +2,25 @@
 
 #include <iostream>
 
+typedef void (Harl::*complaint)(void) const;
+
+void Harl::complain(std::string level) {
+    static const std::pair<const char*, complaint> complaints[] = {
+        std::make_pair("DEBUG", &Harl::debug),
+        std::make_pair("INFO", &Harl::info),
+        std::make_pair("WARNING", &Harl::warning),
+        std::make_pair("ERROR", &Harl::error),
+    };
+    const size_t sz = sizeof(complaints) / sizeof(*complaints);
+
+    for (size_t i = 0; i < sz; i++) {
+        if (complaints[i].first == level) {
+            (this->*(complaints[i].second))();
+            break;
+        }
+    }
+}
+
 void Harl::debug() const {
     std::cout << " love having extra bacon for my "
                  "7XL-double-cheese-triple-pickle-special- ketchup burger. I "

@@ -4,13 +4,6 @@
 
 PhoneBook::PhoneBook() : sz(0) {}
 
-Command PhoneBook::prompt_user() {
-    std::cout << "> ";
-    std::string input;
-    std::cin >> input;
-    return Command(input);
-}
-
 void PhoneBook::process_command(Command command) {
     if (command.kind == Command::Add) {
         Contact contact;
@@ -25,7 +18,7 @@ void PhoneBook::process_command(Command command) {
         std::cin >> index_string;
         std::size_t index;
         try {
-        index = std::stoul(index_string, NULL, 10);
+            index = std::stoul(index_string, NULL, 10);
         } catch (...) {
             std::cout << "No" << std::endl;
             return;

@@ -8,7 +8,6 @@
 class PhoneBook {
    public:
     PhoneBook();
-    static Command prompt_user();
     void process_command(Command command);
 
    private:

@@ -1,10 +1,13 @@
 #include "PhoneBook.hpp"
 
+#include <iostream>
+
 int main() {
     PhoneBook phone_book;
+    std::string line;
 
-    while (1) {
-        Command command = PhoneBook::prompt_user();
+    while (std::cout << "> ", std::getline(std::cin, line)) {
+        Command command(line);
         if (command.kind == Command::Exit) {
             break;
         }

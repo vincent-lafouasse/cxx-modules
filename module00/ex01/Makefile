@@ -9,11 +9,14 @@ CXXFLAGS += -std=c++98
 
 CPPFLAGS = -I.
 
+.PHONY: build clean run
+build: $(NAME)
+
+run: build
+	./$(NAME)
+
 $(NAME): $(SRC)
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(SRC) -o $(NAME)
-
-.PHONY: build clean
-build: $(NAME)
 
 clean:
 	rm -rf $(NAME)

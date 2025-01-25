@@ -2,10 +2,14 @@
 
 #include <iostream>
 
-Zombie::Zombie(const std::string& name) : name(name) {}
+Zombie::Zombie() : name("") {}
 
 Zombie::~Zombie() {
     std::cout << "ripbozo " << name << "\n";
+}
+
+void Zombie::set_name(const std::string& name) {
+    this->name = name;
 }
 
 void Zombie::announce() const {

@@ -6,6 +6,6 @@ class HumanB {
 public:
 	void attack() const;
 private:
-	Weapon weapon;
+	Weapon* weapon;
 	std::string name;
 };

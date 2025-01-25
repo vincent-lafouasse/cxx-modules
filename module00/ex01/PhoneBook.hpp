@@ -5,20 +5,20 @@
 #define PHONE_BOOK_SZ 8
 
 enum Command {
-  Add,
-  Search,
-  Exit,
+    Add,
+    Search,
+    Exit,
 };
 
 class PhoneBook {
-public:
-  PhoneBook();
-  static Command prompt_user();
-  void process_command(Command command);
+   public:
+    PhoneBook();
+    static Command prompt_user();
+    void process_command(Command command);
 
-private:
-  void push(const Contact &to_add) const;
-  void display() const;
+   private:
+    void push(const Contact& to_add) const;
+    void display() const;
 
-  Contact data[PHONE_BOOK_SZ];
+    Contact data[PHONE_BOOK_SZ];
 };

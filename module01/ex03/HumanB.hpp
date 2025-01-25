@@ -15,6 +15,6 @@ class HumanB {
     void setWeapon(const Weapon& w) { weapon = &w; }
 
    private:
-    const Weapon* weapon;
     std::string name;
+    const Weapon* weapon;
 };

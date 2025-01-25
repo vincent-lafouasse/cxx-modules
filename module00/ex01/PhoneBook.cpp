@@ -19,7 +19,7 @@ void PhoneBook::process_command(Command command) {
         }
         this->push(contact);
     } else if (command.kind == Command::Search) {
-        std::cout << "search" << std::endl;
+        this->display();
     } else if (command.kind == Command::Exit) {
         std::cout << "exit" << std::endl;
     } else {
@@ -33,5 +33,12 @@ void PhoneBook::push(const Contact& to_add) {
     } else {
         data[sz] = to_add;
         sz++;
+    }
+}
+
+void PhoneBook::display() const {
+    for (std::size_t i = 0; i < this->sz; i++) {
+        std::cout << i << " | ";
+        data[i].display_one_line();
     }
 }

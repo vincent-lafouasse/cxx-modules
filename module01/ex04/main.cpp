@@ -4,18 +4,10 @@
 #include <iostream>
 #include <sstream>
 
-bool matches_pattern(const std::string& pattern,
-                     const std::string& data,
-                     std::size_t offset) {
-    return data.compare(offset, pattern.size(), pattern) == 0;
-}
-
-std::string load_entire_file(const std::string& path) {
-    std::ifstream file(path);
-    std::stringstream buffer;
-    buffer << file.rdbuf();
-    return buffer.str();
-}
+static std::string load_entire_file(const std::string& path);
+static bool matches_pattern(const std::string& pattern,
+                            const std::string& data,
+                            std::size_t offset);
 
 int main(int ac, char* av[]) {
     Config cfg = Config::from_sysargs(ac, av);
@@ -35,4 +27,17 @@ int main(int ac, char* av[]) {
             i++;
         }
     }
+}
+
+static bool matches_pattern(const std::string& pattern,
+                            const std::string& data,
+                            std::size_t offset) {
+    return data.compare(offset, pattern.size(), pattern) == 0;
+}
+
+static std::string load_entire_file(const std::string& path) {
+    std::ifstream file(path);
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+    return buffer.str();
 }

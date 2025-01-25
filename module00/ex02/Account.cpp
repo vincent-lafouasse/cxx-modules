@@ -11,15 +11,19 @@ static int n_withdrawals = 0;
 int Account::getNbAccounts(void) {
     return n_accounts;
 }
+
 int Account::getTotalAmount(void) {
     return total_amount;
 }
+
 int Account::getNbDeposits(void) {
     return n_deposits;
 }
+
 int Account::getNbWithdrawals(void) {
     return n_withdrawals;
 }
+
 void Account::displayAccountsInfos(void) {
     Account::_displayTimestamp();
     std::cout << "accounts:" << n_accounts << ";";
@@ -42,6 +46,7 @@ Account::Account(int initial_deposit)
     std::cout << "amount:" << this->_amount << ";";
     std::cout << "created\n";
 }
+
 Account::~Account() {
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
@@ -61,6 +66,7 @@ void Account::makeDeposit(int deposit) {
     std::cout << "amount:" << this->_amount << ";";
     std::cout << "nb_deposits:" << this->_nbDeposits << "\n";
 }
+
 bool Account::makeWithdrawal(int withdrawal) {
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
@@ -79,9 +85,11 @@ bool Account::makeWithdrawal(int withdrawal) {
     std::cout << "nb_withdrawals:" << this->_nbWithdrawals << "\n";
     return true;
 }
+
 int Account::checkAmount(void) const {
-    return 0;
+    return this->_amount;
 }
+
 void Account::displayStatus(void) const {
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
@@ -91,13 +99,8 @@ void Account::displayStatus(void) const {
     std::cout << "\n";
 }
 
-static bool is_debug_mode() {
-    const char* is_debug = std::getenv("DEBUG");
-    return is_debug;
-}
-
 void Account::_displayTimestamp(void) {
-    if (is_debug_mode()) {
+    if (std::getenv("DEBUG") != nullptr) {
         std::cout << "[19920104_091532] ";
         return;
     }

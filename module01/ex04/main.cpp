@@ -2,16 +2,16 @@
 #include <iostream>
 #include <string>
 
-struct Data {
-    static Data from_sysargs(int ac, const char* av[]);
-    bool is_valid() const;
+struct Config {
+    static Config from_sysargs(int ac, char* av[]);
+    void log() const;
 
     std::string file;
     std::string before;
     std::string after;
 };
 
-Data Data::from_sysargs(int ac, const char** av) {
+Config Config::from_sysargs(int ac, char** av) {
     if (ac != 4) {
         std::cout << "Usage: ./cool_sed file before after\n";
         exit(EXIT_FAILURE);
@@ -31,5 +31,16 @@ Data Data::from_sysargs(int ac, const char** av) {
         exit(EXIT_FAILURE);
     }
 
-    return (Data){.file = file, .before = before, .after = after};
+    return (Config){.file = file, .before = before, .after = after};
+}
+
+void Config::log() const {
+    std::cout << "file " << file << '\n';
+    std::cout << "before " << before << '\n';
+    std::cout << "after " << after << '\n';
+}
+
+int main(int ac, char* av[]) {
+    Config cfg = Config::from_sysargs(ac, av);
+    cfg.log();
 }

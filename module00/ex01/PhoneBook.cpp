@@ -28,11 +28,6 @@ void PhoneBook::process_command(Command command) {
         } else {
             data[index].display();
         }
-
-    } else if (command.kind == Command::Exit) {
-        std::cout << "exit" << std::endl;
-    } else {
-        return;
     }
 }
 

@@ -17,7 +17,7 @@ void PhoneBook::process_command(Command command) {
         while (!contact.is_valid()) {
             contact = Contact::from_user();
         }
-        contact.display();
+        this->push(contact);
     } else if (command.kind == Command::Search) {
         std::cout << "search" << std::endl;
     } else if (command.kind == Command::Exit) {
@@ -27,7 +27,7 @@ void PhoneBook::process_command(Command command) {
     }
 }
 
-void PhoneBook::push(const Contact& to_add) const {
+void PhoneBook::push(const Contact& to_add) {
     if (sz == PHONE_BOOK_SZ) {
         data[sz - 1] = to_add;
     } else {

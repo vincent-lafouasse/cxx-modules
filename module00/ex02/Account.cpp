@@ -1,5 +1,6 @@
 #include "Account.hpp"
 
+#include <ctime>
 #include <iostream>
 
 static int n_accounts = 0;
@@ -99,6 +100,18 @@ void Account::_displayTimestamp(void) {
     if (is_debug_mode()) {
         std::cout << "[19920104_091532] ";
         return;
-    } else
-        std::cout << "[19920104_091532] ";
+    }
+
+    std::time_t now = std::time(nullptr);
+    std::tm* now_gmt = std::gmtime(&now);
+
+    std::cout << "[";
+    std::cout << now_gmt->tm_year;
+    std::cout << now_gmt->tm_mon;
+    std::cout << now_gmt->tm_mday;
+    std::cout << "_";
+    std::cout << now_gmt->tm_hour;
+    std::cout << now_gmt->tm_min;
+    std::cout << now_gmt->tm_sec;
+    std::cout << "] ";
 }

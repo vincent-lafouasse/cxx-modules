@@ -2,11 +2,17 @@
 
 #include "Weapon.hpp"
 
+#include <iostream>  // bad
+
 class HumanA {
    public:
-    void attack() const;
+    HumanA(const std::string& name, const Weapon& weapon)
+        : name(name), weapon(weapon) {}
+    void attack() const {
+        std::cout << name << " " << weapon.getType() << '\n';
+    }
 
    private:
-    Weapon& weapon;
     std::string name;
+    const Weapon& weapon;
 };

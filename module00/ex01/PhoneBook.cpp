@@ -35,7 +35,7 @@ void PhoneBook::prompt_and_display_contact() const {
 
     if (index >= this->sz) {
         std::cout << "No" << std::endl;
-        return ;
+        return;
     }
 
     data[index].display();

@@ -53,9 +53,7 @@ bool Contact::is_valid() const {
 void Contact::display_one_line() const {
     std::cout  << first_name << " | ";
     std::cout << last_name << " | ";
-    std::cout  << nickname << " | ";
-    std::cout  << phone_number << " | ";
-    std::cout << secret << std::endl;
+    std::cout  << nickname << std::endl;
 }
 
 void Contact::display() const {

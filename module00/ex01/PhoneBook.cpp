@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-PhoneBook::PhoneBook() {}
+PhoneBook::PhoneBook() : sz(0) {}
 
 Command PhoneBook::prompt_user() {
     std::string input;
@@ -24,5 +24,14 @@ void PhoneBook::process_command(Command command) {
         std::cout << "exit" << std::endl;
     } else {
         return;
+    }
+}
+
+void PhoneBook::push(const Contact& to_add) const {
+    if (sz == PHONE_BOOK_SZ) {
+        data[sz - 1] = to_add;
+    } else {
+        data[sz] = to_add;
+        sz++;
     }
 }

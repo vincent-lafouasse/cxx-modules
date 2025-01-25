@@ -12,8 +12,9 @@ class PhoneBook {
     void process_command(Command command);
 
    private:
-    void push(const Contact& to_add) const;
+    void push(const Contact& to_add);
     void display() const;
 
     Contact data[PHONE_BOOK_SZ];
+    std::size_t sz;
 };

@@ -22,7 +22,7 @@ Config Config::from_sysargs(int ac, char** av) {
     std::string after = av[3];
 
     std::ifstream read_check(file);
-    if (!read_check.good()) {
+    if (read_check.fail()) {
         std::cout << "File is not readable\n";
         exit(EXIT_FAILURE);
     }
@@ -35,9 +35,9 @@ Config Config::from_sysargs(int ac, char** av) {
 }
 
 void Config::log() const {
-    std::cout << "file " << file << '\n';
-    std::cout << "before " << before << '\n';
-    std::cout << "after " << after << '\n';
+    std::cout << "file\t" << file << '\n';
+    std::cout << "before\t" << before << '\n';
+    std::cout << "after\t" << after << '\n';
 }
 
 int main(int ac, char* av[]) {

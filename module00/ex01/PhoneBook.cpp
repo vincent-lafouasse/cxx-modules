@@ -14,7 +14,6 @@ Command PhoneBook::prompt_user() {
 void PhoneBook::process_command(Command command) {
     if (command.kind == Command::Add) {
         Contact contact;
-
         while (!contact.is_valid()) {
             contact = Contact::from_user();
         }

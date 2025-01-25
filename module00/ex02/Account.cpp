@@ -8,7 +8,6 @@ int Account::getNbAccounts(void) {
     return n_accounts;
 }
 int Account::getTotalAmount(void) {
-    return 0;
 }
 int Account::getNbDeposits(void) {
     return 0;
@@ -24,8 +23,18 @@ Account::Account(int initial_deposit)
       _nbDeposits(0),
       _nbWithdrawals(0) {
     n_accounts++;
+
+    Account::_displayTimestamp();
+    std::cout << " index:" << this->_accountIndex << ";";
+    std::cout << "amount:" << this->_amount << ";";
+    std::cout << "created\n";
 }
-Account::~Account() {}
+Account::~Account() {
+    Account::_displayTimestamp();
+    std::cout << " index:" << this->_accountIndex << ";";
+    std::cout << "amount:" << this->_amount << ";";
+    std::cout << "closed\n";
+}
 
 void Account::makeDeposit(int deposit) {
     _amount += deposit;
@@ -47,5 +56,5 @@ void Account::displayStatus(void) const {
 }
 
 void Account::_displayTimestamp(void) {
-    std::cout << "[0]";
+    std::cout << "[19920104_091532]";
 }

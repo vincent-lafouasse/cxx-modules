@@ -21,8 +21,15 @@ void PhoneBook::process_command(Command command) {
     } else if (command.kind == Command::Search) {
         this->display();
 
+        std::string index_string;
+        std::cin >> index_string;
         std::size_t index;
-        std::cin >> index;
+        try {
+        index = std::stoul(index_string, NULL, 10);
+        } catch (...) {
+            std::cout << "No" << std::endl;
+            return;
+        }
         if (index >= this->sz) {
             std::cout << "No" << std::endl;
         } else {

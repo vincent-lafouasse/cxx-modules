@@ -4,14 +4,13 @@
 
 #define PHONE_BOOK_SZ 8
 
-enum Command {
-    Add,
-    Search,
-    Exit,
-};
-
 class PhoneBook {
    public:
+    enum Command {
+        Add,
+        Search,
+        Exit,
+    };
     PhoneBook();
     static Command prompt_user();
     void process_command(Command command);

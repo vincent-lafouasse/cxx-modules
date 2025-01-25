@@ -24,6 +24,7 @@ void PhoneBook::prompt_and_add_contact() {
 void PhoneBook::prompt_and_display_contact() const {
     std::string index_string;
     std::cin >> index_string;
+
     std::size_t index;
     try {
         index = std::stoul(index_string, NULL, 10);
@@ -31,6 +32,7 @@ void PhoneBook::prompt_and_display_contact() const {
         std::cout << "No" << std::endl;
         return;
     }
+
     if (index >= this->sz) {
         std::cout << "No" << std::endl;
     } else {

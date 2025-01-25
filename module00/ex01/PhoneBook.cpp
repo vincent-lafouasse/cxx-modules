@@ -13,7 +13,12 @@ Command PhoneBook::prompt_user() {
 
 void PhoneBook::process_command(Command command) {
     if (command.kind == Command::Add) {
-        std::cout << "add" << std::endl;
+        Contact contact;
+
+        while (!contact.is_valid()) {
+            contact = Contact::from_user();
+        }
+        contact.display();
     } else if (command.kind == Command::Search) {
         std::cout << "search" << std::endl;
     } else if (command.kind == Command::Exit) {

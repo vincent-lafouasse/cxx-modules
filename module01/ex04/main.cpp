@@ -19,4 +19,6 @@ int main(int ac, char* av[]) {
 
     const std::string data = load_entire_file(cfg.file);
     std::cout << data;
+
+    std::ofstream out(cfg.file + ".replace");
 }

@@ -23,6 +23,13 @@ Config Config::from_sysargs(int ac, char** av) {
         exit(EXIT_FAILURE);
     }
 
+    std::string out_path = file + ".replace";
+    std::ofstream out(out_path);
+    if (out.fail()) {
+        std::cout << "Failed to open " << out_path << " for writing\n";
+        exit(EXIT_FAILURE);
+    }
+
     return (Config){.file = file, .before = before, .after = after};
 }
 

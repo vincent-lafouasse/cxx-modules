@@ -59,7 +59,6 @@ void Account::makeDeposit(int deposit) {
     n_deposits++;
     std::cout << "amount:" << this->_amount << ";";
     std::cout << "nb_deposits:" << this->_nbDeposits << "\n";
-
 }
 bool Account::makeWithdrawal(int withdrawal) {
     Account::_displayTimestamp();
@@ -100,7 +99,6 @@ void Account::_displayTimestamp(void) {
     if (is_debug_mode()) {
         std::cout << "[19920104_091532] ";
         return;
-    }
-    else
+    } else
         std::cout << "[19920104_091532] ";
 }

@@ -4,6 +4,7 @@ SRC = main.cpp PhoneBook.cpp Contact.cpp Command.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra
+CXXFLAGS += -g3
 # CXXFLAGS += -Werror
 CXXFLAGS += -std=c++98
 

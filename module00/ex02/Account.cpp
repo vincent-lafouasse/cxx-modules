@@ -91,6 +91,16 @@ void Account::displayStatus(void) const {
     std::cout << "\n";
 }
 
+static bool is_debug_mode() {
+    const char* is_debug = std::getenv("DEBUG");
+    return is_debug;
+}
+
 void Account::_displayTimestamp(void) {
-    std::cout << "[19920104_091532] ";
+    if (is_debug_mode()) {
+        std::cout << "[19920104_091532] ";
+        return;
+    }
+    else
+        std::cout << "[19920104_091532] ";
 }

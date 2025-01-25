@@ -1,3 +1,4 @@
 build
 megaphone
 phone_book
+*.dSYM

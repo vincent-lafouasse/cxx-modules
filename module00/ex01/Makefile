@@ -21,3 +21,6 @@ $(NAME): $(SRC)
 clean:
 	rm -rf $(NAME)
 
+.PHONY: b r
+b: build
+r: run

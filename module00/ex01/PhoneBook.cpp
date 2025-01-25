@@ -20,6 +20,15 @@ void PhoneBook::process_command(Command command) {
         this->push(contact);
     } else if (command.kind == Command::Search) {
         this->display();
+
+        std::size_t index;
+        std::cin >> index;
+        if (index >= this->sz) {
+            std::cout << "No" << std::endl;
+        } else {
+            data[index].display();
+        }
+
     } else if (command.kind == Command::Exit) {
         std::cout << "exit" << std::endl;
     } else {

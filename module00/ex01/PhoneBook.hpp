@@ -2,7 +2,9 @@
 
 #include "Contact.hpp"
 
-enum class Command {
+#define PHONE_BOOK_SZ 8
+
+enum Command {
   Add,
   Search,
   Exit,
@@ -18,6 +20,5 @@ private:
   void push(const Contact &to_add) const;
   void display() const;
 
-  static constexpr size_t N = 8;
-  Contact data[N];
+  Contact data[PHONE_BOOK_SZ];
 };

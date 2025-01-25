@@ -20,6 +20,31 @@ Contact::Contact(const std::string& first_name,
       phone_number(phone_number),
       secret(secret) {}
 
+Contact Contact::from_user() {
+    std::string first_name;
+    std::string last_name;
+    std::string nickname;
+    std::string phone_number;
+    std::string secret;
+
+    std::cout << "First name:\t";
+    std::cin >> first_name;
+
+    std::cout << "Last name:\t";
+    std::cin >> last_name;
+
+    std::cout << "nickname:\t";
+    std::cin >> nickname;
+
+    std::cout << "Phone number:\t";
+    std::cin >> phone_number;
+
+    std::cout << "Secret:\t";
+    std::cin >> secret;
+
+    return Contact(first_name, last_name, nickname, phone_number, secret);
+}
+
 bool Contact::is_valid() const {
     return first_name != "" && last_name != "" && nickname != "" &&
            phone_number != "" && secret != "";

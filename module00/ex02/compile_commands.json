@@ -1,0 +1,44 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-std=c++98",
+      "-I.",
+      "-I",
+      "/opt/homebrew/include",
+      "-I",
+      "/opt/homebrew/Cellar/readline/8.2.13/include",
+      "-o",
+      "accounting",
+      "Account.cpp"
+    ],
+    "directory": "/Users/poss/code/42/cc/cpp_modules/module00/ex02",
+    "file": "/Users/poss/code/42/cc/cpp_modules/module00/ex02/Account.cpp",
+    "output": "/Users/poss/code/42/cc/cpp_modules/module00/ex02/accounting"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-g3",
+      "-std=c++98",
+      "-I.",
+      "-I",
+      "/opt/homebrew/include",
+      "-I",
+      "/opt/homebrew/Cellar/readline/8.2.13/include",
+      "-o",
+      "accounting",
+      "tests.cpp"
+    ],
+    "directory": "/Users/poss/code/42/cc/cpp_modules/module00/ex02",
+    "file": "/Users/poss/code/42/cc/cpp_modules/module00/ex02/tests.cpp",
+    "output": "/Users/poss/code/42/cc/cpp_modules/module00/ex02/accounting"
+  }
+]

@@ -2,13 +2,13 @@
 #include <iostream>
 #include <string>
 
-void yell(const std::string &in) {
+void yell(const std::string& in) {
     for (std::string::const_iterator it = in.cbegin(); it != in.cend(); it++) {
         std::cout << static_cast<char>(std::toupper(*it));
     }
 }
 
-int main(int ac, char *av[]) {
+int main(int ac, char* av[]) {
     if (ac == 1) {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
         return EXIT_SUCCESS;

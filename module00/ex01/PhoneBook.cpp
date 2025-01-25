@@ -6,28 +6,35 @@ PhoneBook::PhoneBook() : sz(0) {}
 
 void PhoneBook::process_command(Command command) {
     if (command.kind == Command::Add) {
-        Contact contact;
-        while (!contact.is_valid()) {
-            contact = Contact::from_user();
-        }
-        this->push(contact);
+        this->prompt_and_add_contact();
     } else if (command.kind == Command::Search) {
         this->display();
+        this->prompt_and_display_contact();
+    }
+}
 
-        std::string index_string;
-        std::cin >> index_string;
-        std::size_t index;
-        try {
-            index = std::stoul(index_string, NULL, 10);
-        } catch (...) {
-            std::cout << "No" << std::endl;
-            return;
-        }
-        if (index >= this->sz) {
-            std::cout << "No" << std::endl;
-        } else {
-            data[index].display();
-        }
+void PhoneBook::prompt_and_add_contact() {
+    Contact contact;
+    while (!contact.is_valid()) {
+        contact = Contact::from_user();
+    }
+    this->push(contact);
+}
+
+void PhoneBook::prompt_and_display_contact() const {
+    std::string index_string;
+    std::cin >> index_string;
+    std::size_t index;
+    try {
+        index = std::stoul(index_string, NULL, 10);
+    } catch (...) {
+        std::cout << "No" << std::endl;
+        return;
+    }
+    if (index >= this->sz) {
+        std::cout << "No" << std::endl;
+    } else {
+        data[index].display();
     }
 }
 

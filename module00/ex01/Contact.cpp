@@ -2,6 +2,10 @@
 
 #include <iostream>
 
+Contact::Contact()
+    : first_name(""), last_name(""), nickname(""), phone_number(""),
+      secret("") {}
+
 Contact::Contact(const std::string &first_name, const std::string &last_name,
                  const std::string &nickname, const std::string &phone_number,
                  const std::string &secret)

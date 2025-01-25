@@ -4,6 +4,7 @@
 
 class Contact {
 public:
+  Contact();
   static Contact from_user(); // prompts user and fills in Contact
   bool is_valid() const;      // checks that all fields are non empty
   void display() const;
@@ -11,7 +12,6 @@ public:
   bool operator!=(const Contact &other) const;
 
 private:
-  Contact();
   Contact(const std::string &first_name, const std::string &last_name,
           const std::string &nickname, const std::string &phone_number,
           const std::string &secret);

@@ -35,9 +35,10 @@ void PhoneBook::prompt_and_display_contact() const {
 
     if (index >= this->sz) {
         std::cout << "No" << std::endl;
-    } else {
-        data[index].display();
+        return ;
     }
+
+    data[index].display();
 }
 
 void PhoneBook::push(const Contact& to_add) {

@@ -39,7 +39,7 @@ Contact Contact::from_user() {
     std::cout << "Phone number:\t";
     std::cin >> phone_number;
 
-    std::cout << "Secret:\t";
+    std::cout << "Secret:\t\t";
     std::cin >> secret;
 
     return Contact(first_name, last_name, nickname, phone_number, secret);
@@ -50,8 +50,15 @@ bool Contact::is_valid() const {
            phone_number != "" && secret != "";
 }
 
+void Contact::display_one_line() const {
+    std::cout  << first_name << " | ";
+    std::cout << last_name << " | ";
+    std::cout  << nickname << " | ";
+    std::cout  << phone_number << " | ";
+    std::cout << secret << std::endl;
+}
+
 void Contact::display() const {
-    std::cout << "TEMPORARY\n";
     std::cout << "first:\t" << first_name << "\n";
     std::cout << "last:\t" << last_name << "\n";
     std::cout << "nickname:\t" << nickname << "\n";

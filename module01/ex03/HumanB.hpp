@@ -3,9 +3,10 @@
 #include "Weapon.hpp"
 
 class HumanB {
-public:
-	void attack() const;
-private:
-	Weapon* weapon;
-	std::string name;
+   public:
+    void attack() const;
+
+   private:
+    Weapon* weapon;
+    std::string name;
 };

@@ -6,7 +6,7 @@
 
 class HumanB {
    public:
-    HumanB(const std::string& name, const Weapon& weapon)
+    HumanB(const std::string& name)
         : name(name), weapon(nullptr) {}
     void attack() const {
         std::string w = weapon ? weapon->getType() : "bare hands";

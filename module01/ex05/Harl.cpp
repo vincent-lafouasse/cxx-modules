@@ -22,7 +22,7 @@ void Harl::complain(std::string level) {
 }
 
 void Harl::debug() const {
-    std::cout << " love having extra bacon for my "
+    std::cout << "I love having extra bacon for my "
                  "7XL-double-cheese-triple-pickle-special- ketchup burger. I "
                  "really do!\n";
 }

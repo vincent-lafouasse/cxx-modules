@@ -1,6 +1,6 @@
 NAME = fixed0
 
-SRC = main.cpp
+SRC = main.cpp Fixed.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra

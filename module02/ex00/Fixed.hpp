@@ -4,16 +4,13 @@
 
 class Fixed {
    public:
-    Fixed() : bits(0) {}
-    Fixed(Fixed& other) : bits(other.bits) {}
-    Fixed& operator=(Fixed& other) {
-        this->bits = other.bits;
-        return *this;
-    }
-    ~Fixed() {}
+    Fixed();
+    Fixed(Fixed& other);
+    Fixed& operator=(Fixed& other);
+    ~Fixed();
 
-    int getRawBits() const { return bits; }
-    void setRawBits(int const raw) { bits = raw; }
+    int getRawBits() const;
+    void setRawBits(int const raw);
 
    private:
     int bits;

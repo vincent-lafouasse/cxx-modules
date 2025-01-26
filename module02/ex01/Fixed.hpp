@@ -1,16 +1,22 @@
 #pragma once
 
-#include <cstddef>
+#include <iostream>
 
 class Fixed {
    public:
     Fixed();
-    Fixed(Fixed& other);
-    Fixed& operator=(Fixed& other);
+    Fixed(const Fixed&);
+    Fixed(int);
+    Fixed(float);
+    Fixed& operator=(const Fixed&);
     ~Fixed();
 
+    std::ostream& operator<<(std::ostream&) const;
+
     int getRawBits() const;
-    void setRawBits(int const raw);
+    void setRawBits(int);
+    float toFloat() const;
+    int toInt() const;
 
    private:
     int bits;

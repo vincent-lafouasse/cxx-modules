@@ -1,10 +1,9 @@
-#include <iostream>
 #include "Fixed.hpp"
 
 int main() {
     Fixed a;
     const Fixed b(10);
-    const fixed c(42.42f);
+    const Fixed c(42.42f);
     const Fixed d(b);
 
     a = Fixed(1234.4321f);

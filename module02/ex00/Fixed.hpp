@@ -1,6 +1,5 @@
 #pragma once
 
-#include <cstdint>
 #include <cstddef>
 
 class Fixed {
@@ -14,6 +13,6 @@ public:
 	void setRawBits(int const raw);
 
 private:
-	uint8_t bits;
-	static const std::size_t depth = 8;
+	int bits;
+	static const std::size_t fractional_digits = 8;
 };

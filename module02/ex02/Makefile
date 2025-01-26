@@ -1,6 +1,6 @@
 NAME = fixed2
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Fixed_arithmetic.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra

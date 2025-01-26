@@ -38,6 +38,15 @@ Fixed::~Fixed() {
     std::cout << dtor_msg;
 }
 
+float Fixed::toFloat() const {
+    return static_cast<float>(bits) /
+           static_cast<float>(1 << Fixed::fractional_digits);
+}
+
+int Fixed::toInt() const {
+    return static_cast<int>(this->toFloat());
+}
+
 int Fixed::getRawBits() const {
     std::cout << get_msg;
     return bits;

@@ -21,6 +21,7 @@ Fixed& Fixed::operator=(Fixed& other) {
     this->bits = other.bits;
     return *this;
 }
+
 Fixed::~Fixed() {
     std::cout << dtor_msg;
 }
@@ -29,6 +30,7 @@ int Fixed::getRawBits() const {
     std::cout << get_msg;
     return bits;
 }
+
 void Fixed::setRawBits(int const raw) {
     std::cout << set_msg;
     bits = raw;

@@ -12,30 +12,30 @@ const char* get_msg = "getRawBits member function called\n";
 const char* set_msg = "setRawBits member function called\n";
 
 Fixed::Fixed() : bits(0) {
-    //std::cout << default_ctor_msg;
+    // std::cout << default_ctor_msg;
 }
 
 Fixed::Fixed(const Fixed& other) : bits(other.bits) {
-    //std::cout << copy_ctor_msg;
+    // std::cout << copy_ctor_msg;
 }
 
 Fixed::Fixed(int i) : bits(i * (1 << Fixed::fractional_digits)) {
-    //std::cout << int_ctor_msg;
+    // std::cout << int_ctor_msg;
 }
 
 Fixed::Fixed(float f)
     : bits(static_cast<int>(std::roundf(f * (1 << Fixed::fractional_digits)))) {
-    //std::cout << float_ctor_msg;
+    // std::cout << float_ctor_msg;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {
-    //std::cout << copy_assig_op_msg;
+    // std::cout << copy_assig_op_msg;
     this->bits = other.bits;
     return *this;
 }
 
 Fixed::~Fixed() {
-    //std::cout << dtor_msg;
+    // std::cout << dtor_msg;
 }
 
 float Fixed::toFloat() const {
@@ -48,12 +48,12 @@ int Fixed::toInt() const {
 }
 
 int Fixed::getRawBits() const {
-    //std::cout << get_msg;
+    // std::cout << get_msg;
     return bits;
 }
 
 void Fixed::setRawBits(int const raw) {
-    //std::cout << set_msg;
+    // std::cout << set_msg;
     bits = raw;
 }
 

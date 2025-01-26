@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include <cmath>
 #include <iostream>
 
 const char* default_ctor_msg = "Default constructor called\n";
@@ -16,6 +17,15 @@ Fixed::Fixed() : bits(0) {
 
 Fixed::Fixed(const Fixed& other) : bits(other.bits) {
     std::cout << copy_ctor_msg;
+}
+
+Fixed::Fixed(int i) : bits(i * (1 << Fixed::fractional_digits)) {
+    std::cout << int_ctor_msg;
+}
+
+Fixed::Fixed(float f)
+    : bits(static_cast<int>(f * (1 << Fixed::fractional_digits))) {
+    std::cout << float_ctor_msg;
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {

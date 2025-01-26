@@ -55,3 +55,8 @@ void Fixed::setRawBits(int const raw) {
     std::cout << set_msg;
     bits = raw;
 }
+
+std::ostream& operator<<(std::ostream& os, const Fixed& self) {
+    os << self.toFloat();
+    return os;
+}

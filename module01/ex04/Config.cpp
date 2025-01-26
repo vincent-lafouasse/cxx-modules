@@ -13,7 +13,7 @@ Config Config::from_sysargs(int ac, char** av) {
     std::string before = av[2];
     std::string after = av[3];
 
-    std::ifstream read_check(file);
+    std::ifstream read_check(file.c_str());
     if (read_check.fail()) {
         std::cout << "File is not readable\n";
         exit(EXIT_FAILURE);
@@ -24,7 +24,7 @@ Config Config::from_sysargs(int ac, char** av) {
     }
 
     std::string out_path = file + ".replace";
-    std::ofstream out(out_path);
+    std::ofstream out(out_path.c_str());
     if (out.fail()) {
         std::cout << "Failed to open " << out_path << " for writing\n";
         exit(EXIT_FAILURE);

@@ -16,7 +16,8 @@ int main(int ac, char* av[]) {
     const std::string data = load_entire_file(cfg.file);
     std::cout << data;
 
-    std::ofstream out(cfg.file + ".replace");
+    const std::string path = cfg.file + ".replace";
+    std::ofstream out(path.c_str());
 
     for (std::size_t i = 0; i < data.size();) {
         if (matches_pattern(cfg.before, data, i)) {
@@ -36,7 +37,7 @@ static bool matches_pattern(const std::string& pattern,
 }
 
 static std::string load_entire_file(const std::string& path) {
-    std::ifstream file(path);
+    std::ifstream file(path.c_str());
     std::stringstream buffer;
     buffer << file.rdbuf();
     return buffer.str();

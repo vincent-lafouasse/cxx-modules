@@ -11,10 +11,7 @@ class Fixed {
     Fixed& operator=(const Fixed&);
     ~Fixed();
 
-    std::ostream& operator<<(std::ostream& os) const {
-      os << this->toFloat();
-      return os;
-   }
+    std::ostream& operator<<(std::ostream&) const;
 
     int getRawBits() const;
     void setRawBits(int);

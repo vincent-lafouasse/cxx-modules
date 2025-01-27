@@ -7,6 +7,7 @@
 
 [[maybe_unused]] static void given_test();
 [[maybe_unused]] static void test_integer_addition_difference();
+[[maybe_unused]] static void test_integer_addition_difference_stochastic(int N);
 
 static int32_t random_int(int32_t low, int32_t hi);
 static float random_float(float low, float hi);
@@ -16,6 +17,7 @@ int main() {
 
     // given_test();
     test_integer_addition_difference();
+    test_integer_addition_difference_stochastic(1000000);
 }
 
 static void given_test() {
@@ -63,7 +65,24 @@ static void test_integer_addition_difference() {
         assert(sum.toInt() == __a + __b);
         assert(diff.toInt() == __a - __b);
     }
-    std::cout << "test integer addition ok\n";
+    std::cout << "test integer +/- ok\n";
+}
+
+static void test_integer_addition_difference_stochastic(int N) {
+    for (int _ = 0; _ < N; _++) {
+        int __a = random_int(-2048, 2048);
+        int __b = random_int(-2048, 2048);
+
+        Fixed a(__a);
+        Fixed b(__b);
+        Fixed sum = a + b;
+        Fixed diff = a - b;
+
+        assert(sum.toInt() == __a + __b);
+        assert(diff.toInt() == __a - __b);
+    }
+
+    std::cout << "stochastic test integer +/- ok\n";
 }
 
 static float random_float(float low, float hi) {

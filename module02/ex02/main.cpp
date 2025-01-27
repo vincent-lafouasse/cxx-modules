@@ -2,11 +2,18 @@
 
 #include <cassert>
 #include <cstdint>
+#include <cstdlib>
+#include <ctime>
 
 [[maybe_unused]] static void given_test();
 [[maybe_unused]] static void test_integer_addition_difference();
 
+static int32_t random_int(int32_t low, int32_t hi);
+static float random_float(float low, float hi);
+
 int main() {
+    std::srand(static_cast<unsigned>(time(0)));
+
     // given_test();
     test_integer_addition_difference();
 }
@@ -57,4 +64,16 @@ static void test_integer_addition_difference() {
         assert(diff.toInt() == __a - __b);
     }
     std::cout << "test integer addition ok\n";
+}
+
+static float random_float(float low, float hi) {
+    float range = hi - low;
+    return low +
+           static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / range));
+}
+
+static int32_t random_int(int32_t low, int32_t hi) {
+    uint32_t range = hi - low;
+
+    return low + static_cast<int32_t>(rand() % range);
 }

@@ -43,6 +43,7 @@ Fixed Fixed::operator*(const Fixed& other) const {
 
     R(a / b) = (a / b) * S
              = (R(a) / R(b)) * S
+             = R(a) * S / R(b)
 */
 Fixed Fixed::operator/(const Fixed& other) const {
     int raw = (this->bits * (1 << Fixed::fractional_digits)) / other.bits;

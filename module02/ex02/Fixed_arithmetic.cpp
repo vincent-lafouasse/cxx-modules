@@ -22,9 +22,17 @@ Fixed Fixed::operator/(const Fixed& other) const {
     return Fixed();
 }
 
-Fixed Fixed::operator++(int) {}
+Fixed Fixed::operator++(int) {
+    Fixed buffer(*this);
+    bits++;
+    return buffer;
+}
 
-Fixed Fixed::operator--(int) {}
+Fixed Fixed::operator--(int) {
+    Fixed buffer(*this);
+    bits--;
+    return buffer;
+}
 
 Fixed& Fixed::operator++() {
     bits++;

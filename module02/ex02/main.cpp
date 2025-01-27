@@ -1,13 +1,14 @@
 #include "Fixed.hpp"
 
 #include <cassert>
+#include <cstdint>
 
 static void given_test();
 static void test_integer_addition();
 
 int main() {
-    given_test();
-    // test_integer_addition();
+    // given_test();
+    test_integer_addition();
 }
 
 static void given_test() {
@@ -31,7 +32,8 @@ struct Vec2 {
 };
 
 static void test_integer_addition() {
-    Vec2 pairs[] = {{1, 2}, {2, 3}};
+    const Vec2 pairs[] = {
+        {1, 2}, {2, 3}, {INT32_MAX, INT32_MIN}, {INT32_MAX, INT32_MAX}};
     size_t sz = sizeof(pairs) / sizeof(*pairs);
 
     for (size_t i = 0; i < sz; i++) {

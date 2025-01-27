@@ -7,13 +7,13 @@ static void given_test();
 static void test_integer_addition();
 
 int main() {
-    // given_test();
-    test_integer_addition();
+    given_test();
+    // test_integer_addition();
 }
 
 static void given_test() {
     Fixed a;
-    // const Fixed b(Fixed(5.05f) * Fixed(2));
+    const Fixed b(Fixed(5.05f) * Fixed(2));
 
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
@@ -21,9 +21,17 @@ static void given_test() {
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
 
-    // std::cout << b << std::endl;
+    std::cout << b << std::endl;
 
     // std::cout << Fixed::max(a, b) << std::endl;
+
+    std::cout << "Expected outout\n";
+    std::cout << "0.00390625\n";
+    std::cout << "0.00390625\n";
+    std::cout << "0.00390625\n";
+    std::cout << "0.0078125\n";
+    std::cout << "10.1016\n";
+    std::cout << "10.1016\n";
 }
 
 struct Vec2 {

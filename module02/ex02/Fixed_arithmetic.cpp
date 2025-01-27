@@ -50,3 +50,12 @@ Fixed& Fixed::operator--() {
     bits--;
     return *this;
 }
+
+bool Fixed::operator==(const Fixed& o) const {
+    return this->bits == o.bits;
+}
+
+bool Fixed::operator!=(const Fixed& o) const {
+    return !(*this == o);
+}
+

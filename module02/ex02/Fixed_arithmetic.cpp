@@ -16,6 +16,7 @@ Fixed Fixed::operator-(const Fixed& other) const {
 
 Fixed Fixed::operator*(const Fixed& other) const {
     int raw = this->getRawBits() * other.getRawBits();
+    raw /= (1 << Fixed::fractional_digits);
     Fixed out;
     out.setRawBits(raw);
     return out;

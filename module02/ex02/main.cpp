@@ -57,12 +57,12 @@ static void given_test() {
 
     Fixed a(__a);
     Fixed b(__b);
-    std::cout << "a\t= " << a.toFloat() << '\n';
-    std::cout << "b\t= " << b.toFloat() << '\n';
-    std::cout << "a + b\t= " << (a + b).toFloat() << '\n';
-    std::cout << "a - b\t= " << (a - b).toFloat() << '\n';
-    std::cout << "a * b\t= " << (a * b).toFloat() << '\n';
-    std::cout << "a / b\t= " << (a / b).toFloat() << '\n';
+    std::cout << "a\t= " << a << '\n';
+    std::cout << "b\t= " << b << '\n';
+    std::cout << "a + b\t= " << a + b << '\n';
+    std::cout << "a - b\t= " << a - b << '\n';
+    std::cout << "a * b\t= " << a * b << '\n';
+    std::cout << "a / b\t= " << a / b << '\n';
 }
 
 struct Vec2 {

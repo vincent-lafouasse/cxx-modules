@@ -58,4 +58,3 @@ bool Fixed::operator==(const Fixed& o) const {
 bool Fixed::operator!=(const Fixed& o) const {
     return !(*this == o);
 }
-

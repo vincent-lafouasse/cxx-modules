@@ -7,13 +7,13 @@
 #include <ctime>
 
 [[maybe_unused]] static void given_test();
-static void test_integer_addition_difference();
-static void test_integer_addition_difference_stochastic(int N);
-static void test_int_mult_div_stochastic(int N);
+[[maybe_unused]] static void test_integer_addition_difference();
+[[maybe_unused]] static void test_integer_addition_difference_stochastic(int N);
+[[maybe_unused]] static void test_int_mult_div_stochastic(int N);
 
-static int32_t random_int(int32_t low, int32_t hi);
-static float random_float(float low, float hi);
-static bool float_eq(float a, float b, float e);
+[[maybe_unused]] static int32_t random_int(int32_t low, int32_t hi);
+[[maybe_unused]] static float random_float(float low, float hi);
+[[maybe_unused]] static bool float_eq(float a, float b, float e);
 
 int main() {
     std::srand(static_cast<unsigned>(time(0)));

@@ -23,7 +23,7 @@ int main() {
     // test_integer_addition_difference();
     // test_integer_addition_difference_stochastic(1000000);
     // test_int_mult_div_stochastic(5);
-    
+
     test(5.0, 2.0);
 }
 
@@ -51,7 +51,7 @@ static void given_test() {
 }
 
 [[maybe_unused]] static void test(float __a, float __b) {
-    std::cout << "With input " << __a << " " << __b << "\n"; 
+    std::cout << "With input " << __a << " " << __b << "\n";
 
     Fixed a(__a);
     Fixed b(__b);

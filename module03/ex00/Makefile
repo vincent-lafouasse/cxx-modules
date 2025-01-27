@@ -1,6 +1,6 @@
 NAME = clap_trap
 
-SRC = main.cpp
+SRC = main.cpp ClapTrap.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra

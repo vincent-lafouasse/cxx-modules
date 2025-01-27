@@ -5,8 +5,7 @@
 
 class ClapTrap {
    public:
-    ClapTrap(const std::string& name)
-        : name(name), health_points(10), energy_points(10), attack_points(0) {}
+    ClapTrap(const std::string& name);
 
     void attack(const std::string& target);
     void takeDamage(uint32_t amount);

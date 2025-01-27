@@ -3,12 +3,12 @@
 #include <cassert>
 #include <cstdint>
 
-static void given_test();
-static void test_integer_addition();
+[[maybe_unused]] static void given_test();
+[[maybe_unused]] static void test_integer_addition_difference();
 
 int main() {
-    given_test();
-    // test_integer_addition();
+    // given_test();
+    test_integer_addition_difference();
 }
 
 static void given_test() {
@@ -39,7 +39,7 @@ struct Vec2 {
     int b;
 };
 
-static void test_integer_addition() {
+static void test_integer_addition_difference() {
     const Vec2 pairs[] = {
         {1, 2}, {2, 3}, {INT32_MAX, INT32_MIN}, {INT32_MAX, INT32_MAX}};
     size_t sz = sizeof(pairs) / sizeof(*pairs);
@@ -50,9 +50,11 @@ static void test_integer_addition() {
 
         Fixed a(__a);
         Fixed b(__b);
-        Fixed s = a + b;
+        Fixed sum = a + b;
+        Fixed diff = a - b;
 
-        assert(s.toInt() == __a + __b);
+        assert(sum.toInt() == __a + __b);
+        assert(diff.toInt() == __a - __b);
     }
     std::cout << "test integer addition ok\n";
 }

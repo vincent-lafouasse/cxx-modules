@@ -15,15 +15,14 @@ Fixed Fixed::operator-(const Fixed& other) const {
 }
 
 Fixed Fixed::operator*(const Fixed& other) const {
-    int raw = this->getRawBits() * other.getRawBits();
-    raw /= (1 << Fixed::fractional_digits);
+    int raw = (this->bits * other.bits) / (1 << Fixed::fractional_digits);
     Fixed out;
     out.setRawBits(raw);
     return out;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const {
-    int raw = this->getRawBits() / other.getRawBits();
+    int raw = (this->bits * (1 << Fixed::fractional_digits)) / other.bits;
     Fixed out;
     out.setRawBits(raw);
     return out;

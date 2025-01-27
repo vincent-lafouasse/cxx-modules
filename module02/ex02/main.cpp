@@ -9,7 +9,7 @@
 [[maybe_unused]] static void given_test();
 static void test_integer_addition_difference();
 static void test_integer_addition_difference_stochastic(int N);
-static void test_float_mult_div_stochastic(int N);
+static void test_int_mult_div_stochastic(int N);
 
 static int32_t random_int(int32_t low, int32_t hi);
 static float random_float(float low, float hi);
@@ -21,7 +21,7 @@ int main() {
     // given_test();
     test_integer_addition_difference();
     test_integer_addition_difference_stochastic(1000000);
-    test_float_mult_div_stochastic(5);
+    test_int_mult_div_stochastic(5);
 }
 
 static void given_test() {
@@ -89,23 +89,20 @@ static void test_integer_addition_difference_stochastic(int N) {
     std::cout << "stochastic test integer +/- ok\n";
 }
 
-static void test_float_mult_div_stochastic(int N) {
+static void test_int_mult_div_stochastic(int N) {
     for (int _ = 0; _ < N; _++) {
-        float __a = random_float(-2048.f, 2048.f);
-        float __b = random_float(-2048.f, 2048.f);
-        float __product = __a * __b;
-        if (__b == 0.f)
+        int __a = random_int(-2048, 2048);
+        int __b = random_int(-2048, 2048);
+        if (__b == 0)
             continue;
+        int __product = __a * __b;
 
         Fixed a(__a);
         Fixed b(__b);
         Fixed product = a * b;
         // Fixed quotient = a / b;
 
-        std::cout << product.toFloat() << " vs " << Fixed(__product).toFloat()
-                  << '\n';
-
-        // assert(float_eq(product.toFloat(), Fixed(__a * __b).toFloat(), 10));
+        assert(product.toInt() == __product);
         //  assert(quotient == Fixed(__a / __b));
     }
 

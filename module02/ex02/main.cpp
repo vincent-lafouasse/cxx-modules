@@ -1,8 +1,8 @@
 #include "Fixed.hpp"
 
-#include <vector>
 #include <array>
 #include <cassert>
+#include <vector>
 
 static void given_test() {
     Fixed a;
@@ -25,9 +25,8 @@ struct Vec2 {
 };
 
 static void test_integer_addition() {
-    Vec2 pairs[] = { {1, 2}, {2, 3}};
+    Vec2 pairs[] = {{1, 2}, {2, 3}};
     size_t sz = sizeof(pairs) / sizeof(*pairs);
-
 
     for (size_t i = 0; i < sz; i++) {
         int __a = pairs[i].a;

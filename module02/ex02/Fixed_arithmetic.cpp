@@ -73,3 +73,19 @@ bool Fixed::operator>=(const Fixed& o) const {
 bool Fixed::operator<=(const Fixed& o) const {
     return (*this < o) || (*this == o);
 }
+
+static Fixed& max(Fixed& a, Fixed& b) {
+    return a > b ? a : b;
+}
+
+static Fixed& min(Fixed& a, Fixed& b) {
+    return a < b ? a : b;
+}
+
+static const Fixed& max(const Fixed& a, const Fixed& b) {
+    return a > b ? a : b;
+}
+
+static const Fixed& min(const Fixed& a, const Fixed& b) {
+    return a < b ? a : b;
+}

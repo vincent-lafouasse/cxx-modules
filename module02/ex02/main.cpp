@@ -18,10 +18,10 @@ static bool float_eq(float a, float b, float e);
 int main() {
     std::srand(static_cast<unsigned>(time(0)));
 
-    // given_test();
-    test_integer_addition_difference();
-    test_integer_addition_difference_stochastic(1000000);
-    test_int_mult_div_stochastic(5);
+    given_test();
+    // test_integer_addition_difference();
+    // test_integer_addition_difference_stochastic(1000000);
+    // test_int_mult_div_stochastic(5);
 }
 
 static void given_test() {
@@ -36,7 +36,7 @@ static void given_test() {
 
     std::cout << b << std::endl;
 
-    // std::cout << Fixed::max(a, b) << std::endl;
+    std::cout << Fixed::max(a, b) << std::endl;
 
     std::cout << "Expected outout\n";
     std::cout << "0.00390625\n";

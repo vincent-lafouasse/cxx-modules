@@ -14,14 +14,17 @@
 [[maybe_unused]] static int32_t random_int(int32_t low, int32_t hi);
 [[maybe_unused]] static float random_float(float low, float hi);
 [[maybe_unused]] static bool float_eq(float a, float b, float e);
+[[maybe_unused]] static void test(float a, float b);
 
 int main() {
     std::srand(static_cast<unsigned>(time(0)));
 
-    given_test();
+    // given_test();
     // test_integer_addition_difference();
     // test_integer_addition_difference_stochastic(1000000);
     // test_int_mult_div_stochastic(5);
+    
+    test(5.0, 2.0);
 }
 
 static void given_test() {
@@ -45,6 +48,19 @@ static void given_test() {
     std::cout << "0.0078125\n";
     std::cout << "10.1016\n";
     std::cout << "10.1016\n";
+}
+
+[[maybe_unused]] static void test(float __a, float __b) {
+    std::cout << "With input " << __a << " " << __b << "\n"; 
+
+    Fixed a(__a);
+    Fixed b(__b);
+    std::cout << "a\t= " << a.toFloat() << '\n';
+    std::cout << "b\t= " << b.toFloat() << '\n';
+    std::cout << "a + b\t= " << (a + b).toFloat() << '\n';
+    std::cout << "a - b\t= " << (a - b).toFloat() << '\n';
+    std::cout << "a * b\t= " << (a * b).toFloat() << '\n';
+    std::cout << "a / b\t= " << (a / b).toFloat() << '\n';
 }
 
 struct Vec2 {

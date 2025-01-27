@@ -15,11 +15,17 @@ Fixed Fixed::operator-(const Fixed& other) const {
 }
 
 Fixed Fixed::operator*(const Fixed& other) const {
-    return Fixed();
+    int raw = this->getRawBits() * other.getRawBits();
+    Fixed out;
+    out.setRawBits(raw);
+    return out;
 }
 
 Fixed Fixed::operator/(const Fixed& other) const {
-    return Fixed();
+    int raw = this->getRawBits() / other.getRawBits();
+    Fixed out;
+    out.setRawBits(raw);
+    return out;
 }
 
 Fixed Fixed::operator++(int) {

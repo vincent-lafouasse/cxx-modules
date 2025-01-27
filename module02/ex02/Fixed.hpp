@@ -43,4 +43,6 @@ class Fixed {
    private:
     int bits;
     static const std::size_t fractional_digits = 8;
+
+    static int scaling_factor();
 };

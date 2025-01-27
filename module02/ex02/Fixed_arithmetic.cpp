@@ -30,7 +30,7 @@ Fixed Fixed::operator-(const Fixed& other) const {
     R(a * b) = R(a) * R(b) / S
 */
 Fixed Fixed::operator*(const Fixed& other) const {
-    int raw = (this->bits * other.bits) / (1 << Fixed::fractional_digits);
+    int raw = this->bits * other.bits / Fixed::scaling_factor();
     Fixed out;
     out.setRawBits(raw);
     return out;
@@ -46,7 +46,7 @@ Fixed Fixed::operator*(const Fixed& other) const {
              = R(a) * S / R(b)
 */
 Fixed Fixed::operator/(const Fixed& other) const {
-    int raw = (this->bits * (1 << Fixed::fractional_digits)) / other.bits;
+    int raw = this->bits * Fixed::scaling_factor() / other.bits;
     Fixed out;
     out.setRawBits(raw);
     return out;

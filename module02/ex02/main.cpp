@@ -25,6 +25,8 @@ int main() {
     // test_int_mult_div_stochastic(5);
 
     test(5.0, 2.0);
+    test(1000.0, 3.0);
+    test(3.0, 1000.0);
 }
 
 static void given_test() {

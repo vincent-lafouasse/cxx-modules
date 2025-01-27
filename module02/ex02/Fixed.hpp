@@ -33,10 +33,10 @@ class Fixed {
     Fixed operator*(const Fixed&) const;
     Fixed operator/(const Fixed&) const;
 
-    Fixed operator++(int) const;
-    Fixed operator--(int) const;
-    Fixed& operator++() const;
-    Fixed& operator--() const;
+    Fixed operator++(int);
+    Fixed operator--(int);
+    Fixed& operator++();
+    Fixed& operator--();
 
     friend std::ostream& operator<<(std::ostream&, const Fixed&);
 

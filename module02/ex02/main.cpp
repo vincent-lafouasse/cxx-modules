@@ -1,8 +1,6 @@
 #include "Fixed.hpp"
 
-#include <array>
 #include <cassert>
-#include <vector>
 
 static void given_test() {
     Fixed a;

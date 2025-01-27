@@ -14,6 +14,21 @@ Fixed Fixed::operator-(const Fixed& other) const {
     return out;
 }
 
+/*
+    a = 15.20 -> R(a) = 1520 == a * 10^2
+    b = 2.00  -> R(b) = 200  == b * 10^2
+
+    S = 10^2 (ou 2^N == 1 << N)
+    R(x) = x * S
+*/
+
+/*
+    R(a * b) ?
+    R(a * b) = (a * b) * S
+    R(a) * R(b) = a * b * S^2
+                = R(a * b) * S
+    R(a * b) = R(a) * R(b) / S
+*/
 Fixed Fixed::operator*(const Fixed& other) const {
     int raw = (this->bits * other.bits) / (1 << Fixed::fractional_digits);
     Fixed out;
@@ -21,6 +36,14 @@ Fixed Fixed::operator*(const Fixed& other) const {
     return out;
 }
 
+/*
+    R(a / b) ?
+    R(a / b) = (a / b) * S
+    R(a) / R(b) = (a * S) / (b * S) = a/b
+
+    R(a / b) = (a / b) * S
+             = (R(a) / R(b)) * S
+*/
 Fixed Fixed::operator/(const Fixed& other) const {
     int raw = (this->bits * (1 << Fixed::fractional_digits)) / other.bits;
     Fixed out;

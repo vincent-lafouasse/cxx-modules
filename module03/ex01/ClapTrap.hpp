@@ -15,7 +15,7 @@ class ClapTrap {
     void takeDamage(uint32_t amount);
     void beRepaired(uint32_t amount);
 
-   private:
+   protected:
     std::string name;
     uint32_t health_points;
     uint32_t energy_points;

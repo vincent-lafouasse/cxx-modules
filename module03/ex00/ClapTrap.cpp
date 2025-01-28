@@ -9,8 +9,8 @@ const char* copy_op_msg = "ClapTrap copy assignment op\n";
 const char* dtor_msg = "ClapTrap dtor\n";
 
 const char* named_ctor_msg = "ClapTrap named ctor\n";
-const char* dead = "ClapTrap cant do shit cause its dead\n";
-const char* out_of_energy_msg = "ClapTrap cant do shit cause its tired\n";
+const char* he_dead = "ClapTrap cant do shit cause its dead\n";
+const char* he_tired = "ClapTrap cant do shit cause its tired\n";
 }  // namespace
 
 ClapTrap::ClapTrap()
@@ -44,7 +44,21 @@ ClapTrap::ClapTrap(const std::string& name)
     std::cout << named_ctor_msg;
 }
 
-void ClapTrap::attack(const std::string& target) {}
+void ClapTrap::attack(const std::string& target) {
+    if (this->health_points == 0) {
+        std::cout << he_dead;
+        return;
+    }
+    if (this->energy_points == 0) {
+        std::cout << he_tired;
+        return;
+    }
+
+    std::cout << "ClapTrap " << this->name;
+    std::cout << " attacks " << target;
+    std::cout << " for " << this->attack_points;
+    std::cout << " points\n";
+}
 
 void ClapTrap::takeDamage(uint32_t amount) {}
 

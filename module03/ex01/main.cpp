@@ -1,18 +1,11 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main() {
     {
-        ClapTrap trap;
+        ScavTrap trap;
 
         for (int i = 0; i < 15; i++) {
             trap.attack("zbreh");
-        }
-    }
-    {
-        ClapTrap trap("Bobby");
-
-        for (int i = 0; i < 15; i++) {
-            trap.beRepaired(100);
         }
     }
 }

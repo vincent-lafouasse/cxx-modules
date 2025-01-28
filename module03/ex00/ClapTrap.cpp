@@ -4,6 +4,10 @@
 
 namespace {
 const char* default_name = "Bob";
+const uint32_t base_hp = 10;
+const uint32_t base_energy = 10;
+const uint32_t base_attack = 0;
+
 const char* named_ctor_msg = "ClapTrap named ctor\n";
 const char* he_dead = "ClapTrap cant do shit cause its dead\n";
 const char* he_tired = "ClapTrap cant do shit cause its tired\n";
@@ -15,7 +19,10 @@ const char* dtor_msg = "ClapTrap dtor\n";
 }  // namespace
 
 ClapTrap::ClapTrap()
-    : name(default_name), health_points(0), energy_points(0), attack_points(0) {
+    : name(default_name),
+      health_points(base_hp),
+      energy_points(base_energy),
+      attack_points(base_attack) {
     std::cout << default_ctor_msg;
 }
 
@@ -41,7 +48,10 @@ ClapTrap::~ClapTrap() {
 }
 
 ClapTrap::ClapTrap(const std::string& name)
-    : name(name), health_points(10), energy_points(10), attack_points(0) {
+    : name(name),
+      health_points(base_hp),
+      energy_points(base_energy),
+      attack_points(base_attack) {
     std::cout << named_ctor_msg;
 }
 

@@ -3,18 +3,19 @@
 #include <iostream>
 
 namespace {
+const char* default_name = "Bob";
+const char* named_ctor_msg = "ClapTrap named ctor\n";
+const char* he_dead = "ClapTrap cant do shit cause its dead\n";
+const char* he_tired = "ClapTrap cant do shit cause its tired\n";
+
 const char* default_ctor_msg = "ClapTrap default ctor\n";
 const char* copy_ctor_msg = "ClapTrap copy ctor\n";
 const char* copy_op_msg = "ClapTrap copy assignment op\n";
 const char* dtor_msg = "ClapTrap dtor\n";
-
-const char* named_ctor_msg = "ClapTrap named ctor\n";
-const char* he_dead = "ClapTrap cant do shit cause its dead\n";
-const char* he_tired = "ClapTrap cant do shit cause its tired\n";
 }  // namespace
 
 ClapTrap::ClapTrap()
-    : name(""), health_points(0), energy_points(0), attack_points(0) {
+    : name(default_name), health_points(0), energy_points(0), attack_points(0) {
     std::cout << default_ctor_msg;
 }
 

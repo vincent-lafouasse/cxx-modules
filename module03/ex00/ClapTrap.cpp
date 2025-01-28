@@ -81,4 +81,5 @@ void ClapTrap::beRepaired(uint32_t amount) {
 
     std::cout << "ClapTrap is healed for " << amount << " hp\n";
     this->energy_points--;
+    this->health_points += amount;
 }

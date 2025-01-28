@@ -5,8 +5,12 @@
 
 class ClapTrap {
    public:
-    ClapTrap(const std::string& name);
+    ClapTrap();
+    ClapTrap(const ClapTrap&);
+    ~ClapTrap();
+    ClapTrap& operator=(const ClapTrap&);
 
+    ClapTrap(const std::string& name);
     void attack(const std::string& target);
     void takeDamage(uint32_t amount);
     void beRepaired(uint32_t amount);

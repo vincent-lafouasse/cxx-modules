@@ -60,6 +60,24 @@ void ClapTrap::attack(const std::string& target) {
     std::cout << " points\n";
 }
 
-void ClapTrap::takeDamage(uint32_t amount) {}
+void ClapTrap::takeDamage(uint32_t amount) {
+    if (this->health_points == 0) {
+        std::cout << "Stop shooting, ClapTrap is already down\n";
+        return;
+    }
 
-void ClapTrap::beRepaired(uint32_t amount) {}
+    uint32_t true_amount =
+        amount > this->health_points ? this->health_points : amount;
+    this->health_points -= true_amount;
+    std::cout << "ClapTrap takes " << true_amount << " dmg\n";
+}
+
+void ClapTrap::beRepaired(uint32_t amount) {
+    if (this->energy_points == 0) {
+        std::cout << he_tired;
+        return;
+    }
+
+    std::cout << "ClapTrap is healed for " << amount << " hp\n";
+    this->energy_points--;
+}

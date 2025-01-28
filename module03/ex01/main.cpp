@@ -2,7 +2,7 @@
 
 int main() {
     {
-        ScavTrap trap;
+        ScavTrap trap("Poss");
 
         for (int i = 0; i < 15; i++) {
             trap.attack("zbreh");

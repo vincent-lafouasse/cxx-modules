@@ -2,6 +2,7 @@
 #include <cmath>
 #include <iostream>
 
+namespace {
 const char* default_ctor_msg = "Default constructor called\n";
 const char* copy_ctor_msg = "Copy constructor called\n";
 const char* copy_assig_op_msg = "Copy assignment operator called\n";
@@ -10,6 +11,7 @@ const char* float_ctor_msg = "Float constructor called\n";
 const char* dtor_msg = "Destructor called\n";
 const char* get_msg = "getRawBits member function called\n";
 const char* set_msg = "setRawBits member function called\n";
+}
 
 Fixed::Fixed() : bits(0) {
     // std::cout << default_ctor_msg;

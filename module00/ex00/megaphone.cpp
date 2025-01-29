@@ -1,9 +1,10 @@
 #include <cctype>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
 void yell(const std::string& in) {
-    for (std::string::const_iterator it = in.cbegin(); it != in.cend(); it++) {
+    for (std::string::const_iterator it = in.begin(); it != in.end(); it++) {
         std::cout << static_cast<char>(std::toupper(*it));
     }
 }

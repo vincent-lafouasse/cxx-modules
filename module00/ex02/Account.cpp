@@ -112,10 +112,10 @@ void Account::_displayTimestamp(void) {
     }
 
     std::time_t now = std::time(NULL);
-    std::tm* now_gmt = std::gmtime(&now);
+    std::tm* now_gmt = std::localtime(&now);
 
     std::cout << "[";
-    std::cout << now_gmt->tm_year;
+    std::cout << now_gmt->tm_year + 1900;
     std::cout << now_gmt->tm_mon;
     std::cout << now_gmt->tm_mday;
     std::cout << "_";

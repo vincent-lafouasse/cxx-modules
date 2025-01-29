@@ -6,15 +6,16 @@
 #include <cstdlib>
 #include <ctime>
 
-[[maybe_unused]] static void given_test();
-[[maybe_unused]] static void test_integer_addition_difference();
-[[maybe_unused]] static void test_integer_addition_difference_stochastic(int N);
-[[maybe_unused]] static void test_int_mult_div_stochastic(int N);
+namespace {
+void given_test();
+void test_integer_addition_difference();
+void test_integer_addition_difference_stochastic(int N);
+void test_int_mult_div_stochastic(int N);
 
-[[maybe_unused]] static int32_t random_int(int32_t low, int32_t hi);
-[[maybe_unused]] static float random_float(float low, float hi);
-[[maybe_unused]] static bool float_eq(float a, float b, float e);
-[[maybe_unused]] static void test(float a, float b);
+int32_t random_int(int32_t low, int32_t hi);
+float random_float(float low, float hi);
+void test(float a, float b);
+}  // namespace
 
 int main() {
     std::srand(static_cast<unsigned>(time(0)));
@@ -29,7 +30,8 @@ int main() {
     test(3.0, 1000.0);
 }
 
-static void given_test() {
+namespace {
+void given_test() {
     Fixed a;
     const Fixed b(Fixed(5.05f) * Fixed(2));
 
@@ -52,7 +54,7 @@ static void given_test() {
     std::cout << "10.1016\n";
 }
 
-[[maybe_unused]] static void test(float __a, float __b) {
+void test(float __a, float __b) {
     std::cout << "With input " << __a << " " << __b << "\n";
 
     Fixed a(__a);
@@ -70,7 +72,7 @@ struct Vec2 {
     int b;
 };
 
-static void test_integer_addition_difference() {
+void test_integer_addition_difference() {
     const Vec2 pairs[] = {
         {1, 2}, {2, 3}, {INT32_MAX, INT32_MIN}, {INT32_MAX, INT32_MAX}};
     size_t sz = sizeof(pairs) / sizeof(*pairs);
@@ -90,7 +92,7 @@ static void test_integer_addition_difference() {
     std::cout << "test integer +/- ok\n";
 }
 
-static void test_integer_addition_difference_stochastic(int N) {
+void test_integer_addition_difference_stochastic(int N) {
     for (int _ = 0; _ < N; _++) {
         int __a = random_int(-2048, 2048);
         int __b = random_int(-2048, 2048);
@@ -107,7 +109,7 @@ static void test_integer_addition_difference_stochastic(int N) {
     std::cout << "stochastic test integer +/- ok\n";
 }
 
-static void test_int_mult_div_stochastic(int N) {
+void test_int_mult_div_stochastic(int N) {
     for (int _ = 0; _ < N; _++) {
         int __a = random_int(-2048, 2048);
         int __b = random_int(-2048, 2048);
@@ -127,18 +129,15 @@ static void test_int_mult_div_stochastic(int N) {
     std::cout << "stochastic test float *// ok\n";
 }
 
-static float random_float(float low, float hi) {
+float random_float(float low, float hi) {
     float range = hi - low;
     return low +
            static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / range));
 }
 
-static int32_t random_int(int32_t low, int32_t hi) {
+int32_t random_int(int32_t low, int32_t hi) {
     uint32_t range = hi - low;
 
     return low + static_cast<int32_t>(rand() % range);
 }
-
-static bool float_eq(float a, float b, float e) {
-    return std::fabs(a - b) < e;
-}
+}  // namespace

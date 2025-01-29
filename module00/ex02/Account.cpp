@@ -106,12 +106,12 @@ void Account::displayStatus(void) const {
 }
 
 void Account::_displayTimestamp(void) {
-    if (std::getenv("DEBUG") != nullptr) {
+    if (std::getenv("DEBUG") != NULL) {
         std::cout << "[19920104_091532] ";
         return;
     }
 
-    std::time_t now = std::time(nullptr);
+    std::time_t now = std::time(NULL);
     std::tm* now_gmt = std::gmtime(&now);
 
     std::cout << "[";

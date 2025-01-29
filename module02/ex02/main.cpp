@@ -2,32 +2,27 @@
 
 #include <cassert>
 #include <cmath>
-#include <cstdint>
 #include <cstdlib>
 #include <ctime>
 
 namespace {
 void given_test();
-void test_integer_addition_difference();
-void test_integer_addition_difference_stochastic(int N);
-void test_int_mult_div_stochastic(int N);
-
-int32_t random_int(int32_t low, int32_t hi);
-float random_float(float low, float hi);
 void test(float a, float b);
+
+float random_float(float low, float hi);
+float random_float();
+
 }  // namespace
 
 int main() {
     std::srand(static_cast<unsigned>(time(0)));
 
-    // given_test();
-    // test_integer_addition_difference();
-    // test_integer_addition_difference_stochastic(1000000);
-    // test_int_mult_div_stochastic(5);
+    given_test();
 
     test(5.0, 2.0);
     test(1000.0, 3.0);
     test(3.0, 1000.0);
+    test(random_float(), random_float());
 }
 
 namespace {
@@ -67,77 +62,13 @@ void test(float __a, float __b) {
     std::cout << "a / b\t= " << a / b << '\n';
 }
 
-struct Vec2 {
-    int a;
-    int b;
-};
-
-void test_integer_addition_difference() {
-    const Vec2 pairs[] = {
-        {1, 2}, {2, 3}, {INT32_MAX, INT32_MIN}, {INT32_MAX, INT32_MAX}};
-    size_t sz = sizeof(pairs) / sizeof(*pairs);
-
-    for (size_t i = 0; i < sz; i++) {
-        int __a = pairs[i].a;
-        int __b = pairs[i].b;
-
-        Fixed a(__a);
-        Fixed b(__b);
-        Fixed sum = a + b;
-        Fixed diff = a - b;
-
-        assert(sum.toInt() == __a + __b);
-        assert(diff.toInt() == __a - __b);
-    }
-    std::cout << "test integer +/- ok\n";
-}
-
-void test_integer_addition_difference_stochastic(int N) {
-    for (int _ = 0; _ < N; _++) {
-        int __a = random_int(-2048, 2048);
-        int __b = random_int(-2048, 2048);
-
-        Fixed a(__a);
-        Fixed b(__b);
-        Fixed sum = a + b;
-        Fixed diff = a - b;
-
-        assert(sum.toInt() == __a + __b);
-        assert(diff.toInt() == __a - __b);
-    }
-
-    std::cout << "stochastic test integer +/- ok\n";
-}
-
-void test_int_mult_div_stochastic(int N) {
-    for (int _ = 0; _ < N; _++) {
-        int __a = random_int(-2048, 2048);
-        int __b = random_int(-2048, 2048);
-        if (__b == 0)
-            continue;
-        int __product = __a * __b;
-
-        Fixed a(__a);
-        Fixed b(__b);
-        Fixed product = a * b;
-        // Fixed quotient = a / b;
-
-        assert(product.toInt() == __product);
-        //  assert(quotient == Fixed(__a / __b));
-    }
-
-    std::cout << "stochastic test float *// ok\n";
-}
-
 float random_float(float low, float hi) {
     float range = hi - low;
     return low +
            static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / range));
 }
 
-int32_t random_int(int32_t low, int32_t hi) {
-    uint32_t range = hi - low;
-
-    return low + static_cast<int32_t>(rand() % range);
+float random_float() {
+    return random_float(-4096.f, 4096.f);
 }
 }  // namespace

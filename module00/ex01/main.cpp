@@ -2,8 +2,6 @@
 
 #include <iostream>
 
-static void print_prompt();
-
 int main() {
     PhoneBook phone_book;
 
@@ -21,9 +19,4 @@ int main() {
         }
         phone_book.process_command(command);
     }
-}
-
-static void print_prompt() {
-    std::cout << "> ";
-    std::cout.flush();
 }

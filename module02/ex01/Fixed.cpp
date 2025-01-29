@@ -46,7 +46,7 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    return static_cast<int>(this->toFloat());
+    return static_cast<int>(roundf(this->toFloat()));
 }
 
 int Fixed::getRawBits() const {

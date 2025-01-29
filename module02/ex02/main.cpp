@@ -65,7 +65,7 @@ void test(float __a, float __b) {
 float random_float(float low, float hi) {
     float range = hi - low;
     return low +
-           static_cast<float>(rand()) / (static_cast<float>(RAND_MAX / range));
+           range * static_cast<float>(rand()) / (static_cast<float>(RAND_MAX));
 }
 
 float random_float() {

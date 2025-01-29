@@ -26,3 +26,7 @@ void Harl::error() const {
     std::cout << "[ERROR] This is unacceptable! I want to speak to the manager "
                  "now.\n";
 }
+
+void Harl::ramble() const {
+    std::cout << "[chill] somebody once told me the world is gonna roll me\n";
+}

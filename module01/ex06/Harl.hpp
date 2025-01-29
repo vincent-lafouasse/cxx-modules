@@ -6,4 +6,5 @@ class Harl {
     void info() const;
     void warning() const;
     void error() const;
+    void ramble() const;
 };

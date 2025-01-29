@@ -43,6 +43,6 @@ int main(int ac, char** av) {
         case Error:
             harl.error();
         case None:
-            break;
+            harl.ramble();
     }
 }

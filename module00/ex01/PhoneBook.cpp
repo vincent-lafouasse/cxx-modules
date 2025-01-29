@@ -1,7 +1,7 @@
 #include "PhoneBook.hpp"
 
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
 
 PhoneBook::PhoneBook() : sz(0) {}
 

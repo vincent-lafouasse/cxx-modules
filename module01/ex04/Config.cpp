@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 
 Config Config::from_sysargs(int ac, char** av) {
     if (ac != 4) {

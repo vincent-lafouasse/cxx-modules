@@ -1,6 +1,7 @@
 #include "PhoneBook.hpp"
 
 #include <iostream>
+#include <cstdlib>
 
 PhoneBook::PhoneBook() : sz(0) {}
 
@@ -25,15 +26,15 @@ void PhoneBook::prompt_and_display_contact() const {
     std::string index_string;
     std::cin >> index_string;
 
-    std::size_t index;
-    try {
-        index = std::stoul(index_string, NULL, 10);
-    } catch (...) {
+    long index;
+    char* end_ptr;
+    index = std::strtol(index_string.c_str(), &end_ptr, 10);
+    if (*end_ptr != '\0') {
         std::cout << "No" << std::endl;
         return;
     }
 
-    if (index >= this->sz) {
+    if (static_cast<std::size_t>(index) >= this->sz || index < 0) {
         std::cout << "No" << std::endl;
         return;
     }

@@ -1,12 +1,12 @@
 NAME = scav_trap
 
-SRC = main.cpp ClapTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra
 CXXFLAGS += -g3
 # CXXFLAGS += -Werror
-CXXFLAGS += -std=c++98
+CXXFLAGS += -std=c++98 -pedantic
 
 CPPFLAGS = -I.
 

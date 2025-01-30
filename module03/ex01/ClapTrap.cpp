@@ -3,7 +3,7 @@
 #include <iostream>
 
 namespace {
-const char* default_name = "Bob";
+const char* default_name = "Camille";
 const uint32_t base_hp = 10;
 const uint32_t base_energy = 10;
 const uint32_t base_attack = 0;

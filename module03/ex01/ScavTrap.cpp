@@ -26,6 +26,20 @@ ScavTrap::ScavTrap() : ClapTrap(default_name) {
     this->attack_points = base_attack;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& o) {
+    std::cout << copy_ctor_msg;
+    *this = o;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& o) {
+    std::cout << copy_op_msg;
+    this->name = o.name;
+    this->health_points = o.health_points;
+    this->energy_points = o.energy_points;
+    this->attack_points = o.attack_points;
+    return *this;
+}
+
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     std::cout << named_ctor_msg;
 

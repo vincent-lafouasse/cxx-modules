@@ -13,6 +13,6 @@ class ScavTrap : public ClapTrap {
     void beRepaired(uint32_t amount);
     void guard_guate() const;
 
-private:
-   bool isGuarding;
+   private:
+    bool isGuarding;
 };

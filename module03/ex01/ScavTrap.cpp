@@ -42,7 +42,8 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& o) {
     return *this;
 }
 
-ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name), isGuarding(default_guard_state) {
+ScavTrap::ScavTrap(const std::string& name)
+    : ClapTrap(name), isGuarding(default_guard_state) {
     std::cout << named_ctor_msg;
 
     this->health_points = base_hp;

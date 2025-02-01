@@ -4,13 +4,7 @@
 
 #define USAGE "Usage: harlFilter level"
 
-enum Level {
-    Debug,
-    Info,
-    Warning,
-    Error,
-    None
-};
+enum Level { Debug, Info, Warning, Error, None };
 
 Level parse(const std::string& level) {
     if (level == "DEBUG")

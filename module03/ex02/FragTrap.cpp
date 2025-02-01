@@ -12,6 +12,8 @@ const char* named_ctor_msg = "FragTrap named ctor\n";
 const char* he_dead = "FragTrap cant do shit cause its dead\n";
 const char* he_tired = "FragTrap cant do shit cause its tired\n";
 
+const char* request_high_five = "Eyyyy give me a high five\n";
+
 const char* default_ctor_msg = "FragTrap default ctor\n";
 const char* copy_ctor_msg = "FragTrap copy ctor\n";
 const char* copy_op_msg = "FragTrap copy assignment op\n";
@@ -90,4 +92,17 @@ void FragTrap::beRepaired(uint32_t amount) {
     std::cout << "FragTrap is healed for " << amount << " hp\n";
     this->energy_points--;
     this->health_points += amount;
+}
+
+void FragTrap::highFivesGuys() const {
+    if (this->health_points == 0) {
+        std::cout << he_dead;
+        return;
+    }
+    if (this->energy_points == 0) {
+        std::cout << he_tired;
+        return;
+    }
+
+    std::cout << request_high_five;
 }

@@ -8,7 +8,7 @@ class Command {
         Add,
         Search,
         Exit,
-        None,
+        None
     };
     Command(const std::string& s);
 

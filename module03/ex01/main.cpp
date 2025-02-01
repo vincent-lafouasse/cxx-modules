@@ -5,7 +5,6 @@ void routine(ClapTrap& trap) {
         trap.attack("zbreh");
         trap.takeDamage(3);
         trap.beRepaired(4);
-        // trap.guard_guate();
     }
 }
 
@@ -13,6 +12,9 @@ int main() {
     {
         ScavTrap trap("Poss");
 
+        trap.guard_guate();
+        trap.guard_guate();
+        trap.guard_guate();
         routine(trap);
     }
 }

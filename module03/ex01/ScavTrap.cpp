@@ -13,6 +13,9 @@ const char* named_ctor_msg = "ScavTrap named ctor\n";
 const char* he_dead = "ScavTrap cant do shit cause its dead\n";
 const char* he_tired = "ScavTrap cant do shit cause its tired\n";
 
+const char* now_guarding = "ScavTrap is now guarding\n";
+const char* already_guarding = "ScavTrap is already guarding\n";
+
 const char* default_ctor_msg = "ScavTrap default ctor\n";
 const char* copy_ctor_msg = "ScavTrap copy ctor\n";
 const char* copy_op_msg = "ScavTrap copy assignment op\n";
@@ -93,4 +96,13 @@ void ScavTrap::beRepaired(uint32_t amount) {
     std::cout << "ScavTrap is healed for " << amount << " hp\n";
     this->energy_points--;
     this->health_points += amount;
+}
+
+void ScavTrap::guard_guate() {
+    if (!this->isGuarding) {
+        std::cout << now_guarding;
+        this->isGuarding = true;
+    } else {
+        std::cout << already_guarding;
+    }
 }

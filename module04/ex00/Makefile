@@ -3,7 +3,8 @@ NAME = animals
 SRCS = $(shell find . -name '*.cpp')
 
 CXX = c++
-CXXFLAGS  = -Wall -Wextra -Werror
+CXXFLAGS  = -Wall -Wextra
+# CFLAFS += -Werror
 CXXFLAGS += -g3
 CXXFLAGS += -std=c++98 -pedantic
 CPPFLAGS  = -I. -MMD -MP

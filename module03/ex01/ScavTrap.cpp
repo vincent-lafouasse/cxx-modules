@@ -99,6 +99,15 @@ void ScavTrap::beRepaired(uint32_t amount) {
 }
 
 void ScavTrap::guard_guate() {
+    if (this->health_points == 0) {
+        std::cout << he_dead;
+        return;
+    }
+    if (this->energy_points == 0) {
+        std::cout << he_tired;
+        return;
+    }
+
     if (!this->isGuarding) {
         std::cout << now_guarding;
         this->isGuarding = true;

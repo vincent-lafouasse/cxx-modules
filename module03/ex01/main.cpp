@@ -1,10 +1,10 @@
 #include "ScavTrap.hpp"
 
 void routine(ClapTrap& trap) {
-    for (int i = 0; i < 15; i++) {
+    for (int i = 0; i < 20; i++) {
         trap.attack("zbreh");
-        trap.takeDamage(3);
         trap.beRepaired(4);
+        trap.takeDamage(50);
     }
 }
 
@@ -16,5 +16,8 @@ int main() {
         trap.guard_guate();
         trap.guard_guate();
         routine(trap);
+        trap.guard_guate();
+        trap.guard_guate();
+        trap.guard_guate();
     }
 }

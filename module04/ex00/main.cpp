@@ -18,6 +18,8 @@ class Animal {
         this->type = a.type;
         return *this;
     }
+    virtual ~Animal() {}
+
     virtual void makeSound() const { std::cout << generic_sound; }
     std::string getType() const { return this->type; }
 
@@ -28,12 +30,16 @@ class Animal {
 class Dog : public Animal {
    public:
     Dog() : Animal() { this->type = "Dog"; }
+    ~Dog() {}
+
     void makeSound() const { std::cout << dog_sound; }
 };
 
 class Cat : public Animal {
    public:
     Cat() : Animal() { this->type = "Cat"; }
+    ~Cat() {}
+
     void makeSound() const { std::cout << cat_sound; }
 };
 

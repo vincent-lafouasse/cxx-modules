@@ -9,7 +9,7 @@ enum Level {
     Info,
     Warning,
     Error,
-    None,
+    None
 };
 
 Level parse(const std::string& level) {

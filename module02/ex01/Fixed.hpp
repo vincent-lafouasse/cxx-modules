@@ -11,8 +11,6 @@ class Fixed {
     Fixed& operator=(const Fixed&);
     ~Fixed();
 
-    friend std::ostream& operator<<(std::ostream&, const Fixed&);
-
     int getRawBits() const;
     void setRawBits(int);
     float toFloat() const;
@@ -22,3 +20,5 @@ class Fixed {
     int bits;
     static const std::size_t fractional_digits = 8;
 };
+
+std::ostream& operator<<(std::ostream&, const Fixed&);

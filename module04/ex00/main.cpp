@@ -2,14 +2,22 @@
 
 class Animal {
    public:
-    virtual void makeSound() const = 0;
+    Animal() : type("something") {}
+    virtual void makeSound() const;
 
    protected:
     std::string type;
 };
 
-class Dog : protected Animal {};
+class Dog : protected Animal {
+   public:
+    Dog() : Animal() { this->type = "Dog"; }
+};
 
-class Cat : protected Animal {};
+class Cat : protected Animal {
+    Cat() : Animal() { this->type = "Cat"; }
+};
 
-int main() {}
+int main() {
+    Animal* animal = new Animal();
+}

@@ -75,6 +75,10 @@ int main() {
         dog->makeSound();
         cat->makeSound();
         animal->makeSound();
+
+        delete dog;
+        delete cat;
+        delete animal;
     }
     {
         const WrongAnimal* wrong_animal = new WrongAnimal();
@@ -87,5 +91,9 @@ int main() {
         wrong_dog->makeSound();
         wrong_cat->makeSound();
         wrong_animal->makeSound();
+
+        delete wrong_dog;
+        delete wrong_cat;
+        delete wrong_animal;
     }
 }

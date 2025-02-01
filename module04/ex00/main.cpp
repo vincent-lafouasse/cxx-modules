@@ -5,6 +5,10 @@ namespace {
 const char* generic_sound = "generic animal sound\n";
 const char* dog_sound = "bork bork\n";
 const char* cat_sound = "mrow mrow\n";
+
+const char* generic_wrong_sound = "generic animal sound but wrong\n";
+const char* wrong_dog_sound = "bork bork but wrong\n";
+const char* wrong_cat_sound = "mrow mrow but wrong\n";
 }  // namespace
 
 class Animal {
@@ -33,15 +37,55 @@ class Cat : public Animal {
     void makeSound() const { std::cout << cat_sound; }
 };
 
+class WrongAnimal {
+   public:
+    WrongAnimal() : type("Wrongsomething") {}
+    WrongAnimal& operator=(const WrongAnimal& a) {
+        this->type = a.type;
+        return *this;
+    }
+    void makeSound() const { std::cout << generic_wrong_sound; }
+    std::string getType() const { return this->type; }
+
+   protected:
+    std::string type;
+};
+
+class WrongDog : public WrongAnimal {
+   public:
+    WrongDog() : WrongAnimal() { this->type = "WrongDog"; }
+    void makeSound() const { std::cout << wrong_dog_sound; }
+};
+
+class WrongCat : public WrongAnimal {
+   public:
+    WrongCat() : WrongAnimal() { this->type = "WrongCat"; }
+    void makeSound() const { std::cout << wrong_cat_sound; }
+};
+
 int main() {
-    const Animal* animal = new Animal();
-    const Animal* dog = new Dog();
-    const Animal* cat = new Cat();
+    {
+        const Animal* animal = new Animal();
+        const Animal* dog = new Dog();
+        const Animal* cat = new Cat();
 
-    std::cout << "dog is a " << dog->getType() << std::endl;
-    std::cout << "cat is a " << cat->getType() << std::endl;
+        std::cout << "dog is a " << dog->getType() << std::endl;
+        std::cout << "cat is a " << cat->getType() << std::endl;
 
-    dog->makeSound();
-    cat->makeSound();
-    animal->makeSound();
+        dog->makeSound();
+        cat->makeSound();
+        animal->makeSound();
+    }
+    {
+        const Animal* wrong_animal = new Animal();
+        const Animal* wrong_dog = new Dog();
+        const Animal* wrong_cat = new Cat();
+
+        std::cout << "wrong_dog is a " << wrong_dog->getType() << std::endl;
+        std::cout << "wrong_cat is a " << wrong_cat->getType() << std::endl;
+
+        wrong_dog->makeSound();
+        wrong_cat->makeSound();
+        wrong_animal->makeSound();
+    }
 }

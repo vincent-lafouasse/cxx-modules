@@ -18,7 +18,13 @@ const char* copy_op_msg = "ScavTrap copy assignment op\n";
 const char* dtor_msg = "ScavTrap dtor\n";
 }  // namespace
 
-ScavTrap::ScavTrap() : ClapTrap(default_name) {}
+ScavTrap::ScavTrap() : ClapTrap(default_name) {
+    std::cout << default_ctor_msg;
+
+    this->health_points = base_hp;
+    this->energy_points = base_energy;
+    this->attack_points = base_attack;
+}
 
 ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     std::cout << named_ctor_msg;

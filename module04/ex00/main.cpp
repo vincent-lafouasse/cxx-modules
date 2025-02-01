@@ -77,9 +77,9 @@ int main() {
         animal->makeSound();
     }
     {
-        const Animal* wrong_animal = new Animal();
-        const Animal* wrong_dog = new Dog();
-        const Animal* wrong_cat = new Cat();
+        const WrongAnimal* wrong_animal = new WrongAnimal();
+        const WrongAnimal* wrong_dog = new WrongDog();
+        const WrongAnimal* wrong_cat = new WrongCat();
 
         std::cout << "wrong_dog is a " << wrong_dog->getType() << std::endl;
         std::cout << "wrong_cat is a " << wrong_cat->getType() << std::endl;

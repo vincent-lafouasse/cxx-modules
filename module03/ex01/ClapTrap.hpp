@@ -12,8 +12,8 @@ class ClapTrap {
 
     ClapTrap(const std::string& name);
     virtual void attack(const std::string& target);
-    void takeDamage(uint32_t amount);
-    void beRepaired(uint32_t amount);
+    virtual void takeDamage(uint32_t amount);
+    virtual void beRepaired(uint32_t amount);
 
    protected:
     std::string name;

@@ -48,6 +48,10 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name) {
     this->attack_points = base_attack;
 }
 
+ScavTrap::~ScavTrap() {
+    std::cout << dtor_msg;
+}
+
 void ScavTrap::attack(const std::string& target) {
     if (this->health_points == 0) {
         std::cout << he_dead;
@@ -65,6 +69,25 @@ void ScavTrap::attack(const std::string& target) {
     std::cout << " points\n";
 }
 
-ScavTrap::~ScavTrap() {
-    std::cout << dtor_msg;
+void ScavTrap::takeDamage(uint32_t amount) {
+    if (this->health_points == 0) {
+        std::cout << "Stop shooting, ScavTrap is already down\n";
+        return;
+    }
+
+    uint32_t true_amount =
+        amount > this->health_points ? this->health_points : amount;
+    this->health_points -= true_amount;
+    std::cout << "ScavTrap takes " << true_amount << " dmg\n";
+}
+
+void ScavTrap::beRepaired(uint32_t amount) {
+    if (this->energy_points == 0) {
+        std::cout << he_tired;
+        return;
+    }
+
+    std::cout << "ScavTrap is healed for " << amount << " hp\n";
+    this->energy_points--;
+    this->health_points += amount;
 }

@@ -38,11 +38,11 @@ class Fixed {
     Fixed& operator++();
     Fixed& operator--();
 
-    friend std::ostream& operator<<(std::ostream&, const Fixed&);
-
    private:
     int bits;
     static const std::size_t fractional_digits = 8;
 
     static int scaling_factor();
 };
+
+std::ostream& operator<<(std::ostream&, const Fixed&);

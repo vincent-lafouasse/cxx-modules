@@ -15,6 +15,7 @@ class Animal {
         return *this;
     }
     virtual void makeSound() const { std::cout << generic_sound; }
+    std::string getType() const { return this->type; }
 
    protected:
     std::string type;
@@ -36,4 +37,11 @@ int main() {
     const Animal* animal = new Animal();
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();
+
+    std::cout << "dog is a " << dog->getType() << std::endl;
+    std::cout << "cat is a " << cat->getType() << std::endl;
+
+    dog->makeSound();
+    cat->makeSound();
+    animal->makeSound();
 }

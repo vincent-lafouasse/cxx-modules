@@ -13,12 +13,13 @@ const char* wrong_cat_sound = "mrow mrow but wrong\n";
 
 class Animal {
    public:
-    Animal() : type("something") {}
+    Animal() : type("something") { std::cout << "Animal created\n"; }
     Animal& operator=(const Animal& a) {
+        std::cout << "Animal assigned\n";
         this->type = a.type;
         return *this;
     }
-    virtual ~Animal() {}
+    virtual ~Animal() { std::cout << "Animal destroyed\n"; }
 
     virtual void makeSound() const { std::cout << generic_sound; }
     std::string getType() const { return this->type; }
@@ -29,24 +30,33 @@ class Animal {
 
 class Dog : public Animal {
    public:
-    Dog() : Animal() { this->type = "Dog"; }
-    ~Dog() {}
+    Dog() : Animal() {
+        std::cout << "Dog created\n";
+        this->type = "Dog";
+    }
+    ~Dog() { std::cout << "Dog destroyed\n"; }
 
     void makeSound() const { std::cout << dog_sound; }
 };
 
 class Cat : public Animal {
    public:
-    Cat() : Animal() { this->type = "Cat"; }
-    ~Cat() {}
+    Cat() : Animal() {
+        std::cout << "Cat created\n";
+        this->type = "Cat";
+    }
+    ~Cat() { std::cout << "Cat destroyed\n"; }
 
     void makeSound() const { std::cout << cat_sound; }
 };
 
 class WrongAnimal {
    public:
-    WrongAnimal() : type("Wrongsomething") {}
+    WrongAnimal() : type("Wrongsomething") {
+        std::cout << "WrongAnimal created\n";
+    }
     WrongAnimal& operator=(const WrongAnimal& a) {
+        std::cout << "WrongAnimal assigned\n";
         this->type = a.type;
         return *this;
     }
@@ -59,13 +69,19 @@ class WrongAnimal {
 
 class WrongDog : public WrongAnimal {
    public:
-    WrongDog() : WrongAnimal() { this->type = "WrongDog"; }
+    WrongDog() : WrongAnimal() {
+        std::cout << "WrongDog created\n";
+        this->type = "WrongDog";
+    }
     void makeSound() const { std::cout << wrong_dog_sound; }
 };
 
 class WrongCat : public WrongAnimal {
    public:
-    WrongCat() : WrongAnimal() { this->type = "WrongCat"; }
+    WrongCat() : WrongAnimal() {
+        std::cout << "WrongCat created\n";
+        this->type = "WrongCat";
+    }
     void makeSound() const { std::cout << wrong_cat_sound; }
 };
 

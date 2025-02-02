@@ -3,5 +3,7 @@ project(Cpp_modules
     LANGUAGES CXX
 )
 
+set(CMAKE_CXX_STANDARD 98)
+
 add_subdirectory(module02)
 add_subdirectory(module03)

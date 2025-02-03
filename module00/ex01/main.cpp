@@ -5,7 +5,7 @@
 int main() {
     PhoneBook phone_book;
 
-    while (1) {
+    while (true) {
         std::string line;
         if (std::cin.eof())
             break;

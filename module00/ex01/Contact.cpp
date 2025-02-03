@@ -68,11 +68,14 @@ void print_field(const std::string& field) {
 }
 }  // namespace
 
-void Contact::display_one_line() const {
+void Contact::display_one_line(std::size_t index) const {
+    std::cout << std::setw(max_field_width) << std::right;
+    std::cout << index;
+    std::cout << " | ";
     print_field(first_name);
-    std::cout << "|";
+    std::cout << " | ";
     print_field(last_name);
-    std::cout << "|";
+    std::cout << " | ";
     print_field(nickname);
     std::cout << '\n';
 }

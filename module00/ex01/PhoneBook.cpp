@@ -57,7 +57,6 @@ void PhoneBook::push(const Contact& to_add) {
 
 void PhoneBook::display() const {
     for (std::size_t i = 0; i < this->sz; i++) {
-        std::cout << i << " | ";
-        data[i].display_one_line();
+        data[i].display_one_line(i);
     }
 }

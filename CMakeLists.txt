@@ -4,7 +4,7 @@ project(Cpp_modules
 )
 
 set(CMAKE_CXX_STANDARD 98)
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -g3")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -g3")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(module00)

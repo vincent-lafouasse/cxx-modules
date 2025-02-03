@@ -23,20 +23,24 @@ void PhoneBook::prompt_and_add_contact() {
 }
 
 void PhoneBook::prompt_and_display_contact() const {
-    std::string index_string;
-    std::cin >> index_string;
-
     long index;
-    char* end_ptr;
-    index = std::strtol(index_string.c_str(), &end_ptr, 10);
-    if (*end_ptr != '\0') {
-        std::cout << "No" << std::endl;
-        return;
-    }
+    while (1) {
+        std::string index_string;
+        std::cout << "> > ";
+        std::cout.flush();
+        std::cin >> index_string;
+        char* end_ptr;
+        index = std::strtol(index_string.c_str(), &end_ptr, 10);
 
-    if (static_cast<std::size_t>(index) >= this->sz || index < 0) {
-        std::cout << "No" << std::endl;
-        return;
+        if (*end_ptr != '\0') {
+            std::cout << "No" << std::endl;
+            continue;
+        }
+        if (static_cast<std::size_t>(index) >= this->sz || index < 0) {
+            std::cout << "No" << std::endl;
+            continue;
+        }
+        break;
     }
 
     data[index].display();

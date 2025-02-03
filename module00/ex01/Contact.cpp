@@ -1,5 +1,7 @@
 #include "Contact.hpp"
 
+#include <iomanip>
+#include <ios>
 #include <iostream>
 
 Contact::Contact()
@@ -50,10 +52,29 @@ bool Contact::is_valid() const {
            phone_number != "" && secret != "";
 }
 
+namespace {
+const std::size_t max_field_width = 10;
+std::string truncate_if_necessary(std::string field) {
+    if (field.length() <= max_field_width) {
+        return field;
+    }
+
+    return field.substr(0, max_field_width - 1) + ".";
+}
+
+void print_field(const std::string& field) {
+    std::cout << std::setw(max_field_width) << std::right;
+    std::cout << truncate_if_necessary(field);
+}
+}  // namespace
+
 void Contact::display_one_line() const {
-    std::cout << first_name << " | ";
-    std::cout << last_name << " | ";
-    std::cout << nickname << std::endl;
+    print_field(first_name);
+    std::cout << "|";
+    print_field(last_name);
+    std::cout << "|";
+    print_field(nickname);
+    std::cout << '\n';
 }
 
 void Contact::display() const {

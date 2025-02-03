@@ -6,5 +6,6 @@ project(Cpp_modules
 set(CMAKE_CXX_STANDARD 98)
 set(CMAKE_CXX_FLAGS "-Wall -Wextra -g3")
 
+add_subdirectory(module00/ex00)
 add_subdirectory(module02)
 add_subdirectory(module03)

@@ -81,11 +81,12 @@ void Contact::display_one_line(std::size_t index) const {
 }
 
 void Contact::display() const {
-    std::cout << "first:\t" << first_name << "\n";
-    std::cout << "last:\t" << last_name << "\n";
-    std::cout << "nickname:\t" << nickname << "\n";
-    std::cout << "phone:\t" << phone_number << "\n";
-    std::cout << "secret:\t" << secret << std::endl;
+    std::cout << std::left;
+    std::cout << std::setw(11) << "first:" << first_name << "\n";
+    std::cout << std::setw(11) << "last:" << last_name << "\n";
+    std::cout << std::setw(11) << "nickname:" << nickname << "\n";
+    std::cout << std::setw(11) << "phone:" << phone_number << "\n";
+    std::cout << std::setw(11) << "secret:" << secret << std::endl;
 }
 
 bool Contact::operator==(const Contact& other) const {

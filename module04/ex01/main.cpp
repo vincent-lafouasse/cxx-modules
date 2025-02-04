@@ -3,21 +3,20 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
+#define N 4
+
 int main() {
-    {
-        const Animal* animal = new Animal();
-        const Animal* dog = new Dog();
-        const Animal* cat = new Cat();
+    Animal* animals[N];
+    for (std::size_t i = 0; i < N; i++) {
+        if (i % 2)
+            animals[i] = new Dog();
+        else
+            animals[i] = new Cat();
+    }
 
-        std::cout << "dog is a " << dog->getType() << std::endl;
-        std::cout << "cat is a " << cat->getType() << std::endl;
+    // do stuff
 
-        dog->makeSound();
-        cat->makeSound();
-        animal->makeSound();
-
-        delete dog;
-        delete cat;
-        delete animal;
+    for (std::size_t i = 0; i < N; i++) {
+        delete animals[i];
     }
 }

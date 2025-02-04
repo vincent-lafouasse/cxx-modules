@@ -11,8 +11,8 @@ Config Config::from_sysargs(int ac, char** av) {
     }
 
     std::string file(av[1]);
-    std::string before = av[2];
-    std::string after = av[3];
+    std::string before(av[2]);
+    std::string after(av[3]);
 
     std::ifstream read_check(file.c_str());
     if (read_check.fail()) {

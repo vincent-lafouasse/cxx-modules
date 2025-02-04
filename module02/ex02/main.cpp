@@ -14,7 +14,7 @@ float random_float();
 }  // namespace
 
 int main() {
-    std::srand(static_cast<unsigned>(time(0)));
+    std::srand(static_cast<unsigned>(time(NULL)));
 
     given_test();
 

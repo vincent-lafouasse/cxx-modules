@@ -24,7 +24,7 @@ void PhoneBook::prompt_and_add_contact() {
 
 void PhoneBook::prompt_and_display_contact() const {
     long index;
-    while (1) {
+    while (true) {
         std::string index_string;
         std::cout << "> > ";
         std::cout.flush();

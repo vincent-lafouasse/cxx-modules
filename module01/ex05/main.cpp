@@ -5,7 +5,7 @@
 int main() {
     Harl harl;
 
-    while (1) {
+    while (true) {
         std::string level;
         if (std::cin.eof())
             break;

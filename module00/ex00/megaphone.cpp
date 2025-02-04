@@ -4,7 +4,7 @@
 #include <string>
 
 void yell(const std::string& in) {
-    for (std::string::const_iterator it = in.begin(); it != in.end(); it++) {
+    for (std::string::const_iterator it = in.begin(); it != in.end(); ++it) {
         std::cout << static_cast<char>(std::toupper(*it));
     }
 }

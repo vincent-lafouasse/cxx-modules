@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Zombie::Zombie() : name("") {}
+Zombie::Zombie() {}
 
 Zombie::~Zombie() {
     std::cout << "ripbozo " << name << "\n";

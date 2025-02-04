@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-typedef void (Harl::*complaint)(void) const;
+typedef void (Harl::*complaint)() const;
 
 void Harl::complain(std::string level) {
     static const std::pair<const char*, complaint> complaints[] = {

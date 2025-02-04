@@ -4,7 +4,7 @@
 
 class Zombie {
    public:
-    Zombie(const std::string& name);
+    explicit Zombie(const std::string& name);
     ~Zombie();
     void announce() const;
 

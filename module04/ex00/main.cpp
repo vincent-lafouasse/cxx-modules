@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 
+#include "Animal.hpp"
+
 namespace {
-const char* generic_sound = "generic animal sound\n";
 const char* dog_sound = "bork bork\n";
 const char* cat_sound = "mrow mrow\n";
 
@@ -10,23 +11,6 @@ const char* generic_wrong_sound = "generic animal sound but wrong\n";
 const char* wrong_dog_sound = "bork bork but wrong\n";
 const char* wrong_cat_sound = "mrow mrow but wrong\n";
 }  // namespace
-
-class Animal {
-   public:
-    Animal() : type("something") { std::cout << "Animal created\n"; }
-    Animal& operator=(const Animal& a) {
-        std::cout << "Animal assigned\n";
-        this->type = a.type;
-        return *this;
-    }
-    virtual ~Animal() { std::cout << "Animal destroyed\n"; }
-
-    virtual void makeSound() const { std::cout << generic_sound; }
-    std::string getType() const { return this->type; }
-
-   protected:
-    std::string type;
-};
 
 class Dog : public Animal {
    public:

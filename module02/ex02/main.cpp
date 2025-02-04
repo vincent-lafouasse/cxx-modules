@@ -1,7 +1,6 @@
 #include "Fixed.hpp"
 
 #include <cassert>
-#include <cmath>
 #include <cstdlib>
 #include <ctime>
 

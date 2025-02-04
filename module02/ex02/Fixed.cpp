@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <cmath>
 #include <iostream>
 
 Fixed::Fixed() : bits(0) {}

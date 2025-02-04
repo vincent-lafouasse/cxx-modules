@@ -48,11 +48,11 @@ void given_test() {
     std::cout << "10.1016\n";
 }
 
-void test(float __a, float __b) {
-    std::cout << "With input " << __a << " " << __b << "\n";
+void test(float a_, float b_) {
+    std::cout << "With input " << a_ << " " << b_ << "\n";
 
-    Fixed a(__a);
-    Fixed b(__b);
+    Fixed a(a_);
+    Fixed b(b_);
     std::cout << "a\t= " << a << '\n';
     std::cout << "b\t= " << b << '\n';
     std::cout << "a + b\t= " << a + b << '\n';

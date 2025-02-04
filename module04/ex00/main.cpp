@@ -1,38 +1,14 @@
 #include <iostream>
 #include <string>
 
-#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
 namespace {
-const char* dog_sound = "bork bork\n";
-const char* cat_sound = "mrow mrow\n";
-
 const char* generic_wrong_sound = "generic animal sound but wrong\n";
 const char* wrong_dog_sound = "bork bork but wrong\n";
 const char* wrong_cat_sound = "mrow mrow but wrong\n";
 }  // namespace
-
-class Dog : public Animal {
-   public:
-    Dog() : Animal() {
-        std::cout << "Dog created\n";
-        this->type = "Dog";
-    }
-    ~Dog() { std::cout << "Dog destroyed\n"; }
-
-    void makeSound() const { std::cout << dog_sound; }
-};
-
-class Cat : public Animal {
-   public:
-    Cat() : Animal() {
-        std::cout << "Cat created\n";
-        this->type = "Cat";
-    }
-    ~Cat() { std::cout << "Cat destroyed\n"; }
-
-    void makeSound() const { std::cout << cat_sound; }
-};
 
 class WrongAnimal {
    public:

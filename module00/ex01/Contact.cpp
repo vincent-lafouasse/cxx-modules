@@ -4,12 +4,7 @@
 #include <ios>
 #include <iostream>
 
-Contact::Contact()
-    : first_name(""),
-      last_name(""),
-      nickname(""),
-      phone_number(""),
-      secret("") {}
+Contact::Contact() {}
 
 Contact::Contact(const std::string& first_name,
                  const std::string& last_name,

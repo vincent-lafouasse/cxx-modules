@@ -31,18 +31,28 @@ Contact Contact::from_user() {
 
     std::cout << "First name:\t";
     std::cin >> first_name;
+    if (std::cin.eof())
+        std::exit(EXIT_SUCCESS);
 
     std::cout << "Last name:\t";
     std::cin >> last_name;
+    if (std::cin.eof())
+        std::exit(EXIT_SUCCESS);
 
     std::cout << "nickname:\t";
     std::cin >> nickname;
+    if (std::cin.eof())
+        std::exit(EXIT_SUCCESS);
 
     std::cout << "Phone number:\t";
     std::cin >> phone_number;
+    if (std::cin.eof())
+        std::exit(EXIT_SUCCESS);
 
     std::cout << "Secret:\t\t";
     std::cin >> secret;
+    if (std::cin.eof())
+        std::exit(EXIT_SUCCESS);
 
     return Contact(first_name, last_name, nickname, phone_number, secret);
 }

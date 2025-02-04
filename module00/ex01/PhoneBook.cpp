@@ -29,6 +29,9 @@ void PhoneBook::prompt_and_display_contact() const {
         std::cout << "> > ";
         std::cout.flush();
         std::cin >> index_string;
+        if (std::cin.eof())
+            std::exit(EXIT_SUCCESS);
+
         char* end_ptr;
         index = std::strtol(index_string.c_str(), &end_ptr, 10);
 

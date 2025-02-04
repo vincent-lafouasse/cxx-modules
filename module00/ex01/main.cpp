@@ -7,10 +7,10 @@ int main() {
 
     while (true) {
         std::string line;
-        if (std::cin.eof())
-            break;
         std::cout << "> ";
         std::cin >> line;
+        if (std::cin.eof())
+            break;
         if (line.empty())
             continue;
         Command command(line);

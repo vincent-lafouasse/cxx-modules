@@ -59,7 +59,7 @@ bool Contact::is_valid() const {
 
 namespace {
 const std::size_t max_field_width = 10;
-std::string truncate_if_necessary(std::string field) {
+std::string truncate_if_necessary(const std::string& field) {
     if (field.length() <= max_field_width) {
         return field;
     }

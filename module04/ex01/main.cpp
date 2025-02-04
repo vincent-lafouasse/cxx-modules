@@ -2,8 +2,6 @@
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongCat.hpp"
-#include "WrongDog.hpp"
 
 int main() {
     {
@@ -21,21 +19,5 @@ int main() {
         delete dog;
         delete cat;
         delete animal;
-    }
-    {
-        const WrongAnimal* wrong_animal = new WrongAnimal();
-        const WrongAnimal* wrong_dog = new WrongDog();
-        const WrongAnimal* wrong_cat = new WrongCat();
-
-        std::cout << "wrong_dog is a " << wrong_dog->getType() << std::endl;
-        std::cout << "wrong_cat is a " << wrong_cat->getType() << std::endl;
-
-        wrong_dog->makeSound();
-        wrong_cat->makeSound();
-        wrong_animal->makeSound();
-
-        delete wrong_dog;
-        delete wrong_cat;
-        delete wrong_animal;
     }
 }

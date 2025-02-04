@@ -1,49 +1,9 @@
 #include <iostream>
-#include <string>
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-
-namespace {
-const char* generic_wrong_sound = "generic animal sound but wrong\n";
-const char* wrong_dog_sound = "bork bork but wrong\n";
-const char* wrong_cat_sound = "mrow mrow but wrong\n";
-}  // namespace
-
-class WrongAnimal {
-   public:
-    WrongAnimal() : type("Wrongsomething") {
-        std::cout << "WrongAnimal created\n";
-    }
-    WrongAnimal& operator=(const WrongAnimal& a) {
-        std::cout << "WrongAnimal assigned\n";
-        this->type = a.type;
-        return *this;
-    }
-    void makeSound() const { std::cout << generic_wrong_sound; }
-    std::string getType() const { return this->type; }
-
-   protected:
-    std::string type;
-};
-
-class WrongDog : public WrongAnimal {
-   public:
-    WrongDog() : WrongAnimal() {
-        std::cout << "WrongDog created\n";
-        this->type = "WrongDog";
-    }
-    void makeSound() const { std::cout << wrong_dog_sound; }
-};
-
-class WrongCat : public WrongAnimal {
-   public:
-    WrongCat() : WrongAnimal() {
-        std::cout << "WrongCat created\n";
-        this->type = "WrongCat";
-    }
-    void makeSound() const { std::cout << wrong_cat_sound; }
-};
+#include "WrongCat.hpp"
+#include "WrongDog.hpp"
 
 int main() {
     {

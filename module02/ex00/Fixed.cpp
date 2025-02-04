@@ -14,11 +14,11 @@ Fixed::Fixed() : bits(0) {
     std::cout << default_ctor_msg;
 }
 
-Fixed::Fixed(Fixed& other) : bits(other.getRawBits()) {
+Fixed::Fixed(const Fixed& other) : bits(other.getRawBits()) {
     std::cout << copy_ctor_msg;
 }
 
-Fixed& Fixed::operator=(Fixed& other) {
+Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << copy_assig_op_msg;
     this->bits = other.getRawBits();
     return *this;

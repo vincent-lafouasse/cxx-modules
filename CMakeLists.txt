@@ -9,3 +9,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(module00)
 add_subdirectory(module01)
+add_subdirectory(module02)
+add_subdirectory(module03)
+add_subdirectory(module04)

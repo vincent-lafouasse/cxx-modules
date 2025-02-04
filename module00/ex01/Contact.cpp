@@ -53,8 +53,8 @@ Contact Contact::from_user() {
 }
 
 bool Contact::is_valid() const {
-    return first_name != "" && last_name != "" && nickname != "" &&
-           phone_number != "" && secret != "";
+    return (first_name.empty() || last_name.empty() || nickname.empty() ||
+            phone_number.empty() || secret.empty());
 }
 
 namespace {

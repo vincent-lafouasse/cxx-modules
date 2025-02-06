@@ -30,12 +30,16 @@ int main(int ac, char** av) {
     switch (level) {
         case Debug:
             harl.debug();
+            /* fall through */
         case Info:
             harl.info();
+            /* fall through */
         case Warning:
             harl.warning();
+            /* fall through */
         case Error:
             harl.error();
+            /* fall through */
         case None:
             harl.ramble();
     }

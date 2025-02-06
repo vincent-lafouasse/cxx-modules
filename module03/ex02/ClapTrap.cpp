@@ -55,6 +55,15 @@ ClapTrap::ClapTrap(const std::string& name)
     std::cout << named_ctor_msg;
 }
 
+ClapTrap::ClapTrap(const std::string& name,
+                   uint32_t health_points,
+                   uint32_t energy_points,
+                   uint32_t attack_points)
+    : name(name),
+      health_points(health_points),
+      energy_points(energy_points),
+      attack_points(attack_points) {}
+
 void ClapTrap::attack(const std::string& target) {
     if (this->health_points == 0) {
         std::cout << he_dead;

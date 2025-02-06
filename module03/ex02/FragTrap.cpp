@@ -25,7 +25,8 @@ FragTrap::FragTrap()
     std::cout << default_ctor_msg;
 }
 
-FragTrap::FragTrap(const FragTrap& o) {
+FragTrap::FragTrap(const FragTrap& o)
+    : ClapTrap(o.name, o.health_points, o.energy_points, o.attack_points) {
     std::cout << copy_ctor_msg;
     *this = o;
 }
@@ -40,7 +41,7 @@ FragTrap& FragTrap::operator=(const FragTrap& o) {
 }
 
 FragTrap::FragTrap(const std::string& name)
-    : ClapTrap(default_name, base_hp, base_energy, base_attack) {
+    : ClapTrap(name, base_hp, base_energy, base_attack) {
     std::cout << named_ctor_msg;
 }
 

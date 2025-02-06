@@ -1,6 +1,6 @@
 #include "Fixed.hpp"
 
-#include <cmath>
+#include <math.h>
 #include <iostream>
 
 namespace {
@@ -27,7 +27,7 @@ Fixed::Fixed(int i) : bits(i * (1 << Fixed::fractional_digits)) {
 }
 
 Fixed::Fixed(float f)
-    : bits(static_cast<int>(std::roundf(f * (1 << Fixed::fractional_digits)))) {
+    : bits(static_cast<int>(roundf(f * (1 << Fixed::fractional_digits)))) {
     std::cout << float_ctor_msg;
 }
 
@@ -47,7 +47,7 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    return static_cast<int>(std::roundf(this->toFloat()));
+    return static_cast<int>(roundf(this->toFloat()));
 }
 
 int Fixed::getRawBits() const {

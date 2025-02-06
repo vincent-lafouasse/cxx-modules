@@ -21,7 +21,7 @@ Level parse(const std::string& level) {
 int main(int ac, char** av) {
     if (ac != 2) {
         std::cout << USAGE << std::endl;
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     Harl harl;

@@ -1,9 +1,9 @@
 #include "Contact.hpp"
 
+#include <cstdlib>
 #include <iomanip>
 #include <ios>
 #include <iostream>
-#include <cstdlib>
 
 Contact::Contact() {}
 

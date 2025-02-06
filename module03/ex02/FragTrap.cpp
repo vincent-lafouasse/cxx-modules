@@ -20,12 +20,9 @@ const char* copy_op_msg = "FragTrap copy assignment op\n";
 const char* dtor_msg = "FragTrap dtor\n";
 }  // namespace
 
-FragTrap::FragTrap() : ClapTrap(default_name) {
+FragTrap::FragTrap()
+    : ClapTrap(default_name, base_hp, base_energy, base_attack) {
     std::cout << default_ctor_msg;
-
-    this->health_points = base_hp;
-    this->energy_points = base_energy;
-    this->attack_points = base_attack;
 }
 
 FragTrap::FragTrap(const FragTrap& o) {
@@ -42,12 +39,9 @@ FragTrap& FragTrap::operator=(const FragTrap& o) {
     return *this;
 }
 
-FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string& name)
+    : ClapTrap(default_name, base_hp, base_energy, base_attack) {
     std::cout << named_ctor_msg;
-
-    this->health_points = base_hp;
-    this->energy_points = base_energy;
-    this->attack_points = base_attack;
 }
 
 FragTrap::~FragTrap() {

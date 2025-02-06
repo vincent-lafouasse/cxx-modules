@@ -1,7 +1,8 @@
 #pragma once
 
-#include <string>
 #include <stdint.h>
+#include <cstdint>
+#include <string>
 
 class ClapTrap {
    public:
@@ -16,6 +17,10 @@ class ClapTrap {
     virtual void beRepaired(uint32_t amount);
 
    protected:
+    ClapTrap(const std::string& name,
+             uint32_t health_points,
+             uint32_t energy_points,
+             uint32_t attack_points);
     std::string name;
     uint32_t health_points;
     uint32_t energy_points;

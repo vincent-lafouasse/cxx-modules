@@ -22,17 +22,16 @@ const char* copy_op_msg = "ScavTrap copy assignment op\n";
 const char* dtor_msg = "ScavTrap dtor\n";
 }  // namespace
 
-ScavTrap::ScavTrap() : ClapTrap(default_name), isGuarding(default_guard_state) {
+ScavTrap::ScavTrap()
+    : ClapTrap(default_name, base_hp, base_energy, base_attack),
+      isGuarding(default_guard_state) {
     std::cout << default_ctor_msg;
-
-    this->health_points = base_hp;
-    this->energy_points = base_energy;
-    this->attack_points = base_attack;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& o) {
+ScavTrap::ScavTrap(const ScavTrap& o)
+    : ClapTrap(o.name, o.health_points, o.energy_points, o.attack_points),
+      isGuarding(default_guard_state) {
     std::cout << copy_ctor_msg;
-    *this = o;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& o) {
@@ -46,12 +45,9 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& o) {
 }
 
 ScavTrap::ScavTrap(const std::string& name)
-    : ClapTrap(name), isGuarding(default_guard_state) {
+    : ClapTrap(name, base_hp, base_energy, base_attack),
+      isGuarding(default_guard_state) {
     std::cout << named_ctor_msg;
-
-    this->health_points = base_hp;
-    this->energy_points = base_energy;
-    this->attack_points = base_attack;
 }
 
 ScavTrap::~ScavTrap() {

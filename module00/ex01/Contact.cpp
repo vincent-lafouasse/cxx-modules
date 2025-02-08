@@ -54,8 +54,8 @@ Contact Contact::from_user() {
 }
 
 bool Contact::is_valid() const {
-    return (first_name.empty() || last_name.empty() || nickname.empty() ||
-            phone_number.empty() || secret.empty());
+    return !(first_name.empty() || last_name.empty() || nickname.empty() ||
+             phone_number.empty() || secret.empty());
 }
 
 namespace {

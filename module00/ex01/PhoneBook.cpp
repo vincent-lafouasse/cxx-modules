@@ -50,7 +50,7 @@ void PhoneBook::prompt_and_display_contact() const {
 }
 
 void PhoneBook::push(const Contact& to_add) {
-    if (sz == PHONE_BOOK_SZ) {
+    if (sz == PhoneBook::capacity) {
         data[sz - 1] = to_add;
     } else {
         data[sz] = to_add;

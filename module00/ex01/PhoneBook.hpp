@@ -3,8 +3,6 @@
 #include "Command.hpp"
 #include "Contact.hpp"
 
-#define PHONE_BOOK_SZ 8
-
 class PhoneBook {
    public:
     PhoneBook();
@@ -16,6 +14,7 @@ class PhoneBook {
     void push(const Contact& to_add);
     void display() const;
 
-    Contact data[PHONE_BOOK_SZ];
+    static const std::size_t capacity = 8;
+    Contact data[PhoneBook::capacity];
     std::size_t sz;
 };

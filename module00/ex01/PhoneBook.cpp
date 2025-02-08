@@ -16,9 +16,10 @@ void PhoneBook::process_command(Command command) {
 
 void PhoneBook::prompt_and_add_contact() {
     Contact contact;
-    while (!contact.is_valid()) {
+
+    do {
         contact = Contact::from_user();
-    }
+    } while (!contact.is_valid());
     this->push(contact);
 }
 

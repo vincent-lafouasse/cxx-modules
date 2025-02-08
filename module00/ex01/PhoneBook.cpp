@@ -46,20 +46,20 @@ void PhoneBook::prompt_and_display_contact() const {
         break;
     }
 
-    data[index].display();
+    contacts[index].display();
 }
 
 void PhoneBook::push(const Contact& to_add) {
     if (sz == PhoneBook::capacity) {
-        data[sz - 1] = to_add;
+        contacts[sz - 1] = to_add;
     } else {
-        data[sz] = to_add;
+        contacts[sz] = to_add;
         sz++;
     }
 }
 
 void PhoneBook::display() const {
     for (std::size_t i = 0; i < this->sz; i++) {
-        data[i].display_one_line(i);
+        contacts[i].display_one_line(i);
     }
 }

@@ -15,6 +15,6 @@ class PhoneBook {
     void display() const;
 
     static const std::size_t capacity = 8;
-    Contact data[PhoneBook::capacity];
+    Contact contacts[PhoneBook::capacity];
     std::size_t sz;
 };

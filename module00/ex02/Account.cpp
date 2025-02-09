@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <iomanip>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
@@ -116,11 +117,21 @@ void Account::_displayTimestamp(void) {
 
     std::cout << "[";
     std::cout << now_gmt->tm_year + 1900;
+    std::cout << std::setw(2);
+    std::cout << std::setfill('0');
     std::cout << now_gmt->tm_mon;
+    std::cout << std::setw(2);
+    std::cout << std::setfill('0');
     std::cout << now_gmt->tm_mday;
     std::cout << "_";
+    std::cout << std::setw(2);
+    std::cout << std::setfill('0');
     std::cout << now_gmt->tm_hour;
+    std::cout << std::setw(2);
+    std::cout << std::setfill('0');
     std::cout << now_gmt->tm_min;
+    std::cout << std::setw(2);
+    std::cout << std::setfill('0');
     std::cout << now_gmt->tm_sec;
     std::cout << "] ";
 }

@@ -2,16 +2,11 @@
 
 #include "Weapon.hpp"
 
-#include <iostream>  // bad
-
 class HumanB {
    public:
-    explicit HumanB(const std::string& name) : name(name), weapon(NULL) {}
-    void attack() const {
-        std::string w = weapon ? weapon->getType() : "bare hands";
-        std::cout << name << " " << w << '\n';
-    }
-    void setWeapon(const Weapon& w) { weapon = &w; }
+    explicit HumanB(const std::string& name);
+    void attack() const;
+    void setWeapon(const Weapon& w);
 
    private:
     std::string name;

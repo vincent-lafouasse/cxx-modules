@@ -31,8 +31,13 @@ Config Config::from_sysargs(int ac, char** av) {
         std::exit(EXIT_FAILURE);
     }
 
-    return (Config){.file = file, .before = before, .after = after};
+    return Config(file, before, after);
 }
+
+Config::Config(const std::string& file,
+               const std::string& before,
+               const std::string& after)
+    : file(file), before(before), after(after) {}
 
 void Config::log() const {
     std::cout << "file\t" << file << '\n';

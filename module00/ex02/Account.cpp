@@ -4,43 +4,43 @@
 #include <ctime>
 #include <iostream>
 
-static int n_accounts = 0;
-static int total_amount = 0;
-static int n_deposits = 0;
-static int n_withdrawals = 0;
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
 
 int Account::getNbAccounts(void) {
-    return n_accounts;
+    return Account::_nbAccounts;
 }
 
 int Account::getTotalAmount(void) {
-    return total_amount;
+    return Account::_totalAmount;
 }
 
 int Account::getNbDeposits(void) {
-    return n_deposits;
+    return Account::_totalNbDeposits;
 }
 
 int Account::getNbWithdrawals(void) {
-    return n_withdrawals;
+    return Account::_totalNbWithdrawals;
 }
 
 void Account::displayAccountsInfos(void) {
     Account::_displayTimestamp();
-    std::cout << "accounts:" << n_accounts << ";";
-    std::cout << "total:" << total_amount << ";";
-    std::cout << "deposits:" << n_deposits << ";";
-    std::cout << "withdrawals:" << n_withdrawals;
+    std::cout << "accounts:" << Account::_nbAccounts << ";";
+    std::cout << "total:" << Account::_totalAmount << ";";
+    std::cout << "deposits:" << Account::_totalNbDeposits << ";";
+    std::cout << "withdrawals:" << Account::_totalNbWithdrawals;
     std::cout << "\n";
 }
 
 Account::Account(int initial_deposit)
-    : _accountIndex(n_accounts),
+    : _accountIndex(Account::_nbAccounts),
       _amount(initial_deposit),
       _nbDeposits(0),
       _nbWithdrawals(0) {
-    n_accounts++;
-    total_amount += initial_deposit;
+    Account::_nbAccounts++;
+    Account::_totalAmount += initial_deposit;
 
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
@@ -58,8 +58,8 @@ Account::~Account() {
 void Account::makeDeposit(int deposit) {
     _amount += deposit;
     _nbDeposits++;
-    total_amount += deposit;
-    n_deposits++;
+    Account::_totalAmount += deposit;
+    Account::_totalNbDeposits++;
 
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";
@@ -80,8 +80,8 @@ bool Account::makeWithdrawal(int withdrawal) {
 
     _amount -= withdrawal;
     _nbWithdrawals++;
-    total_amount -= withdrawal;
-    n_withdrawals++;
+    Account::_totalAmount -= withdrawal;
+    Account::_totalNbWithdrawals++;
 
     Account::_displayTimestamp();
     std::cout << "index:" << this->_accountIndex << ";";

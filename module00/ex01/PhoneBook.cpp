@@ -52,7 +52,7 @@ void PhoneBook::prompt_and_display_contact() const {
 
 void PhoneBook::push(const Contact& to_add) {
     if (sz == PhoneBook::capacity) {
-        contacts[sz - 1] = to_add;
+        contacts[PhoneBook::capacity - 1] = to_add;
     } else {
         contacts[sz] = to_add;
         sz++;

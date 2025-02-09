@@ -1,6 +1,6 @@
 NAME = megaphone
 
-SRCS = $(shell find . -name '*.cpp')
+SRCS = megaphone.cpp
 
 CXX = c++
 CXXFLAGS  = -Wall -Wextra -Werror

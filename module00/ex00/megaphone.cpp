@@ -3,11 +3,8 @@
 #include <iostream>
 #include <string>
 
-void yell(const std::string& s) {
-    // i should be using s.cbegin() and s.cend() here, fuck C++98
-    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it) {
-        std::cout << static_cast<char>(std::toupper(*it));
-    }
+namespace {
+void yell(const std::string& s);
 }
 
 int main(int ac, char* av[]) {
@@ -23,3 +20,12 @@ int main(int ac, char* av[]) {
 
     return EXIT_SUCCESS;
 }
+
+namespace {
+void yell(const std::string& s) {
+    // i should be using s.cbegin() and s.cend() here, fuck C++98
+    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it) {
+        std::cout << static_cast<char>(std::toupper(*it));
+    }
+}
+}  // namespace

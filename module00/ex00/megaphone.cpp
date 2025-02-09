@@ -3,9 +3,9 @@
 #include <iostream>
 #include <string>
 
-void yell(const std::string& in) {
-    // i should be using in.cbegin() and in.cend(), fuck C++98
-    for (std::string::const_iterator it = in.begin(); it != in.end(); ++it) {
+void yell(const std::string& s) {
+    // i should be using s.cbegin() and s.cend() here, fuck C++98
+    for (std::string::const_iterator it = s.begin(); it != s.end(); ++it) {
         std::cout << static_cast<char>(std::toupper(*it));
     }
 }

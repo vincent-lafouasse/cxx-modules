@@ -4,6 +4,7 @@ horde
 references
 violence
 cool_sed
+*.replace
 harl2
 harlFilter
 *.dSYM

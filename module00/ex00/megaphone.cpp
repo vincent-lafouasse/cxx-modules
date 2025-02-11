@@ -5,11 +5,12 @@
 
 namespace {
 void yell(const std::string& s);
-}
+const char* no_args_message = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+}  // namespace
 
 int main(int ac, char* av[]) {
     if (ac == 1) {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+        std::cout << no_args_message << std::endl;
         return EXIT_SUCCESS;
     }
 

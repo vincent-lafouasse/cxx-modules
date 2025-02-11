@@ -39,7 +39,7 @@ int main(int ac, char** av) {
             /* fall through */
         case Error:
             harl.error();
-            /* fall through */
+            break;
         case None:
             harl.ramble();
     }

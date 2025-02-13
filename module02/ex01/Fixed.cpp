@@ -22,12 +22,12 @@ Fixed::Fixed(const Fixed& other) : bits(other.bits) {
     std::cout << copy_ctor_msg;
 }
 
-Fixed::Fixed(int i) : bits(i * (1 << Fixed::fractional_digits)) {
+Fixed::Fixed(int i) : bits(i * Fixed::scaling_factor()) {
     std::cout << int_ctor_msg;
 }
 
 Fixed::Fixed(float f)
-    : bits(static_cast<int>(roundf(f * (1 << Fixed::fractional_digits)))) {
+    : bits(static_cast<int>(roundf(f * Fixed::scaling_factor()))) {
     std::cout << float_ctor_msg;
 }
 
@@ -43,11 +43,15 @@ Fixed::~Fixed() {
 
 float Fixed::toFloat() const {
     return static_cast<float>(bits) /
-           static_cast<float>(1 << Fixed::fractional_digits);
+           static_cast<float>(Fixed::scaling_factor());
 }
 
 int Fixed::toInt() const {
     return static_cast<int>(roundf(this->toFloat()));
+}
+
+int Fixed::scaling_factor() {
+    return static_cast<int>(1 << Fixed::fractional_digits);
 }
 
 int Fixed::getRawBits() const {

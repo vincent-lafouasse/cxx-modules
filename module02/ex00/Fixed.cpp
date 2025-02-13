@@ -14,7 +14,7 @@ Fixed::Fixed() : bits(0) {
     std::cout << default_ctor_msg;
 }
 
-Fixed::Fixed(const Fixed& other) : bits(other.getRawBits()) {
+Fixed::Fixed(const Fixed& other) : bits(other.bits) {
     std::cout << copy_ctor_msg;
 }
 

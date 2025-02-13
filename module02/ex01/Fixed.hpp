@@ -6,10 +6,11 @@ class Fixed {
    public:
     Fixed();
     Fixed(const Fixed&);
-    explicit Fixed(int);
-    explicit Fixed(float);
     Fixed& operator=(const Fixed&);
     ~Fixed();
+
+    explicit Fixed(int);
+    explicit Fixed(float);
 
     int getRawBits() const;
     void setRawBits(int);

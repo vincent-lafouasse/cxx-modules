@@ -20,7 +20,7 @@ Fixed::Fixed(const Fixed& other) : bits(other.getRawBits()) {
 
 Fixed& Fixed::operator=(const Fixed& other) {
     std::cout << copy_assig_op_msg;
-    this->bits = other.getRawBits();
+    this->bits = other.bits;
     return *this;
 }
 
@@ -30,10 +30,10 @@ Fixed::~Fixed() {
 
 int Fixed::getRawBits() const {
     std::cout << get_msg;
-    return bits;
+    return this->bits;
 }
 
 void Fixed::setRawBits(int const raw) {
     std::cout << set_msg;
-    bits = raw;
+    this->bits = raw;
 }

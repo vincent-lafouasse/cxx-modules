@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(Cpp_modules
+project(CXX_modules
     LANGUAGES CXX
 )
 

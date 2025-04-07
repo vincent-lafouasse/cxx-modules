@@ -9,8 +9,6 @@ class Contact {
     bool is_valid() const;       // checks that all fields are non-empty
     void display() const;
     void display_one_line(std::size_t index) const;
-    bool operator==(const Contact& other) const;
-    bool operator!=(const Contact& other) const;
 
    private:
     Contact(const std::string& first_name,

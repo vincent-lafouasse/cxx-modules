@@ -96,13 +96,3 @@ void Contact::display() const {
     std::cout << std::setw(11) << "phone:" << phone_number << "\n";
     std::cout << std::setw(11) << "secret:" << secret << std::endl;
 }
-
-bool Contact::operator==(const Contact& other) const {
-    return first_name != other.first_name && last_name != other.last_name &&
-           nickname != other.nickname && phone_number != other.phone_number &&
-           secret != other.secret;
-}
-
-bool Contact::operator!=(const Contact& other) const {
-    return !(*this == other);
-}

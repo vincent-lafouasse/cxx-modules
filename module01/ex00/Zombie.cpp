@@ -8,7 +8,7 @@ Zombie::Zombie(const std::string& name) : name(name) {
 
 Zombie::~Zombie() {
     std::clog << "-- [Zombie::~Zombie()]\n";
-    std::cout << "-- ripbozo " << name << "\n";
+    std::clog << "-- ripbozo " << name << "\n";
 }
 
 void Zombie::announce() const {

@@ -2,10 +2,13 @@
 
 #include <iostream>
 
-Zombie::Zombie() {}
+Zombie::Zombie() {
+    std::clog << "-- [Zombie::Zombie()]\n";
+}
 
 Zombie::~Zombie() {
-    std::cout << "ripbozo " << name << "\n";
+    std::clog << "-- [Zombie::~Zombie()]\n";
+    std::clog << "-- ripbozo " << name << "\n";
 }
 
 void Zombie::set_name(const std::string& name) {

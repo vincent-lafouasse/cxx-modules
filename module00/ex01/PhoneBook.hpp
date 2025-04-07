@@ -17,4 +17,5 @@ class PhoneBook {
     static const std::size_t capacity = 8;
     Contact contacts[PhoneBook::capacity];
     std::size_t sz;
+    std::size_t oldest;
 };

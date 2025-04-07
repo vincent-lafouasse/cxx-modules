@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 
-PhoneBook::PhoneBook() : sz(0) {}
+PhoneBook::PhoneBook() : sz(0), oldest(0) {}
 
 void PhoneBook::process_command(Command command) {
     if (command.kind == Command::Add) {
@@ -51,11 +51,12 @@ void PhoneBook::prompt_and_display_contact() const {
 }
 
 void PhoneBook::push(const Contact& to_add) {
-    if (sz == PhoneBook::capacity) {
-        contacts[PhoneBook::capacity - 1] = to_add;
+    if (this->sz == PhoneBook::capacity) {
+        this->contacts[this->oldest] = to_add;
+        this->oldest = (this->oldest + 1) % PhoneBook::capacity;
     } else {
-        contacts[sz] = to_add;
-        sz++;
+        this->contacts[sz] = to_add;
+        this->sz++;
     }
 }
 

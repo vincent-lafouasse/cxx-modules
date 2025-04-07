@@ -3,7 +3,7 @@
 
 int main() {
     {
-        Weapon club = Weapon("crude spiked club");
+        Weapon club("crude spiked club");
 
         HumanA bob("Bob", club);
         bob.attack();
@@ -12,7 +12,7 @@ int main() {
     }
 
     {
-        Weapon club = Weapon("crude spiked club");
+        Weapon club("crude spiked club");
 
         HumanB jim("Jim");
         jim.setWeapon(club);

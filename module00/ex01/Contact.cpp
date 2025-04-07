@@ -5,6 +5,20 @@
 #include <ios>
 #include <iostream>
 
+namespace {
+std::string get_string_or_exit(std::istream& stream) {
+    std::string out;
+
+    stream >> out;
+    if (stream.eof()) {
+        std::cout << std::endl;
+        std::exit(EXIT_SUCCESS);
+    }
+
+    return out;
+}
+}  // namespace
+
 Contact::Contact() {}
 
 Contact::Contact(const std::string& first_name,
@@ -19,36 +33,20 @@ Contact::Contact(const std::string& first_name,
       secret(secret) {}
 
 Contact Contact::from_user() {
-    std::string first_name;
-    std::string last_name;
-    std::string nickname;
-    std::string phone_number;
-    std::string secret;
-
     std::cout << "First name:\t";
-    std::cin >> first_name;
-    if (std::cin.eof())
-        std::exit(EXIT_SUCCESS);
+    std::string first_name = get_string_or_exit(std::cin);
 
     std::cout << "Last name:\t";
-    std::cin >> last_name;
-    if (std::cin.eof())
-        std::exit(EXIT_SUCCESS);
+    std::string last_name = get_string_or_exit(std::cin);
 
     std::cout << "nickname:\t";
-    std::cin >> nickname;
-    if (std::cin.eof())
-        std::exit(EXIT_SUCCESS);
+    std::string nickname = get_string_or_exit(std::cin);
 
     std::cout << "Phone number:\t";
-    std::cin >> phone_number;
-    if (std::cin.eof())
-        std::exit(EXIT_SUCCESS);
+    std::string phone_number = get_string_or_exit(std::cin);
 
     std::cout << "Secret:\t\t";
-    std::cin >> secret;
-    if (std::cin.eof())
-        std::exit(EXIT_SUCCESS);
+    std::string secret = get_string_or_exit(std::cin);
 
     return Contact(first_name, last_name, nickname, phone_number, secret);
 }

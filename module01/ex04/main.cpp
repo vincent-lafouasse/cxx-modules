@@ -12,7 +12,7 @@ bool matches_pattern(const std::string& pattern,
 }  // namespace
 
 int main(int ac, char* av[]) {
-    Config cfg = Config::from_sysargs(ac, av);
+    const Config cfg = Config::from_sysargs(ac, av);
     // cfg.log();
 
     const std::string data = load_entire_file(cfg.file);

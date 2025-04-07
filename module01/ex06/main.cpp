@@ -2,7 +2,9 @@
 #include <iostream>
 #include "Harl.hpp"
 
-#define USAGE "Usage: harlFilter level"
+namespace {
+const char* usage = "Usage: harlFilter level";
+}
 
 enum Level { Debug, Info, Warning, Error, None };
 
@@ -20,7 +22,7 @@ Level parse(const std::string& level) {
 
 int main(int ac, char** av) {
     if (ac != 2) {
-        std::cout << USAGE << std::endl;
+        std::cout << usage << std::endl;
         std::exit(EXIT_FAILURE);
     }
 

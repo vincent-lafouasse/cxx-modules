@@ -2,10 +2,13 @@
 
 #include <iostream>
 
-Zombie::Zombie(const std::string& name) : name(name) {}
+Zombie::Zombie(const std::string& name) : name(name) {
+    std::clog << "-- [Zombie::Zombie(" << name << ")]\n";
+}
 
 Zombie::~Zombie() {
-    std::cout << "ripbozo " << name << "\n";
+    std::clog << "-- [Zombie::~Zombie()]\n";
+    std::cout << "-- ripbozo " << name << "\n";
 }
 
 void Zombie::announce() const {

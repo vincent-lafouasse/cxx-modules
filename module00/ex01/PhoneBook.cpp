@@ -3,6 +3,20 @@
 #include <cstdlib>
 #include <iostream>
 
+namespace {
+std::string get_string_or_exit(std::istream& stream) {
+    std::string out;
+
+    stream >> out;
+    if (stream.eof()) {
+        std::cout << std::endl;
+        std::exit(EXIT_SUCCESS);
+    }
+
+    return out;
+}
+}  // namespace
+
 PhoneBook::PhoneBook() : sz(0), oldest(0) {}
 
 void PhoneBook::process_command(Command command) {
@@ -26,12 +40,8 @@ void PhoneBook::prompt_and_add_contact() {
 void PhoneBook::prompt_and_display_contact() const {
     long index;
     while (true) {
-        std::string index_string;
         std::cout << "> > ";
-        std::cout.flush();
-        std::cin >> index_string;
-        if (std::cin.eof())
-            std::exit(EXIT_SUCCESS);
+        std::string index_string = get_string_or_exit(std::cin);
 
         char* end_ptr;
         index = std::strtol(index_string.c_str(), &end_ptr, 10);

@@ -1,27 +1,14 @@
-#include "PhoneBook.hpp"
-
 #include <iostream>
 
-namespace {
-std::string get_string_or_exit(std::istream& stream) {
-    std::string out;
-
-    stream >> out;
-    if (stream.eof()) {
-        std::cout << std::endl;
-        std::exit(EXIT_SUCCESS);
-    }
-
-    return out;
-}
-}  // namespace
+#include "FormattedInput.hpp"
+#include "PhoneBook.hpp"
 
 int main() {
     PhoneBook phone_book;
 
     while (true) {
         std::cout << "> ";
-        std::string line = get_string_or_exit(std::cin);
+        std::string line = FormattedInput::get_string_or_exit(std::cin);
         if (line.empty())
             continue;
         Command command(line);

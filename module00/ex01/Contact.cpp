@@ -5,19 +5,7 @@
 #include <ios>
 #include <iostream>
 
-namespace {
-std::string get_string_or_exit(std::istream& stream) {
-    std::string out;
-
-    stream >> out;
-    if (stream.eof()) {
-        std::cout << std::endl;
-        std::exit(EXIT_SUCCESS);
-    }
-
-    return out;
-}
-}  // namespace
+#include "FormattedInput.hpp"
 
 Contact::Contact() {}
 
@@ -34,19 +22,19 @@ Contact::Contact(const std::string& first_name,
 
 Contact Contact::from_user() {
     std::cout << "First name:\t";
-    std::string first_name = get_string_or_exit(std::cin);
+    std::string first_name = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Last name:\t";
-    std::string last_name = get_string_or_exit(std::cin);
+    std::string last_name = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "nickname:\t";
-    std::string nickname = get_string_or_exit(std::cin);
+    std::string nickname = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Phone number:\t";
-    std::string phone_number = get_string_or_exit(std::cin);
+    std::string phone_number = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Secret:\t\t";
-    std::string secret = get_string_or_exit(std::cin);
+    std::string secret = FormattedInput::get_string_or_exit(std::cin);
 
     return Contact(first_name, last_name, nickname, phone_number, secret);
 }

@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "FormattedInput.hpp"
+#include "FormattedInput.h"
 #include "PhoneBook.hpp"
 
 int main() {

@@ -1,4 +1,4 @@
-#include "FormattedInput.hpp"
+#include "FormattedInput.h"
 
 #include <iostream>
 

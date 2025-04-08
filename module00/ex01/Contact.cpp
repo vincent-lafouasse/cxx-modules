@@ -5,7 +5,7 @@
 #include <ios>
 #include <iostream>
 
-#include "FormattedInput.hpp"
+#include "FormattedInput.h"
 
 Contact::Contact() {}
 

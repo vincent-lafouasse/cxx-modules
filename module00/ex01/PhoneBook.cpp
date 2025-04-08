@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "FormattedInput.hpp"
+#include "FormattedInput.h"
 
 PhoneBook::PhoneBook() : sz(0), oldest(0) {}
 

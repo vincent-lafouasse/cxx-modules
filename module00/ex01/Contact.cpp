@@ -1,6 +1,5 @@
 #include "Contact.hpp"
 
-#include <cstdlib>
 #include <iomanip>
 #include <ios>
 #include <iostream>
@@ -22,19 +21,19 @@ Contact::Contact(const std::string& first_name,
 
 Contact Contact::from_user() {
     std::cout << "First name:\t";
-    std::string first_name = FormattedInput::get_string_or_exit(std::cin);
+    const std::string first_name = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Last name:\t";
-    std::string last_name = FormattedInput::get_string_or_exit(std::cin);
+    const std::string last_name = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "nickname:\t";
-    std::string nickname = FormattedInput::get_string_or_exit(std::cin);
+    const std::string nickname = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Phone number:\t";
-    std::string phone_number = FormattedInput::get_string_or_exit(std::cin);
+    const std::string phone_number = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Secret:\t\t";
-    std::string secret = FormattedInput::get_string_or_exit(std::cin);
+    const std::string secret = FormattedInput::get_string_or_exit(std::cin);
 
     return Contact(first_name, last_name, nickname, phone_number, secret);
 }
@@ -61,7 +60,7 @@ void print_field(const std::string& field) {
 }
 }  // namespace
 
-void Contact::display_one_line(std::size_t index) const {
+void Contact::display_one_line(const std::size_t index) const {
     std::cout << "|";
     std::cout << std::setw(max_field_width) << std::right;
     std::cout << index;

@@ -61,6 +61,11 @@ void print_field(const std::string& field) {
 }  // namespace
 
 void Contact::display_one_line(const std::size_t index) const {
+    if (!this->is_valid()) {
+        std::cout << "Invalid contact\n";
+        return;
+    }
+
     std::cout << "|";
     std::cout << std::setw(max_field_width) << std::right;
     std::cout << index;
@@ -74,6 +79,10 @@ void Contact::display_one_line(const std::size_t index) const {
 }
 
 void Contact::display() const {
+    if (!this->is_valid()) {
+        std::cout << "Invalid contact\n";
+        return;
+    }
     std::cout << std::left;
     std::cout << std::setw(11) << "first:" << first_name << "\n";
     std::cout << std::setw(11) << "last:" << last_name << "\n";

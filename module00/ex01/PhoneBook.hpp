@@ -1,11 +1,18 @@
 #pragma once
 
-#include "Command.hpp"
 #include "Contact.hpp"
 
 class PhoneBook {
    public:
     PhoneBook();
+
+    struct Command {
+        enum Kind { Add, Search, Exit, None };
+        explicit Command(const std::string& s);
+
+        Kind kind;
+    };
+
     void process_command(Command command);
 
    private:

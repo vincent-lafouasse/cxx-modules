@@ -25,7 +25,7 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    return static_cast<int>(this->toFloat());
+    return this->bits / Fixed::scaling_factor();
 }
 
 int Fixed::getRawBits() const {

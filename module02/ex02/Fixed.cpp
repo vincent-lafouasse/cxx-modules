@@ -20,7 +20,7 @@ Fixed& Fixed::operator=(const Fixed& other) {
 Fixed::~Fixed() {}
 
 float Fixed::toFloat() const {
-    return static_cast<float>(bits) /
+    return static_cast<float>(this->bits) /
            static_cast<float>(Fixed::scaling_factor());
 }
 
@@ -29,11 +29,11 @@ int Fixed::toInt() const {
 }
 
 int Fixed::getRawBits() const {
-    return bits;
+    return this->bits;
 }
 
 void Fixed::setRawBits(int const raw) {
-    bits = raw;
+    this->bits = raw;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& self) {

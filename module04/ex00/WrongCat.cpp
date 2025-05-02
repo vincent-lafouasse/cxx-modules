@@ -1,9 +1,8 @@
 #include "WrongCat.hpp"
 
-#include <iostream>
+#include "LogFunction.hpp"
 
-#define LOG_FUNCTION() \
-    std::clog << __PRETTY_FUNCTION__ << '\n'
+#include <iostream>
 
 namespace {
 const char* wrong_cat_sound = "mrow mrow but wrong\n";

@@ -1,9 +1,8 @@
 #include "Dog.hpp"
 
-#include <iostream>
+#include "LogFunction.hpp"
 
-#define LOG_FUNCTION() \
-    std::clog << __PRETTY_FUNCTION__ << '\n'
+#include <iostream>
 
 namespace {
 const char* dog_sound = "bork bork\n";

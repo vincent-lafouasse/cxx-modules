@@ -1,9 +1,8 @@
 #include "WrongAnimal.hpp"
 
-#include <iostream>
+#include "LogFunction.hpp"
 
-#define LOG_FUNCTION() \
-    std::clog << __PRETTY_FUNCTION__ << '\n'
+#include <iostream>
 
 namespace {
 const char* generic_wrong_sound = "generic animal sound but wrong\n";

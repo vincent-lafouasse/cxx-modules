@@ -8,7 +8,7 @@ class WrongAnimal {
     WrongAnimal& operator=(const WrongAnimal& a);
     virtual ~WrongAnimal();
 
-    void makeSound() const; // not virtual
+    void makeSound() const;  // not virtual
     std::string getType() const;
 
    protected:

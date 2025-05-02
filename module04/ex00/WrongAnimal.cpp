@@ -19,6 +19,10 @@ WrongAnimal& WrongAnimal::operator=(const WrongAnimal& a) {
     return *this;
 }
 
+WrongAnimal::~WrongAnimal() {
+    LOG_FUNCTION();
+}
+
 void WrongAnimal::makeSound() const {
     std::cout << generic_wrong_sound;
 }

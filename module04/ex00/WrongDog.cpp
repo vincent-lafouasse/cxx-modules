@@ -13,6 +13,11 @@ WrongDog::WrongDog() : WrongAnimal() {
     LOG_FUNCTION();
     this->type = "WrongDog";
 }
+
+WrongDog::~WrongDog() {
+    LOG_FUNCTION();
+}
+
 void WrongDog::makeSound() const {
     std::cout << wrong_dog_sound;
 }

@@ -2,16 +2,19 @@
 
 #include <iostream>
 
+#define LOG_FUNCTION() \
+    std::clog << __PRETTY_FUNCTION__ << '\n'
+
 namespace {
 const char* cat_sound = "mrow mrow\n";
 }  // namespace
 
 Cat::Cat() : Animal() {
-    std::cout << "Cat created\n";
+    LOG_FUNCTION();
     this->type = "Cat";
 }
 Cat::~Cat() {
-    std::cout << "Cat destroyed\n";
+    LOG_FUNCTION();
 }
 
 void Cat::makeSound() const {

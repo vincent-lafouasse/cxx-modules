@@ -2,16 +2,19 @@
 
 #include <iostream>
 
+#define LOG_FUNCTION() \
+    std::clog << __PRETTY_FUNCTION__ << '\n'
+
 namespace {
 const char* generic_wrong_sound = "generic animal sound but wrong\n";
 }  // namespace
 
 WrongAnimal::WrongAnimal() : type("Wrongsomething") {
-    std::cout << "WrongAnimal created\n";
+    LOG_FUNCTION();
 }
 
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& a) {
-    std::cout << "WrongAnimal assigned\n";
+    LOG_FUNCTION();
     this->type = a.type;
     return *this;
 }

@@ -2,17 +2,20 @@
 
 #include <iostream>
 
+#define LOG_FUNCTION() \
+    std::clog << __PRETTY_FUNCTION__ << '\n'
+
 namespace {
 const char* dog_sound = "bork bork\n";
 }  // namespace
 
 Dog::Dog() : Animal() {
-    std::cout << "Dog created\n";
+    LOG_FUNCTION();
     this->type = "Dog";
 }
 
 Dog::~Dog() {
-    std::cout << "Dog destroyed\n";
+    LOG_FUNCTION();
 }
 
 void Dog::makeSound() const {

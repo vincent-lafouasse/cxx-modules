@@ -22,7 +22,7 @@ int main(int ac, char* av[]) {
 
     for (Size start = 0;;) {
         Size match = data.find(cfg.before, start);
-        out << data.substr(start, match);
+        out << data.substr(start, match - start);
         if (match == std::string::npos) {
             break;
         }

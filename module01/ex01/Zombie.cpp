@@ -2,13 +2,15 @@
 
 #include <iostream>
 
+#define LOG_FUNCTION() \
+    std::clog << __PRETTY_FUNCTION__ << std::endl;
+
 Zombie::Zombie() {
-    std::clog << "-- [Zombie::Zombie()]\n";
+    LOG_FUNCTION();
 }
 
 Zombie::~Zombie() {
-    std::clog << "-- [Zombie::~Zombie()]\n";
-    std::clog << "-- ripbozo " << name << "\n";
+    LOG_FUNCTION();
 }
 
 void Zombie::set_name(const std::string& name) {

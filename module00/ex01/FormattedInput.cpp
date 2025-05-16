@@ -1,6 +1,7 @@
 #include "FormattedInput.h"
 
 #include <iostream>
+#include <cstdlib>
 
 namespace FormattedInput {
 std::string get_string_or_exit(std::istream& stream) {

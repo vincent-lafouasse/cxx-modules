@@ -1,15 +1,14 @@
-#include "Config.hpp"
-
 #include <fstream>
-#include <iostream>
 #include <sstream>
+#include <string>
+
+#include "Config.hpp"
 
 namespace {
 std::string load_entire_file(const std::string& path);
-bool matches_pattern(const std::string& pattern,
-                     const std::string& data,
-                     std::size_t offset);
 }  // namespace
+
+typedef std::string::size_type Size;
 
 int main(int ac, char* av[]) {
     const Config cfg = Config::from_sysargs(ac, av);
@@ -21,24 +20,18 @@ int main(int ac, char* av[]) {
     const std::string path = cfg.file + ".replace";
     std::ofstream out(path.c_str());
 
-    for (std::size_t i = 0; i < data.size();) {
-        if (matches_pattern(cfg.before, data, i)) {
-            out << cfg.after;
-            i += cfg.before.size();
-        } else {
-            out << data[i];
-            i++;
+    for (Size start = 0;;) {
+        Size match = data.find(cfg.before, start);
+        out << data.substr(start, match);
+        if (match == std::string::npos) {
+            break;
         }
+        out << cfg.after;
+        start = match + cfg.before.size();
     }
 }
 
 namespace {
-bool matches_pattern(const std::string& pattern,
-                     const std::string& data,
-                     std::size_t offset) {
-    return data.compare(offset, pattern.size(), pattern) == 0;
-}
-
 std::string load_entire_file(const std::string& path) {
     std::ifstream file(path.c_str());
     std::stringstream buffer;

@@ -10,6 +10,12 @@ class Contact {
     void display() const;
     void display_one_line(std::size_t index) const;
 
+    const std::string& get_first_name();
+    const std::string& get_last_name();
+    const std::string& get_nickname();
+    const std::string& get_phone_number();
+    const std::string& get_secret();
+
    private:
     Contact(const std::string& first_name,
             const std::string& last_name,

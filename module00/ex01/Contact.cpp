@@ -30,7 +30,8 @@ Contact Contact::from_user() {
     const std::string nickname = FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Phone number:\t";
-    const std::string phone_number = FormattedInput::get_string_or_exit(std::cin);
+    const std::string phone_number =
+        FormattedInput::get_string_or_exit(std::cin);
 
     std::cout << "Secret:\t\t";
     const std::string secret = FormattedInput::get_string_or_exit(std::cin);
@@ -89,4 +90,24 @@ void Contact::display() const {
     std::cout << std::setw(11) << "nickname:" << nickname << "\n";
     std::cout << std::setw(11) << "phone:" << phone_number << "\n";
     std::cout << std::setw(11) << "secret:" << secret << std::endl;
+}
+
+const std::string& Contact::get_first_name() {
+    return this->first_name;
+}
+
+const std::string& Contact::get_last_name() {
+    return this->last_name;
+}
+
+const std::string& Contact::get_nickname() {
+    return this->nickname;
+}
+
+const std::string& Contact::get_phone_number() {
+    return this->phone_number;
+}
+
+const std::string& Contact::get_secret() {
+    return this->secret;
 }

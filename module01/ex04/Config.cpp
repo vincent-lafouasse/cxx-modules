@@ -47,7 +47,7 @@ Config::Config(const std::string& file,
     : file(file), before(before), after(after) {}
 
 void Config::log() const {
-    std::cout << "file\t" << file << '\n';
-    std::cout << "before\t" << before << '\n';
-    std::cout << "after\t" << after << '\n';
+    std::clog << "file\t" << file << '\n';
+    std::clog << "before\t" << before << '\n';
+    std::clog << "after\t" << after << '\n';
 }

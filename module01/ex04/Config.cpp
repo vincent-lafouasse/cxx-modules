@@ -13,7 +13,7 @@ namespace {
 [[noreturn]] void die(const std::string& msg, int status = 1) {
     die(msg.c_str(), status);
 }
-}
+}  // namespace
 
 Config Config::from_sysargs(int ac, char** av) {
     if (ac != 4) {

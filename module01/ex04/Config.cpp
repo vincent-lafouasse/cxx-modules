@@ -4,10 +4,20 @@
 #include <fstream>
 #include <iostream>
 
+namespace {
+[[noreturn]] void die(const char* msg, int status = 1) {
+    std::clog << msg << std::endl;
+    std::exit(status);
+}
+
+[[noreturn]] void die(const std::string& msg, int status = 1) {
+    die(msg.c_str(), status);
+}
+}
+
 Config Config::from_sysargs(int ac, char** av) {
     if (ac != 4) {
-        std::cout << "Usage: ./cool_sed file before after\n";
-        std::exit(EXIT_FAILURE);
+        die("Usage: ./cool_sed file before after");
     }
 
     std::string file(av[1]);
@@ -16,19 +26,16 @@ Config Config::from_sysargs(int ac, char** av) {
 
     std::ifstream read_check(file.c_str());
     if (read_check.fail()) {
-        std::cout << "File is not readable\n";
-        std::exit(EXIT_FAILURE);
+        die("File is not readable");
     }
     if (before.empty()) {
-        std::cout << "Pattern cannot be empty\n";
-        std::exit(EXIT_FAILURE);
+        die("Pattern cannot be empty");
     }
 
     std::string out_path = file + ".replace";
     std::ofstream out(out_path.c_str());
     if (out.fail()) {
-        std::cout << "Failed to open " << out_path << " for writing\n";
-        std::exit(EXIT_FAILURE);
+        die("Failed to open " + out_path + " for writing");
     }
 
     return Config(file, before, after);

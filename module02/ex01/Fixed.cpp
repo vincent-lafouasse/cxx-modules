@@ -41,7 +41,7 @@ float Fixed::toFloat() const {
 }
 
 int Fixed::toInt() const {
-    return static_cast<int>(roundf(this->toFloat()));
+    return this->bits / Fixed::scaling_factor();
 }
 
 int Fixed::scaling_factor() {

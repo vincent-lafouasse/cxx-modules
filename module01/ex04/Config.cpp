@@ -7,7 +7,7 @@
 Config Config::from_sysargs(int ac, char** av) {
     if (ac != 4) {
         std::cout << "Usage: ./cool_sed file before after\n";
-        exit(EXIT_FAILURE);
+        std::exit(EXIT_FAILURE);
     }
 
     std::string file(av[1]);

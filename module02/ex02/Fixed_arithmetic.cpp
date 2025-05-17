@@ -1,15 +1,15 @@
 #include "Fixed.hpp"
 
 Fixed Fixed::operator+(const Fixed& other) const {
-    int raw = this->getRawBits() + other.getRawBits();
     Fixed out;
+    int raw = this->getRawBits() + other.getRawBits();
     out.setRawBits(raw);
     return out;
 }
 
 Fixed Fixed::operator-(const Fixed& other) const {
-    int raw = this->getRawBits() - other.getRawBits();
     Fixed out;
+    int raw = this->getRawBits() - other.getRawBits();
     out.setRawBits(raw);
     return out;
 }

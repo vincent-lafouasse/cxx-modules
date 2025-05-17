@@ -19,9 +19,10 @@ Fixed::Fixed(int i) : bits(i * Fixed::scaling_factor()) {
     LOG();
 }
 
-Fixed::Fixed(float f)
-    : bits(static_cast<int>(roundf(f * Fixed::scaling_factor()))) {
+Fixed::Fixed(float f) {
     LOG();
+    const float value = f * static_cast<float>(Fixed::scaling_factor());
+    this->bits = static_cast<int>(value);
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {

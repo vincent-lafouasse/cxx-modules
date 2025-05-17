@@ -5,12 +5,13 @@
 #include <iostream>
 
 namespace {
-[[noreturn]] void die(const char* msg, int status = 1) {
+// this should be marked with the [[noreturn]] attribute, fuck C++98
+void die(const char* msg, int status = 1) {
     std::clog << msg << std::endl;
     std::exit(status);
 }
 
-[[noreturn]] void die(const std::string& msg, int status = 1) {
+void die(const std::string& msg, int status = 1) {
     die(msg.c_str(), status);
 }
 }  // namespace

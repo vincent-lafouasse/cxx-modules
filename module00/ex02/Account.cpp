@@ -2,8 +2,8 @@
 
 #include <cstdlib>
 #include <ctime>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;

@@ -1,5 +1,5 @@
 #include "Fixed.hpp"
-#include <math.h> // how the fuck do we not have std::roundf in C++98
+#include <math.h>  // how the fuck do we not have std::roundf in C++98
 #include <iostream>
 
 Fixed::Fixed() : bits(0) {}

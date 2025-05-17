@@ -4,8 +4,7 @@
 #include <iostream>
 
 namespace {
-#define LOG() \
-    std::clog << __PRETTY_FUNCTION__ << std::endl;
+#define LOG() std::clog << __PRETTY_FUNCTION__ << std::endl;
 }  // namespace
 
 Fixed::Fixed() : bits(0) {

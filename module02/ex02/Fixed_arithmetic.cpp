@@ -91,11 +91,11 @@ bool Fixed::operator<(const Fixed& o) const {
 }
 
 bool Fixed::operator>=(const Fixed& o) const {
-    return (*this > o) || (*this == o);
+    return !(*this < o);
 }
 
 bool Fixed::operator<=(const Fixed& o) const {
-    return (*this < o) || (*this == o);
+    return !(*this > o);
 }
 
 Fixed& Fixed::max(Fixed& a, Fixed& b) {

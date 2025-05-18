@@ -18,7 +18,10 @@ class Point {
     Fixed dot(Point other) const;
     static Fixed dot(Point p1, Point p2);
 
-    enum Orientation { Aligned, Left, Right };
+    struct Orientation {
+        enum Kind { Aligned, Left, Right } kind;
+        Orientation(Kind k) : kind(k) {}
+    };
 
     Orientation orientation(Point start, Point end) const;
 

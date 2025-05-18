@@ -30,11 +30,11 @@ Point::Orientation Point::orientation(Point start, Point end) const {
     Fixed raw_orientation = v.x * ref.y - v.y * ref.x;
 
     if (raw_orientation > Fixed(0)) {
-        return Left;
+        return Orientation::Left;
     } else if (raw_orientation < Fixed(0)) {
-        return Right;
+        return Orientation::Right;
     }
-    return Aligned;
+    return Orientation::Aligned;
 }
 
 Point Point::operator+(Point other) const {

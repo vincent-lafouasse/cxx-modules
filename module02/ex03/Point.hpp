@@ -10,6 +10,9 @@ public:
    Point& operator=(const Point& other);
    ~Point();
 
+   Fixed dot(Point other) const;
+   static Fixed dot(Point p1, Point p2);
+
 private:
    Fixed x;
    Fixed y;

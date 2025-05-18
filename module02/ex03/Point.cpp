@@ -13,3 +13,11 @@ Point& Point::operator=(const Point& other) {
 }
 
 Point::~Point() {}
+
+Fixed Point::dot(Point other) const {
+    return Point::dot(*this, other);
+}
+
+Fixed Point::dot(Point p1, Point p2) {
+    return p1.x * p2.x + p1.y * p2.y;
+}

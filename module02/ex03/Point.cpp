@@ -21,3 +21,18 @@ Fixed Point::dot(Point other) const {
 Fixed Point::dot(Point p1, Point p2) {
     return p1.x * p2.x + p1.y * p2.y;
 }
+
+Point::Orientation Point::orientation(Point start, Point end) const {
+    Vector ref = end - start;
+    Vector v = *this - start;
+
+    // z coordinate of v x ref
+    Fixed raw_orientation = v.x * ref.y - v.y * ref.x;
+
+    if (raw_orientation > Fixed(0)) {
+        return Left;
+    } else if (raw_orientation < Fixed(0)) {
+        return Right;
+    }
+    return Aligned;
+}

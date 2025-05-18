@@ -2,20 +2,24 @@
 
 #include <iostream>
 
-namespace {
-const bool default_guard_state = false;
+#define RED "\033[0;31m"
+#define BLUE "\033[0;34m"
+#define GREEN "\033[0;32m"
 
-const char* named_ctor_msg = "ScavTrap named ctor\n";
+#define PURPLE "\033[0;35m"
+#define YELLOW "\033[0;33m"
+
+#define WHITE "\033[0;37m"
+#define RESET "\033[0m"
+
+#define LOG_FUNCTION_NAME(color) \
+    std::clog << color << __PRETTY_FUNCTION__ << RESET << std::endl;
+
+namespace {
 const char* he_dead = "ScavTrap cant do shit cause its dead\n";
 const char* he_tired = "ScavTrap cant do shit cause its tired\n";
-
 const char* now_guarding = "ScavTrap is now guarding\n";
 const char* already_guarding = "ScavTrap is already guarding\n";
-
-const char* default_ctor_msg = "ScavTrap default ctor\n";
-const char* copy_ctor_msg = "ScavTrap copy ctor\n";
-const char* copy_op_msg = "ScavTrap copy assignment op\n";
-const char* dtor_msg = "ScavTrap dtor\n";
 }  // namespace
 
 const char* ScavTrap::default_name = "Sam";
@@ -28,18 +32,18 @@ ScavTrap::ScavTrap()
                ScavTrap::base_hp,
                ScavTrap::base_energy,
                ScavTrap::base_attack),
-      isGuarding(default_guard_state) {
-    std::cout << default_ctor_msg;
+      isGuarding(false) {
+    LOG_FUNCTION_NAME(GREEN);
 }
 
 ScavTrap::ScavTrap(const ScavTrap& o)
     : ClapTrap(o.name, o.health_points, o.energy_points, o.attack_points),
-      isGuarding(default_guard_state) {
-    std::cout << copy_ctor_msg;
+      isGuarding(false) {
+    LOG_FUNCTION_NAME(GREEN);
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& o) {
-    std::cout << copy_op_msg;
+    LOG_FUNCTION_NAME(BLUE);
     this->name = o.name;
     this->health_points = o.health_points;
     this->energy_points = o.energy_points;
@@ -49,13 +53,12 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& o) {
 }
 
 ScavTrap::ScavTrap(const std::string& name)
-    : ClapTrap(name, base_hp, base_energy, base_attack),
-      isGuarding(default_guard_state) {
-    std::cout << named_ctor_msg;
+    : ClapTrap(name, base_hp, base_energy, base_attack), isGuarding(false) {
+    LOG_FUNCTION_NAME(GREEN);
 }
 
 ScavTrap::~ScavTrap() {
-    std::cout << dtor_msg;
+    LOG_FUNCTION_NAME(RED);
 }
 
 void ScavTrap::attack(const std::string& target) {

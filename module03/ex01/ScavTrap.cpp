@@ -3,10 +3,6 @@
 #include <iostream>
 
 namespace {
-const char* default_name = "Sam";
-const uint32_t base_hp = 100;
-const uint32_t base_energy = 50;
-const uint32_t base_attack = 20;
 const bool default_guard_state = false;
 
 const char* named_ctor_msg = "ScavTrap named ctor\n";
@@ -22,8 +18,16 @@ const char* copy_op_msg = "ScavTrap copy assignment op\n";
 const char* dtor_msg = "ScavTrap dtor\n";
 }  // namespace
 
+const char* ScavTrap::default_name = "Sam";
+const uint32_t ScavTrap::base_hp = 100;
+const uint32_t ScavTrap::base_energy = 50;
+const uint32_t ScavTrap::base_attack = 20;
+
 ScavTrap::ScavTrap()
-    : ClapTrap(default_name, base_hp, base_energy, base_attack),
+    : ClapTrap(ScavTrap::default_name,
+               ScavTrap::base_hp,
+               ScavTrap::base_energy,
+               ScavTrap::base_attack),
       isGuarding(default_guard_state) {
     std::cout << default_ctor_msg;
 }

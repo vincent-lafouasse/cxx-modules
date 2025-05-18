@@ -17,4 +17,8 @@ class ScavTrap : public ClapTrap {
 
    private:
     bool isGuarding;
+    static const char* default_name;
+    static const uint32_t base_hp;
+    static const uint32_t base_energy;
+    static const uint32_t base_attack;
 };

@@ -36,3 +36,11 @@ Point::Orientation Point::orientation(Point start, Point end) const {
     }
     return Aligned;
 }
+
+Point Point::operator+(Point other) const {
+    return Point(x + other.x, y + other.y);
+}
+
+Point Point::operator-(Point other) const {
+    return Point(x - other.x, y - other.y);
+}

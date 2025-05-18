@@ -12,13 +12,8 @@ class Point {
     Point& operator=(const Point& other);
     ~Point();
 
-    Point operator+(Point other) const {
-        return Point(x + other.x, y + other.y);
-    }
-
-    Point operator-(Point other) const {
-        return Point(x - other.x, y - other.y);
-    }
+    Point operator+(Point other) const;
+    Point operator-(Point other) const;
 
     Fixed dot(Point other) const;
     static Fixed dot(Point p1, Point p2);

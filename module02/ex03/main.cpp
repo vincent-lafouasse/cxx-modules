@@ -1,73 +1,21 @@
-#include "Fixed.hpp"
 
 #include <cassert>
 #include <cstdlib>
-#include <ctime>
+
+#include "Point.hpp"
 
 namespace {
-void given_test();
-void test(float a, float b);
-
-float random_float(float low, float hi);
-float random_float();
-
+void test_orientation();
 }  // namespace
 
 int main() {
-    std::srand(static_cast<unsigned>(time(NULL)));
-
-    given_test();
-
-    test(5.0, 2.0);
-    test(1000.0, 3.0);
-    test(3.0, 1000.0);
-    test(random_float(), random_float());
+    test_orientation();
 }
 
 namespace {
-void given_test() {
-    Fixed a;
-    const Fixed b(Fixed(5.05f) * Fixed(2));
-
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-
-    std::cout << b << std::endl;
-
-    std::cout << Fixed::max(a, b) << std::endl;
-
-    std::cout << "Expected outout\n";
-    std::cout << "0.00390625\n";
-    std::cout << "0.00390625\n";
-    std::cout << "0.00390625\n";
-    std::cout << "0.0078125\n";
-    std::cout << "10.1016\n";
-    std::cout << "10.1016\n";
-}
-
-void test(float a_, float b_) {
-    std::cout << "With input " << a_ << " " << b_ << "\n";
-
-    Fixed a(a_);
-    Fixed b(b_);
-    std::cout << "a\t= " << a << '\n';
-    std::cout << "b\t= " << b << '\n';
-    std::cout << "a + b\t= " << a + b << '\n';
-    std::cout << "a - b\t= " << a - b << '\n';
-    std::cout << "a * b\t= " << a * b << '\n';
-    std::cout << "a / b\t= " << a / b << '\n';
-}
-
-float random_float(float low, float hi) {
-    float range = hi - low;
-    return low +
-           range * static_cast<float>(rand()) / (static_cast<float>(RAND_MAX));
-}
-
-float random_float() {
-    return random_float(-4096.f, 4096.f);
+void test_orientation() {
+    Point o(Fixed(0), Fixed(0));
+    Point i(Fixed(0), Fixed(0));
+    Point j(Fixed(0), Fixed(0));
 }
 }  // namespace

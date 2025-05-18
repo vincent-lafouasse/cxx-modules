@@ -3,11 +3,6 @@
 #include <iostream>
 
 namespace {
-const char* default_name = "Bob";
-const uint32_t base_hp = 10;
-const uint32_t base_energy = 10;
-const uint32_t base_attack = 0;
-
 const char* named_ctor_msg = "ClapTrap named ctor\n";
 const char* he_dead = "ClapTrap cant do shit cause its dead\n";
 const char* he_tired = "ClapTrap cant do shit cause its tired\n";
@@ -17,6 +12,11 @@ const char* copy_ctor_msg = "ClapTrap copy ctor\n";
 const char* copy_op_msg = "ClapTrap copy assignment op\n";
 const char* dtor_msg = "ClapTrap dtor\n";
 }  // namespace
+
+const char* ClapTrap::default_name = "Bob";
+const uint32_t ClapTrap::base_hp = 10;
+const uint32_t ClapTrap::base_energy = 10;
+const uint32_t ClapTrap::base_attack = 0;
 
 ClapTrap::ClapTrap()
     : name(default_name),

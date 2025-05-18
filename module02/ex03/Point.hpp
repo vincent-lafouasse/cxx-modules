@@ -21,6 +21,7 @@ class Point {
     struct Orientation {
         enum Kind { Aligned, Left, Right } kind;
         Orientation(Kind k) : kind(k) {}
+        bool operator==(const Orientation o) const { return kind == o.kind; }
     };
 
     Orientation orientation(Point start, Point end) const;

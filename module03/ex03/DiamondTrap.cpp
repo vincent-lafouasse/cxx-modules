@@ -45,7 +45,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other)
 DiamondTrap::DiamondTrap(const std::string& name)
     : ClapTrap(name + "_clap_name", base_hp, base_energy, base_attack),
       FragTrap(),
-      ScavTrap(), 
+      ScavTrap(),
       name(name) {
     LOG_FUNCTION_NAME(GREEN);
 }

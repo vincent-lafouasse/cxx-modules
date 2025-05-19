@@ -1,6 +1,6 @@
-#include "Cure.hpp"
-#include "Ice.hpp"
+#include "Materia/Cure.hpp"
+#include "Materia/Ice.hpp"
 
-#include "Character.hpp"
+#include "Character/Character.hpp"
 
 int main() {}

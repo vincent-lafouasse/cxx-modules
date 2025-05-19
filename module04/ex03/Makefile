@@ -1,4 +1,4 @@
-NAME = materia
+NAME = materias
 
 SRCS = $(shell find . -name '*.cpp')
 

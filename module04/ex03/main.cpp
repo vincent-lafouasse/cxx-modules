@@ -3,4 +3,8 @@
 
 #include "Character/Character.hpp"
 
-int main() {}
+int main() {
+    Ice ice;
+
+    Character character;
+}

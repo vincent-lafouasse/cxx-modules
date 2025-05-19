@@ -20,7 +20,7 @@ const char* he_dead = "ClapTrap cant do shit cause its dead\n";
 const char* he_tired = "ClapTrap cant do shit cause its tired\n";
 }  // namespace
 
-const char* ClapTrap::default_name = "Bob";
+const char* ClapTrap::default_name = "Camille";
 const uint32_t ClapTrap::base_hp = 10;
 const uint32_t ClapTrap::base_energy = 10;
 const uint32_t ClapTrap::base_attack = 0;

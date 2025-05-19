@@ -16,5 +16,13 @@ int main() {
         routine(trap);
         trap.whoAmI();
         trap.highFivesGuys();
+
+        DiamondTrap copy(trap);
+        copy.whoAmI();
+
+        DiamondTrap copy_also;
+        copy_also.whoAmI();
+        copy_also = trap;
+        copy_also.whoAmI();
     }
 }

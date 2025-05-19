@@ -12,7 +12,7 @@ class DiamondTrap : public FragTrap, public ScavTrap {
     explicit DiamondTrap(const std::string& name);
 
     void attack(const std::string& target);
-    void whoAmI();
+    void whoAmI() const;
 
    private:
     std::string name;

@@ -65,7 +65,7 @@ void DiamondTrap::attack(const std::string& target) {
     this->ScavTrap::attack(target);
 }
 
-void DiamondTrap::whoAmI() {
+void DiamondTrap::whoAmI() const {
     std::cout << "me:\t\t" << this->name << std::endl;
     std::cout << "also me:\t" << this->ClapTrap::name << std::endl;
 }

@@ -4,18 +4,18 @@
 #include "ScavTrap.hpp"
 
 class DiamondTrap : public FragTrap, public ScavTrap {
-public:
-   DiamondTrap();
-   DiamondTrap(const DiamondTrap& other);
-   DiamondTrap& operator=(const DiamondTrap& other);
-   ~DiamondTrap();
-   explicit DiamondTrap(const std::string& name);
+   public:
+    DiamondTrap();
+    DiamondTrap(const DiamondTrap& other);
+    DiamondTrap& operator=(const DiamondTrap& other);
+    ~DiamondTrap();
+    explicit DiamondTrap(const std::string& name);
 
-   void attack(const std::string& target);
-   void whoAmI();
+    void attack(const std::string& target);
+    void whoAmI();
 
-private:
-   std::string name;
+   private:
+    std::string name;
 
     static const char* default_name;
     static const uint32_t base_hp;

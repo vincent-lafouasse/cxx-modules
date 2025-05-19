@@ -24,4 +24,9 @@ class ClapTrap {
     uint32_t health_points;
     uint32_t energy_points;
     uint32_t attack_points;
+
+    static const char* default_name;
+    static const uint32_t base_hp;
+    static const uint32_t base_energy;
+    static const uint32_t base_attack;
 };

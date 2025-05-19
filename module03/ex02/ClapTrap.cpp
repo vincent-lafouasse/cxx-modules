@@ -2,28 +2,35 @@
 
 #include <iostream>
 
-namespace {
-const char* default_name = "Camille";
-const uint32_t base_hp = 10;
-const uint32_t base_energy = 10;
-const uint32_t base_attack = 0;
+#define RED "\033[0;31m"
+#define BLUE "\033[0;34m"
+#define GREEN "\033[0;32m"
 
-const char* named_ctor_msg = "ClapTrap named ctor\n";
+#define PURPLE "\033[0;35m"
+#define YELLOW "\033[0;33m"
+
+#define WHITE "\033[0;37m"
+#define RESET "\033[0m"
+
+#define LOG_FUNCTION_NAME(color) \
+    std::clog << color << __PRETTY_FUNCTION__ << RESET << std::endl;
+
+namespace {
 const char* he_dead = "ClapTrap cant do shit cause its dead\n";
 const char* he_tired = "ClapTrap cant do shit cause its tired\n";
-
-const char* default_ctor_msg = "ClapTrap default ctor\n";
-const char* copy_ctor_msg = "ClapTrap copy ctor\n";
-const char* copy_op_msg = "ClapTrap copy assignment op\n";
-const char* dtor_msg = "ClapTrap dtor\n";
 }  // namespace
+
+const char* ClapTrap::default_name = "Bob";
+const uint32_t ClapTrap::base_hp = 10;
+const uint32_t ClapTrap::base_energy = 10;
+const uint32_t ClapTrap::base_attack = 0;
 
 ClapTrap::ClapTrap()
     : name(default_name),
       health_points(base_hp),
       energy_points(base_energy),
       attack_points(base_attack) {
-    std::cout << default_ctor_msg;
+    LOG_FUNCTION_NAME(GREEN);
 }
 
 ClapTrap::ClapTrap(const ClapTrap& o)
@@ -31,28 +38,7 @@ ClapTrap::ClapTrap(const ClapTrap& o)
       health_points(o.health_points),
       energy_points(o.energy_points),
       attack_points(o.attack_points) {
-    std::cout << copy_ctor_msg;
-}
-
-ClapTrap& ClapTrap::operator=(const ClapTrap& o) {
-    std::cout << copy_op_msg;
-    this->name = o.name;
-    this->health_points = o.health_points;
-    this->energy_points = o.energy_points;
-    this->attack_points = o.attack_points;
-    return *this;
-}
-
-ClapTrap::~ClapTrap() {
-    std::cout << dtor_msg;
-}
-
-ClapTrap::ClapTrap(const std::string& name)
-    : name(name),
-      health_points(base_hp),
-      energy_points(base_energy),
-      attack_points(base_attack) {
-    std::cout << named_ctor_msg;
+    LOG_FUNCTION_NAME(GREEN);
 }
 
 ClapTrap::ClapTrap(const std::string& name,
@@ -62,7 +48,30 @@ ClapTrap::ClapTrap(const std::string& name,
     : name(name),
       health_points(health_points),
       energy_points(energy_points),
-      attack_points(attack_points) {}
+      attack_points(attack_points) {
+    LOG_FUNCTION_NAME(PURPLE);
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& o) {
+    LOG_FUNCTION_NAME(BLUE);
+    this->name = o.name;
+    this->health_points = o.health_points;
+    this->energy_points = o.energy_points;
+    this->attack_points = o.attack_points;
+    return *this;
+}
+
+ClapTrap::~ClapTrap() {
+    LOG_FUNCTION_NAME(RED);
+}
+
+ClapTrap::ClapTrap(const std::string& name)
+    : name(name),
+      health_points(base_hp),
+      energy_points(base_energy),
+      attack_points(base_attack) {
+    LOG_FUNCTION_NAME(GREEN);
+}
 
 void ClapTrap::attack(const std::string& target) {
     if (this->health_points == 0) {

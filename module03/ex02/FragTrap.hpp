@@ -9,8 +9,6 @@ class FragTrap : public ClapTrap {
 
     explicit FragTrap(const std::string& name);
     void attack(const std::string& target);
-    void takeDamage(uint32_t amount);
-    void beRepaired(uint32_t amount);
     void highFivesGuys() const;
 
    private:

@@ -13,7 +13,7 @@ class FragTrap : public ClapTrap {
     void beRepaired(uint32_t amount);
     void highFivesGuys() const;
 
-   private:
+   protected:
     static const char* default_name;
     static const uint32_t base_hp;
     static const uint32_t base_energy;

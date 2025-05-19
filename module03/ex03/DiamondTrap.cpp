@@ -19,3 +19,24 @@ const char* DiamondTrap::default_name = "Drew";
 const uint32_t DiamondTrap::base_hp = FragTrap::base_hp;
 const uint32_t DiamondTrap::base_energy = ScavTrap::base_energy;
 const uint32_t DiamondTrap::base_attack = FragTrap::base_attack;
+
+DiamondTrap::DiamondTrap()
+    : ClapTrap(std::string(default_name) + "_clap_name", base_hp, base_energy, base_attack),
+      FragTrap(),
+      ScavTrap(), name(default_name) {
+    LOG_FUNCTION_NAME(GREEN);
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+    : ClapTrap(other.name, other.health_points, other.energy_points, other.attack_points),
+      FragTrap(),
+      ScavTrap() {
+    LOG_FUNCTION_NAME(GREEN);
+}
+
+DiamondTrap::DiamondTrap(const std::string& name)
+    : ClapTrap(name, base_hp, base_energy, base_attack),
+      FragTrap(),
+      ScavTrap() {
+    LOG_FUNCTION_NAME(GREEN);
+}

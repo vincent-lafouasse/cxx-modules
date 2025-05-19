@@ -1,23 +1,20 @@
 #include "DiamondTrap.hpp"
 
 void routine(ClapTrap& trap) {
-    for (int i = 0; i < 150; i++) {
+    for (int i = 0; i < 10; i++) {
         trap.attack("zbreh");
-        trap.takeDamage(40);
+        trap.takeDamage(5);
         trap.beRepaired(4);
     }
 }
 
 int main() {
     {
-        FragTrap trap("Poss");
+        DiamondTrap trap("Poss");
 
         trap.highFivesGuys();
-        trap.highFivesGuys();
-        trap.highFivesGuys();
         routine(trap);
-        trap.highFivesGuys();
-        trap.highFivesGuys();
+        trap.whoAmI();
         trap.highFivesGuys();
     }
 }

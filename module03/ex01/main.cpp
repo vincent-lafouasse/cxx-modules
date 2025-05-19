@@ -12,12 +12,12 @@ int main() {
     {
         ScavTrap trap("Poss");
 
-        trap.guard_guate();
-        trap.guard_guate();
-        trap.guard_guate();
+        trap.guard_gate();
+        trap.guard_gate();
+        trap.guard_gate();
         routine(trap);
-        trap.guard_guate();
-        trap.guard_guate();
-        trap.guard_guate();
+        trap.guard_gate();
+        trap.guard_gate();
+        trap.guard_gate();
     }
 }

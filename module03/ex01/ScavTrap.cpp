@@ -78,7 +78,7 @@ void ScavTrap::attack(const std::string& target) {
     std::cout << " points\n";
 }
 
-void ScavTrap::guard_guate() {
+void ScavTrap::guard_gate() {
     if (this->health_points == 0) {
         std::cout << he_dead;
         return;

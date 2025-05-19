@@ -11,7 +11,7 @@ class ScavTrap : public virtual ClapTrap {
 
     explicit ScavTrap(const std::string& name);
     void attack(const std::string& target);
-    void guard_guate();
+    void guard_gate();
 
    private:
     bool isGuarding;

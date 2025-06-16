@@ -10,7 +10,7 @@ Fixed::Fixed(int i) : bits(i * Fixed::scaling_factor()) {}
 
 Fixed::Fixed(float f) {
     const float value = f * static_cast<float>(Fixed::scaling_factor());
-    this->bits = static_cast<int>(value);
+    this->bits = static_cast<int>(roundf(value));
 }
 
 Fixed& Fixed::operator=(const Fixed& other) {

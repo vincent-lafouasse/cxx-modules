@@ -1,11 +1,13 @@
 #include "Zombie.hpp"
 
+#include <new>
+
 Zombie* zombieHorde(int N, std::string name) {
     if (N <= 0) {
         return NULL;
     }
 
-    Zombie* zombies = new Zombie[N];
+    Zombie* zombies = new (std::nothrow) Zombie[N];
     if (zombies == NULL) {
         return NULL;
     }

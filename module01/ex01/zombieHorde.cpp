@@ -1,15 +1,15 @@
 #include "Zombie.hpp"
 
-#include <new>
-
 Zombie* zombieHorde(int N, std::string name) {
     if (N <= 0) {
         return NULL;
     }
 
-    Zombie* zombies = new (std::nothrow) Zombie[N];
-    if (zombies == NULL) {
-        return NULL;
+    Zombie* zombies;
+    try {
+        zombies = new Zombie[N];
+    } catch (const std::bad_alloc& e) {
+        throw;
     }
 
     for (int i = 0; i < N; i++) {

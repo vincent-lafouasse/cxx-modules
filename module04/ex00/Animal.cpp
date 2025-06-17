@@ -11,6 +11,10 @@ const char* generic_sound = "generic animal sound\n";
 Animal::Animal() : type("something") {
     LOG_FUNCTION();
 }
+
+Animal::Animal(const Animal& other): type(other.type) {}
+
+
 Animal& Animal::operator=(const Animal& a) {
     LOG_FUNCTION();
     this->type = a.type;

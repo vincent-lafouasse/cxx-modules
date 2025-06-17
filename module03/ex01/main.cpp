@@ -8,16 +8,23 @@ void routine(ClapTrap& trap) {
     }
 }
 
-int main() {
-    {
-        ScavTrap trap("Poss");
+void checkVirtualDtor() {
+    ClapTrap* t = new ScavTrap();
+    t->attack("magus");
+    t->beRepaired(420);
+    delete t;
+}
 
-        trap.guard_gate();
-        trap.guard_gate();
-        trap.guard_gate();
-        routine(trap);
-        trap.guard_gate();
-        trap.guard_gate();
-        trap.guard_gate();
-    }
+int main() {
+    ScavTrap trap("Poss");
+
+    trap.guard_gate();
+    trap.guard_gate();
+    trap.guard_gate();
+    routine(trap);
+    trap.guard_gate();
+    trap.guard_gate();
+    trap.guard_gate();
+
+    checkVirtualDtor();
 }

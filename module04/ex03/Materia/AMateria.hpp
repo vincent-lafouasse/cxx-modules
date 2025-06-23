@@ -16,12 +16,10 @@ class AMateria {
    protected:
     std::string type;
 
+    AMateria() {}
     AMateria(const AMateria& o) : type(o.type) {}
     AMateria& operator=(const AMateria& o) {
         this->type = o.type;
         return *this;
     }
-
-   private:
-    AMateria() {}
 };

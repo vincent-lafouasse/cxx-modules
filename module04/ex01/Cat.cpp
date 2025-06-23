@@ -8,20 +8,24 @@ namespace {
 const char* cat_sound = "mrow mrow\n";
 }  // namespace
 
-Cat::Cat() : Animal() {
+Cat::Cat() : Animal(), brain(new Brain()) {
     LOG_FUNCTION();
     this->type = "Cat";
 }
 
-Cat::Cat(const Cat& o) : Animal(o) {}
+Cat::Cat(const Cat& o) : Animal(o), brain(o.brain) {}
 
 Cat& Cat::operator=(const Cat& o) {
-    this->type = o.type;
+    if (this != &o) {
+        this->type = o.type;
+        this->brain = o.brain;
+    }
     return *this;
 }
 
 Cat::~Cat() {
     LOG_FUNCTION();
+    delete this->brain;
 }
 
 void Cat::makeSound() const {

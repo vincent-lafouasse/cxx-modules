@@ -2,6 +2,8 @@
 
 #include "Animal.hpp"
 
+#include "Brain.hpp"
+
 class Cat : public Animal {
    public:
     Cat();
@@ -10,4 +12,7 @@ class Cat : public Animal {
     ~Cat();
 
     void makeSound() const;
+
+   private:
+    Brain* brain;
 };

@@ -3,22 +3,21 @@
 #include "AMateria.hpp"
 #include "Character/ICharacter.hpp"
 
-#include <iostream> // bad
+#include <iostream>  // bad
 
 class Ice : public AMateria {
    public:
-    Ice(): AMateria("ice") {}
-    Ice(const Ice& o): AMateria(o.type) {}
-    Ice& operator=(const Ice& other) { 
-      this->type = other.type;
-      return *this; }
+    Ice() : AMateria("ice") {}
+    Ice(const Ice& o) : AMateria(o.type) {}
+    Ice& operator=(const Ice& other) {
+        this->type = other.type;
+        return *this;
+    }
     ~Ice() {}
 
-    AMateria* clone() const {
-      return new Ice(*this);
-    }
+    AMateria* clone() const { return new Ice(*this); }
 
     void use(ICharacter& target) {
-      std::cout << "* heals " << target.name << "'s wounds *";
-   }
+        std::cout << "* heals " << target.name << "'s wounds *";
+    }
 };

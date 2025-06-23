@@ -11,7 +11,7 @@ class DiamondTrap : public FragTrap, public ScavTrap {
     ~DiamondTrap();
     explicit DiamondTrap(const std::string& name);
 
-    void attack(const std::string& target);
+    void attack(const std::string& target) /* override */;
     void whoAmI() const;
 
    private:

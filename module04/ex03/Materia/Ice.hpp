@@ -17,7 +17,7 @@ class Ice : public AMateria {
 
     AMateria* clone() const { return new Ice(*this); }
 
-    void use(ICharacter& target) {
-        std::cout << "* heals " << target.name << "'s wounds *";
+    void use(ICharacter&) {
+        std::cout << "* heals " << "DUMMY" << "'s wounds *";
     }
 };

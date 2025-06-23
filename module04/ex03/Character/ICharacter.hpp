@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "Materia/AMateria.hpp"
+class AMateria;
 
 class ICharacter {
    public:

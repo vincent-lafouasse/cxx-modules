@@ -1,5 +1,7 @@
 #include "Animal.hpp"
 
+#include "LogFunction.hpp"
+
 #include <iostream>
 
 namespace {
@@ -7,15 +9,18 @@ const char* generic_sound = "generic animal sound\n";
 }  // namespace
 
 Animal::Animal() : type("something") {
-    std::cout << "Animal created\n";
+    LOG_FUNCTION();
 }
+
+Animal::Animal(const Animal& other) : type(other.type) {}
+
 Animal& Animal::operator=(const Animal& a) {
-    std::cout << "Animal assigned\n";
+    LOG_FUNCTION();
     this->type = a.type;
     return *this;
 }
 Animal::~Animal() {
-    std::cout << "Animal destroyed\n";
+    LOG_FUNCTION();
 }
 
 void Animal::makeSound() const {

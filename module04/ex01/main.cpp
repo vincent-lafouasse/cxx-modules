@@ -1,22 +1,19 @@
-#include <iostream>
-
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-#define N 4
-
 int main() {
-    Animal* animals[N];
-    for (std::size_t i = 0; i < N; i++) {
-        if (i % 2)
-            animals[i] = new Dog();
-        else
-            animals[i] = new Cat();
+    Animal* pen[6];
+    const std::size_t sz = sizeof(pen) / sizeof(*pen);
+
+    for (std::size_t i = 0; i < sz; ++i) {
+        if (i % 2 == 0) {
+            pen[i] = new Dog();
+        } else {
+            pen[i] = new Cat();
+        }
     }
 
-    // do stuff
-
-    for (std::size_t i = 0; i < N; i++) {
-        delete animals[i];
+    for (std::size_t i = 0; i < sz; ++i) {
+        delete pen[i];
     }
 }

@@ -1,5 +1,7 @@
 #include "Cat.hpp"
 
+#include "LogFunction.hpp"
+
 #include <iostream>
 
 namespace {
@@ -7,11 +9,19 @@ const char* cat_sound = "mrow mrow\n";
 }  // namespace
 
 Cat::Cat() : Animal() {
-    std::cout << "Cat created\n";
+    LOG_FUNCTION();
     this->type = "Cat";
 }
+
+Cat::Cat(const Cat& o) : Animal(o) {}
+
+Cat& Cat::operator=(const Cat& o) {
+    this->type = o.type;
+    return *this;
+}
+
 Cat::~Cat() {
-    std::cout << "Cat destroyed\n";
+    LOG_FUNCTION();
 }
 
 void Cat::makeSound() const {

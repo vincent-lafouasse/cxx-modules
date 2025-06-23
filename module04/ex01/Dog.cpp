@@ -1,5 +1,7 @@
 #include "Dog.hpp"
 
+#include "LogFunction.hpp"
+
 #include <iostream>
 
 namespace {
@@ -7,12 +9,19 @@ const char* dog_sound = "bork bork\n";
 }  // namespace
 
 Dog::Dog() : Animal() {
-    std::cout << "Dog created\n";
+    LOG_FUNCTION();
     this->type = "Dog";
 }
 
+Dog::Dog(const Dog& o) : Animal(o) {}
+
+Dog& Dog::operator=(const Dog& o) {
+    this->type = o.type;
+    return *this;
+}
+
 Dog::~Dog() {
-    std::cout << "Dog destroyed\n";
+    LOG_FUNCTION();
 }
 
 void Dog::makeSound() const {

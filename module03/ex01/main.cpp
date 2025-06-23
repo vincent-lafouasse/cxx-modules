@@ -16,15 +16,17 @@ void checkVirtualDtor() {
 }
 
 int main() {
-    ScavTrap trap("Poss");
+    {
+        ScavTrap trap("Poss");
 
-    trap.guard_gate();
-    trap.guard_gate();
-    trap.guard_gate();
-    routine(trap);
-    trap.guard_gate();
-    trap.guard_gate();
-    trap.guard_gate();
+        trap.guard_gate();
+        trap.guard_gate();
+        trap.guard_gate();
+        routine(trap);
+        trap.guard_gate();
+        trap.guard_gate();
+        trap.guard_gate();
+    }
 
     checkVirtualDtor();
 }

@@ -15,6 +15,10 @@ int main() {
         }
 
         for (std::size_t i = 0; i < sz; ++i) {
+            pen[i]->makeSound();
+        }
+
+        for (std::size_t i = 0; i < sz; ++i) {
             delete pen[i];
         }
     }

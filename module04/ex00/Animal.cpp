@@ -12,8 +12,7 @@ Animal::Animal() : type("something") {
     LOG_FUNCTION();
 }
 
-Animal::Animal(const Animal& other): type(other.type) {}
-
+Animal::Animal(const Animal& other) : type(other.type) {}
 
 Animal& Animal::operator=(const Animal& a) {
     LOG_FUNCTION();

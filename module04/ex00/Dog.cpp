@@ -13,6 +13,13 @@ Dog::Dog() : Animal() {
     this->type = "Dog";
 }
 
+Dog::Dog(const Dog& o) : Animal(o) {}
+
+Dog& Dog::operator=(const Dog& o) {
+    this->type = o.type;
+    return *this;
+}
+
 Dog::~Dog() {
     LOG_FUNCTION();
 }

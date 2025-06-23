@@ -12,6 +12,14 @@ Cat::Cat() : Animal() {
     LOG_FUNCTION();
     this->type = "Cat";
 }
+
+Cat::Cat(const Cat& o) : Animal(o) {}
+
+Cat& Cat::operator=(const Cat& o) {
+    this->type = o.type;
+    return *this;
+}
+
 Cat::~Cat() {
     LOG_FUNCTION();
 }

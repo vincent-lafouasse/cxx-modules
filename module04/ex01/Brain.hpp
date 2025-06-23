@@ -2,13 +2,14 @@
 
 #include <string>
 
-#define N_IDEAS 100
-
 class Brain {
    public:
     Brain();
+    Brain(const Brain& o);
+    Brain& operator=(const Brain& o);
     ~Brain();
 
    private:
-    std::string ideas[N_IDEAS];
+    static const std::size_t nIdeas = 100;
+    std::string ideas[Brain::nIdeas];
 };

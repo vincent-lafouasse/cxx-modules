@@ -99,7 +99,7 @@ void ClapTrap::takeDamage(uint32_t amount) {
     uint32_t true_amount =
         amount > this->health_points ? this->health_points : amount;
     this->health_points -= true_amount;
-    std::cout << "ClapTrap takes " << true_amount << " dmg\n";
+    std::cout << name << " takes " << true_amount << " dmg\n";
 }
 
 void ClapTrap::beRepaired(uint32_t amount) {
@@ -108,7 +108,7 @@ void ClapTrap::beRepaired(uint32_t amount) {
         return;
     }
 
-    std::cout << "ClapTrap is healed for " << amount << " hp\n";
+    std::cout << name << " is healed for " << amount << " hp\n";
     this->energy_points--;
     this->health_points += amount;
 }

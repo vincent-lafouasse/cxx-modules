@@ -16,8 +16,8 @@
     std::clog << color << __PRETTY_FUNCTION__ << RESET << std::endl;
 
 namespace {
-const char* he_dead = "ClapTrap cant do shit cause its dead\n";
-const char* he_tired = "ClapTrap cant do shit cause its tired\n";
+const char* he_dead = " cant do shit cause its dead\n";
+const char* he_tired = " cant do shit cause its tired\n";
 }  // namespace
 
 const char* ClapTrap::default_name = "Camille";
@@ -75,11 +75,11 @@ ClapTrap::ClapTrap(const std::string& name)
 
 void ClapTrap::attack(const std::string& target) {
     if (this->health_points == 0) {
-        std::cout << he_dead;
+        std::cout << name << he_dead;
         return;
     }
     if (this->energy_points == 0) {
-        std::cout << he_tired;
+        std::cout << name << he_tired;
         return;
     }
 
@@ -99,12 +99,12 @@ void ClapTrap::takeDamage(uint32_t amount) {
     uint32_t true_amount =
         amount > this->health_points ? this->health_points : amount;
     this->health_points -= true_amount;
-    std::cout << "ClapTrap takes " << true_amount << " dmg\n";
+    std::cout << name << " takes " << true_amount << " dmg\n";
 }
 
 void ClapTrap::beRepaired(uint32_t amount) {
     if (this->energy_points == 0) {
-        std::cout << he_tired;
+        std::cout << name << he_tired;
         return;
     }
 

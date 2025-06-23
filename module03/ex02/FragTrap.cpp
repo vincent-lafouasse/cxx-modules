@@ -16,8 +16,8 @@
     std::clog << color << __PRETTY_FUNCTION__ << RESET << std::endl;
 
 namespace {
-const char* he_dead = "FragTrap cant do shit cause its dead\n";
-const char* he_tired = "FragTrap cant do shit cause its tired\n";
+const char* he_dead = " cant do shit cause its dead\n";
+const char* he_tired = " cant do shit cause its tired\n";
 
 const char* request_high_five = "Eyyyy give me a high five\n";
 }  // namespace
@@ -58,11 +58,11 @@ FragTrap::~FragTrap() {
 
 void FragTrap::attack(const std::string& target) {
     if (this->health_points == 0) {
-        std::cout << he_dead;
+        std::cout << name << he_dead;
         return;
     }
     if (this->energy_points == 0) {
-        std::cout << he_tired;
+        std::cout << name << he_tired;
         return;
     }
 
@@ -75,11 +75,11 @@ void FragTrap::attack(const std::string& target) {
 
 void FragTrap::highFivesGuys() const {
     if (this->health_points == 0) {
-        std::cout << he_dead;
+        std::cout << name << he_dead;
         return;
     }
     if (this->energy_points == 0) {
-        std::cout << he_tired;
+        std::cout << name << he_tired;
         return;
     }
 

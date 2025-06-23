@@ -16,10 +16,10 @@
     std::clog << color << __PRETTY_FUNCTION__ << RESET << std::endl;
 
 namespace {
-const char* he_dead = "ScavTrap cant do shit cause its dead\n";
-const char* he_tired = "ScavTrap cant do shit cause its tired\n";
-const char* now_guarding = "ScavTrap is now guarding\n";
-const char* already_guarding = "ScavTrap is already guarding\n";
+const char* he_dead = " cant do shit cause its dead\n";
+const char* he_tired = " cant do shit cause its tired\n";
+const char* now_guarding = " is now guarding\n";
+const char* already_guarding = " is already guarding\n";
 }  // namespace
 
 const char* ScavTrap::default_name = "Sam";
@@ -63,11 +63,11 @@ ScavTrap::~ScavTrap() {
 
 void ScavTrap::attack(const std::string& target) {
     if (this->health_points == 0) {
-        std::cout << he_dead;
+        std::cout << name << he_dead;
         return;
     }
     if (this->energy_points == 0) {
-        std::cout << he_tired;
+        std::cout << name << he_tired;
         return;
     }
 
@@ -80,18 +80,18 @@ void ScavTrap::attack(const std::string& target) {
 
 void ScavTrap::guard_gate() {
     if (this->health_points == 0) {
-        std::cout << he_dead;
+        std::cout << name << he_dead;
         return;
     }
     if (this->energy_points == 0) {
-        std::cout << he_tired;
+        std::cout << name << he_tired;
         return;
     }
 
     if (!this->isGuarding) {
-        std::cout << now_guarding;
+        std::cout << name << now_guarding;
         this->isGuarding = true;
     } else {
-        std::cout << already_guarding;
+        std::cout << name << already_guarding;
     }
 }

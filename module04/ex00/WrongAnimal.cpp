@@ -12,6 +12,10 @@ WrongAnimal::WrongAnimal() : type("Wrongsomething") {
     LOG_FUNCTION();
 }
 
+WrongAnimal::WrongAnimal(const WrongAnimal& o) : type(o.type) {
+    LOG_FUNCTION();
+}
+
 WrongAnimal& WrongAnimal::operator=(const WrongAnimal& a) {
     LOG_FUNCTION();
     this->type = a.type;

@@ -13,6 +13,15 @@ WrongCat::WrongCat() : WrongAnimal() {
     this->type = "WrongCat";
 }
 
+WrongCat::WrongCat(const WrongCat& o) : WrongAnimal(o) {
+    LOG_FUNCTION();
+}
+
+WrongCat& WrongCat::operator=(const WrongCat& o) {
+    this->type = o.type;
+    return *this;
+}
+
 WrongCat::~WrongCat() {
     LOG_FUNCTION();
 }

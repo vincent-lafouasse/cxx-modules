@@ -5,6 +5,7 @@
 class WrongAnimal {
    public:
     WrongAnimal();
+    WrongAnimal(const WrongAnimal& o);
     WrongAnimal& operator=(const WrongAnimal& a);
     virtual ~WrongAnimal();
 

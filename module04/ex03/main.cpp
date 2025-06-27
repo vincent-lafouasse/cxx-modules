@@ -29,7 +29,7 @@ void assertCloneIsDeep() {
     delete iceAlso;
 }
 
-// meant to be memcheck'd
+namespace memcheck {
 void assertCharacterOwnsMaterias() {
     ICharacter* character = new Character("poss");
 
@@ -41,8 +41,31 @@ void assertCharacterOwnsMaterias() {
     delete character;
 }
 
+void assertCharacterInventoryIsOverflowProof() {
+    ICharacter* character = new Character("poss");
+
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+    character->equip(new Ice());
+
+    delete character;
+}
+}  // namespace memcheck
+
 int main() {
     assertBasicConstruction();
     assertCloneIsDeep();
-    assertCharacterOwnsMaterias();
+
+    memcheck::assertCharacterOwnsMaterias();
+    memcheck::assertCharacterInventoryIsOverflowProof();
 }

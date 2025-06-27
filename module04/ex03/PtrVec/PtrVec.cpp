@@ -47,9 +47,8 @@ void PtrVec::grow() {
         return;
     }
 
-    const Size newSize = static_cast<Size>(
-        PtrVec::growingFactor * static_cast<float>(this->length)
-        );
+    const Size newSize = static_cast<Size>(PtrVec::growingFactor *
+                                           static_cast<float>(this->length));
     Ptr* newData = new Ptr[newSize];
     this->capacity = newSize;
 

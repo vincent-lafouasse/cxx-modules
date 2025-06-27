@@ -31,5 +31,5 @@ int main() {
         delete cat;
     }
 
-    //Animal animal;
+    // Animal animal;
 }

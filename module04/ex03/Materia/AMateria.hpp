@@ -6,22 +6,18 @@ class ICharacter;
 
 class AMateria {
    public:
-    explicit AMateria(std::string const& type) : type(type) {}
+    virtual ~AMateria();
 
-    std::string const& getType() const { return this->type; }
+    std::string const& getType() const;
 
     virtual AMateria* clone() const = 0;
     virtual void use(ICharacter& target) = 0;
 
-    virtual ~AMateria() {}
-
    protected:
     std::string type;
 
-    AMateria() {}
-    AMateria(const AMateria& o) : type(o.type) {}
-    AMateria& operator=(const AMateria& o) {
-        this->type = o.type;
-        return *this;
-    }
+    explicit AMateria(std::string const& type);
+    AMateria();
+    AMateria(const AMateria& o);
+    AMateria& operator=(const AMateria& o);
 };

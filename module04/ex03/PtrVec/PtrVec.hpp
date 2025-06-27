@@ -13,6 +13,8 @@ public:
 	~PtrVec();
 
 private:
+	void grow();
+
 	Size length;
 	Size capacity;
 	Ptr* data;

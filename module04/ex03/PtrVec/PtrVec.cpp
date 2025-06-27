@@ -38,3 +38,22 @@ PtrVec& PtrVec::operator=(const PtrVec& other) {
 PtrVec::~PtrVec() {
     delete[] data;
 }
+
+void PtrVec::grow() {
+    if (this->data == NULL) {
+        this->data = new Ptr[PtrVec::baseSize];
+        this->capacity = PtrVec::baseSize;
+        this->length = 0;
+        return;
+    }
+
+    const Size newSize = static_cast<Size>(
+        PtrVec::growingFactor * static_cast<float>(this->length)
+        );
+    Ptr* newData = new Ptr[newSize];
+    this->capacity = newSize;
+
+    for (Size i = 0; i < this->length; ++i) {
+        newData[i] = data[i];
+    }
+}

@@ -3,9 +3,11 @@
 const PtrVec::Size PtrVec::baseSize = 4;
 const float PtrVec::growingFactor = 1.5f;
 
-PtrVec::PtrVec(): length(0), capacity(0), data(NULL) {}
+PtrVec::PtrVec() : length(0), capacity(0), data(NULL) {}
 
-PtrVec::PtrVec(const PtrVec& o): length(o.length), capacity(o.length), data(new Ptr[o.length]) {}
+PtrVec::PtrVec(const PtrVec& o) : data(NULL) {
+    *this = o;
+}
 
 PtrVec& PtrVec::operator=(const PtrVec& other) {
     if (this == &other) {
@@ -26,6 +28,9 @@ PtrVec& PtrVec::operator=(const PtrVec& other) {
     this->data = new Ptr[other.length];
     this->length = other.length;
     this->capacity = other.length;
+    for (Size i = 0; i < other.length; ++i) {
+        this->data[i] = other.data[i];
+    }
 
     return *this;
 }

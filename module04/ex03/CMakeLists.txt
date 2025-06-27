@@ -4,12 +4,10 @@ add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE
         ./main.cpp
 
-        ./Character/ICharacter.hpp
-        ./Character/Character.hpp
+        ./Character/Character.cpp
+        ./Materia/Ice.cpp
 
-        ./Materia/AMateria.hpp
-        ./Materia/Ice.hpp
-        ./Materia/Cure.hpp
+        ./PtrVec/PtrVec.cpp
 )
 target_include_directories(${PROJECT_NAME} PUBLIC
         .

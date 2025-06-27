@@ -18,5 +18,7 @@ AMateria* Ice::clone() const {
 }
 
 void Ice::use(ICharacter&) {
-    std::cout << "* heals " << "DUMMY" << "'s wounds *";
+    std::cout << "* heals "
+              << "DUMMY"
+              << "'s wounds *";
 }

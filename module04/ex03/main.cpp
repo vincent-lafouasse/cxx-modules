@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "Character/Character.hpp"
+#include "Materia/Cure.hpp"
 #include "Materia/Ice.hpp"
 
 // coerces conversion
@@ -66,7 +67,7 @@ void assertCharacterInventoryIsOverflowProof() {
 void checkMateriaLogs() {
     ICharacter* me = new Character("poss");
     me->equip(new Ice());
-    // character->equip(new Cure());
+    me->equip(new Cure());
 
     ICharacter* racc = new Character("racc");
 

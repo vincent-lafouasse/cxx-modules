@@ -12,7 +12,12 @@ class PtrVec {
     PtrVec& operator=(const PtrVec&);
     ~PtrVec();
 
+    Ptr operator[](Size) const;  // unchecked, UB on out of bounds
+    // Ptr at(Size) const; // checked, throws on out of bounds
+
     bool isEmpty() const;
+    void clear();
+
     Size size() const;
     bool contains(void* p) const;
 

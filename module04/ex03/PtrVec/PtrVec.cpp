@@ -86,3 +86,11 @@ bool PtrVec::contains(void* p) const {
 
     return false;
 }
+
+void PtrVec::clear() {
+    this->length = 0;
+}
+
+PtrVec::Ptr PtrVec::operator[](Size i) const {
+    return this->data[i];
+}

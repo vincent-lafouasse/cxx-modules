@@ -1,16 +1,24 @@
 #include "Character.hpp"
 
-Character::Character() : name("Thrall"), inventory() {}
+Character::Character() : name("Thrall"), inventory(), ownedMaterias() {}
 
 Character::Character(const Character& o) {}
 
 Character& Character::operator=(const Character& o) {
+    if (this != &o) {
+        return *this;
+    }
+
+    for (PtrVec::Size i = 0; i < ownedMaterias.size(); i++) {
+        delete static_cast<AMateria*>(ownedMaterias.at(i));
+    }
     return *this;
 }
 
 Character::~Character() {}
 
-Character::Character(const std::string& name) : name(name), inventory() {}
+Character::Character(const std::string& name)
+    : name(name), inventory(), ownedMaterias() {}
 
 std::string const& Character::getName() const {
     return this->name;

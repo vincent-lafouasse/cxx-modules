@@ -3,6 +3,8 @@
 #include "ICharacter.hpp"
 #include "Materia/AMateria.hpp"
 
+#include "PtrVec/PtrVec.hpp"
+
 class Character : public ICharacter {
    public:
     Character();
@@ -23,4 +25,6 @@ class Character : public ICharacter {
 
     static const std::size_t inventorySize = 4;
     AMateria* inventory[Character::inventorySize];
+
+    PtrVec ownedMaterias;
 };

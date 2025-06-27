@@ -58,6 +58,9 @@ void PtrVec::grow() {
     for (Size i = 0; i < this->length; ++i) {
         newData[i] = data[i];
     }
+
+    delete[] this->data;
+    this->data = newData;
 }
 
 void PtrVec::pushBack(void* p) {

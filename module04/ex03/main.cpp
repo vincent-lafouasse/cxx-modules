@@ -4,6 +4,8 @@
 
 #include "Materia/IMateriaSource.hpp"
 
+#include "PtrVec/PtrVec.hpp"
+
 int main() {
     Ice ice;
 

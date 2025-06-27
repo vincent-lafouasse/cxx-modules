@@ -1,4 +1,5 @@
 #include <cassert>
+#include <iostream>
 
 #include "Character/Character.hpp"
 #include "Materia/Ice.hpp"
@@ -62,10 +63,28 @@ void assertCharacterInventoryIsOverflowProof() {
 }
 }  // namespace memcheck
 
+void checkMateriaLogs() {
+    ICharacter* me = new Character("poss");
+    me->equip(new Ice());
+    // character->equip(new Cure());
+
+    ICharacter* racc = new Character("racc");
+
+    for (int i = 0; i < 4; ++i) {
+        std::clog << i << '\t';
+        me->use(i, *racc);
+    }
+
+    delete me;
+    delete racc;
+}
+
 int main() {
     assertBasicConstruction();
     assertCloneIsDeep();
 
     memcheck::assertCharacterOwnsMaterias();
     memcheck::assertCharacterInventoryIsOverflowProof();
+
+    checkMateriaLogs();
 }

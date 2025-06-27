@@ -4,16 +4,16 @@
 #include "Materia/Ice.hpp"
 
 // coerces conversion
-void assertStringEq(const std::string& s1, const std::string& s2) {
-    assert(s1 == s2);
+bool stringEq(const std::string& s1, const std::string& s2) {
+    return s1 == s2;
 }
 
 void assertBasicConstruction() {
     ICharacter* character = new Character("poss");
-    assertStringEq(character->getName(), "poss");
+    assert(stringEq(character->getName(), "poss"));
 
     AMateria* ice = new Ice();
-    assertStringEq(ice->getType(), "ice");
+    assert(stringEq(ice->getType(), "ice"));
 
     delete character;
     delete ice;

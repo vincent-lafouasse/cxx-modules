@@ -12,6 +12,7 @@ add_executable(${PROJECT_NAME}
         Materia/Cure.cpp
 
         PtrVec/PtrVec.cpp
+        Materia/MateriaSource.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

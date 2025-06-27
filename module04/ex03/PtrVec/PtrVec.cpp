@@ -1,5 +1,7 @@
 #include "PtrVec.hpp"
 
+#include <cassert>
+
 const PtrVec::Size PtrVec::baseSize = 4;
 const float PtrVec::growingFactor = 1.5f;
 
@@ -47,12 +49,40 @@ void PtrVec::grow() {
         return;
     }
 
-    const Size newSize = static_cast<Size>(PtrVec::growingFactor *
-                                           static_cast<float>(this->length));
+    const Size newSize =
+        1 + static_cast<Size>(PtrVec::growingFactor *
+                              static_cast<float>(this->length));
     Ptr* newData = new Ptr[newSize];
     this->capacity = newSize;
 
     for (Size i = 0; i < this->length; ++i) {
         newData[i] = data[i];
     }
+}
+
+void PtrVec::pushBack(void* p) {
+    if (this->length >= this->capacity) {
+        this->grow();
+        assert(this->length < this->capacity);
+    }
+
+    this->data[this->length++] = p;
+}
+
+bool PtrVec::isEmpty() const {
+    return this->length == 0;
+}
+
+PtrVec::Size PtrVec::size() const {
+    return this->length;
+}
+
+bool PtrVec::contains(void* p) const {
+    for (Size i = 0; i < this->length; ++i) {
+        if (this->data[i] == p) {
+            return true;
+        }
+    }
+
+    return false;
 }

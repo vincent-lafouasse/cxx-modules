@@ -12,6 +12,12 @@ class PtrVec {
     PtrVec& operator=(const PtrVec&);
     ~PtrVec();
 
+    bool isEmpty() const;
+    Size size() const;
+    bool contains(void* p) const;
+
+    void pushBack(void* p);
+
    private:
     void grow();
 

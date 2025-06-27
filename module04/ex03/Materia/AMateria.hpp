@@ -13,6 +13,8 @@ class AMateria {
     virtual AMateria* clone() const = 0;
     virtual void use(ICharacter& target) = 0;
 
+    virtual ~AMateria() {}
+
    protected:
     std::string type;
 

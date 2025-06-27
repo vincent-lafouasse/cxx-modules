@@ -1,9 +1,9 @@
 #include <cassert>
-#include <iostream>
 
 #include "Character/Character.hpp"
 #include "Materia/Ice.hpp"
 
+// coerces conversion
 void assertStringEq(const std::string& s1, const std::string& s2) {
     assert(s1 == s2);
 }

@@ -38,7 +38,7 @@ std::string const& Character::getName() const {
 }
 
 void Character::equip(AMateria* m) {
-    if (this->ownedMaterias.contains(m)) {
+    if (!this->ownedMaterias.contains(m)) {
         this->ownedMaterias.pushBack(m);
     }
 

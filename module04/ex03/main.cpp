@@ -11,7 +11,7 @@ int main() {
     AMateria* ice = new Ice();
     std::cout << "This is a " << ice->getType() << " materia" << std::endl;
 
-    AMateria iceAlso = ice->clone();
+    AMateria* iceAlso = ice->clone();
     assert(ice != iceAlso);
 
     character->equip(ice);

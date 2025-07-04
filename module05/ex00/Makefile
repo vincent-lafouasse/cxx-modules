@@ -1,4 +1,4 @@
-NAME = animals
+NAME = exe
 
 SRCS = $(shell find . -name '*.cpp')
 

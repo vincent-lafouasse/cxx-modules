@@ -14,6 +14,28 @@ int main() {
 
     Bureaucrat a(name, 69);
     std::cout << a;
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveUp();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    a.moveDown();
+    std::cout << a;
 
     Bureaucrat b(name, 1);
     std::cout << b;

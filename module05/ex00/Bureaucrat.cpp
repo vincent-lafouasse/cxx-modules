@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string& name, u8 grade)
+Bureaucrat::Bureaucrat(const std::string& name, GradeType grade)
     : name(name), grade(grade) {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat& o) : name(o.name), grade(o.grade) {}
@@ -11,7 +11,7 @@ const std::string& Bureaucrat::getName() const {
     return name;
 }
 
-u8 Bureaucrat::getGrade() const {
+Bureaucrat::GradeType Bureaucrat::getGrade() const {
     return grade;
 }
 
@@ -26,8 +26,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat&) {
     throw std::runtime_error("cannot assign bureaucrats");
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(u8 grade)
+Bureaucrat::GradeTooHighException::GradeTooHighException(GradeType grade)
     : std::runtime_error("Grade too high"), grade(grade) {}
 
-Bureaucrat::GradeTooLowException::GradeTooLowException(u8 grade)
+Bureaucrat::GradeTooLowException::GradeTooLowException(GradeType grade)
     : std::runtime_error("Grade too low"), grade(grade) {}

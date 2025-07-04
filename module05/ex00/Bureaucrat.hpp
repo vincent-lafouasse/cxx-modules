@@ -10,6 +10,7 @@ typedef uint8_t u8;
 class Bureaucrat {
    public:
     typedef u8 GradeType;
+
     Bureaucrat(const std::string& name, GradeType grade);
 
     Bureaucrat(const Bureaucrat&);
@@ -27,7 +28,7 @@ class Bureaucrat {
 
     class GradeTooLowException : public std::runtime_error {
        public:
-        GradeTooLowException(u8 grade);
+        GradeTooLowException(GradeType grade);
 
         GradeType grade;
     };
@@ -37,7 +38,7 @@ class Bureaucrat {
     Bureaucrat& operator=(const Bureaucrat&) /* = delete */;
 
     const std::string name;
-    uint8_t grade;
+    GradeType grade;
 };
 
 std::ostream& operator<<(std::ostream&, const Bureaucrat&);

@@ -13,6 +13,20 @@ Bureaucrat::Bureaucrat(const Bureaucrat& o) : name(o.name), grade(o.grade) {
 
 Bureaucrat::~Bureaucrat() {}
 
+// ----- Mutators
+
+void Bureaucrat::moveUp() {
+    GradeType newGrade = grade - 1;
+    Bureaucrat::checkGrade(newGrade);
+    this->grade = newGrade;
+}
+
+void Bureaucrat::moveDown() {
+    GradeType newGrade = grade + 1;
+    Bureaucrat::checkGrade(newGrade);
+    this->grade = newGrade;
+}
+
 // ----- Accessors
 
 const std::string& Bureaucrat::getName() const {
@@ -24,7 +38,7 @@ Bureaucrat::GradeType Bureaucrat::getGrade() const {
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
-    os << b.getName() << ", bureaucrat " << b.getGrade() << ".";
+    os << b.getName() << ", bureaucrat " << +b.getGrade() << ".\n";
     return os;
 }
 

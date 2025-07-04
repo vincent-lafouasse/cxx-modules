@@ -19,6 +19,9 @@ class Bureaucrat {
     const std::string& getName() const;
     GradeType getGrade() const;
 
+    void moveUp();
+    void moveDown();
+
     class GradeTooHighException : public std::runtime_error {
        public:
         GradeTooHighException(GradeType grade);

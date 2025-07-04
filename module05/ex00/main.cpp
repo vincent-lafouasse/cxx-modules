@@ -1,5 +1,9 @@
 #include <iostream>
 
+#include "Bureaucrat.hpp"
+
 int main() {
-    std::cout << "yo\n";
+    Bureaucrat poss("poss", 69);
+
+    std::cout << poss;
 }

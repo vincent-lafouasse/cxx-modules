@@ -13,8 +13,10 @@ int main() {
     const std::string name("poss");
 
     Bureaucrat a(name, 69);
+    std::cout << a;
 
     Bureaucrat b(name, 1);
+    std::cout << b;
     try {
         b.moveUp();
     } catch (const std::exception& e) {
@@ -22,6 +24,7 @@ int main() {
     }
 
     Bureaucrat c(name, 150);
+    std::cout << c;
     try {
         c.moveDown();
     } catch (const std::exception& e) {

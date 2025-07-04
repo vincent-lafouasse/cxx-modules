@@ -37,6 +37,10 @@ class Bureaucrat {
     Bureaucrat() /* = delete */;
     Bureaucrat& operator=(const Bureaucrat&) /* = delete */;
 
+    static void checkGrade(GradeType grade);  // throws if grade is invalid
+    static const GradeType topGrade = 1;
+    static const GradeType bottomGrade = 150;
+
     const std::string name;
     GradeType grade;
 };

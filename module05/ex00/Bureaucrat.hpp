@@ -9,31 +9,32 @@ typedef uint8_t u8;
 
 class Bureaucrat {
    public:
-    Bureaucrat(const std::string& name, u8 grade);
+    typedef u8 GradeType;
+    Bureaucrat(const std::string& name, GradeType grade);
 
     Bureaucrat(const Bureaucrat&);
-    ~Bureaucrat();
+    ~Bureaucrat() /* = default */;
 
     const std::string& getName() const;
-    u8 getGrade() const;
+    GradeType getGrade() const;
 
     class GradeTooHighException : public std::runtime_error {
        public:
-        GradeTooHighException(u8 grade);
+        GradeTooHighException(GradeType grade);
 
-        u8 grade;
+        GradeType grade;
     };
 
     class GradeTooLowException : public std::runtime_error {
        public:
         GradeTooLowException(u8 grade);
 
-        u8 grade;
+        GradeType grade;
     };
 
    private:
-    Bureaucrat();
-    Bureaucrat& operator=(const Bureaucrat&);
+    Bureaucrat() /* = delete */;
+    Bureaucrat& operator=(const Bureaucrat&) /* = delete */;
 
     const std::string name;
     uint8_t grade;

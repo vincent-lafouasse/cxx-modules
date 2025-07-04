@@ -16,15 +16,13 @@ Bureaucrat::~Bureaucrat() {}
 // ----- Mutators
 
 void Bureaucrat::moveUp() {
-    GradeType newGrade = grade - 1;
-    Bureaucrat::checkGrade(newGrade);
-    this->grade = newGrade;
+    Bureaucrat::checkGrade(grade - 1);
+    this->grade--;
 }
 
 void Bureaucrat::moveDown() {
-    GradeType newGrade = grade + 1;
-    Bureaucrat::checkGrade(newGrade);
-    this->grade = newGrade;
+    Bureaucrat::checkGrade(grade + 1);
+    this->grade++;
 }
 
 // ----- Accessors

@@ -25,15 +25,11 @@ class Bureaucrat {
     class GradeTooHighException : public std::runtime_error {
        public:
         GradeTooHighException(GradeType grade);
-
-        GradeType grade;
     };
 
     class GradeTooLowException : public std::runtime_error {
        public:
         GradeTooLowException(GradeType grade);
-
-        GradeType grade;
     };
 
    private:

@@ -1,5 +1,17 @@
 #include "Bureaucrat.hpp"
 
+#include <sstream>
+
+namespace {
+std::string toString(Bureaucrat::GradeType grade) {
+    std::stringstream ss;
+
+    ss << +grade;
+
+    return ss.str();
+}
+}  // namespace
+
 // ----- Ctors/Dtors
 
 Bureaucrat::Bureaucrat(const std::string& name, GradeType grade)
@@ -61,7 +73,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat&) {
 // ----- Exceptions
 
 Bureaucrat::GradeTooHighException::GradeTooHighException(GradeType grade)
-    : std::runtime_error("Grade too high"), grade(grade) {}
+    : std::runtime_error("Grade too high: " + toString(grade)) {}
 
 Bureaucrat::GradeTooLowException::GradeTooLowException(GradeType grade)
-    : std::runtime_error("Grade too low"), grade(grade) {}
+    : std::runtime_error("Grade too low: " + toString(grade)) {}

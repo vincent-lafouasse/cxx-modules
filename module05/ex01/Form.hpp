@@ -32,6 +32,8 @@ class Form {
     Form();
     Form& operator=(const Form&);
 
+    void checkGrade(GradeType grade);
+
     const std::string name;
     bool isSigned;
     const GradeType signatureRequirement;

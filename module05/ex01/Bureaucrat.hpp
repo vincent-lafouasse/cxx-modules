@@ -12,7 +12,7 @@ typedef u8 Type;
 
 static const Type topGrade = 1;
 static const Type bottomGrade = 150;
-}
+}  // namespace Grade
 
 class Bureaucrat {
    public:

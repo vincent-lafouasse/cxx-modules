@@ -15,18 +15,23 @@ std::string toString(Form::GradeType grade) {
 // ----- Ctors/Dtors
 
 Form::Form(const std::string& name,
-     GradeType sigRequirement,
-     GradeType execRequirement): name(name), isSigned(false), signatureRequirement(sigRequirement), executionRequirement(execRequirement) {
+           GradeType sigRequirement,
+           GradeType execRequirement)
+    : name(name),
+      isSigned(false),
+      signatureRequirement(sigRequirement),
+      executionRequirement(execRequirement) {
     Form::checkGrade(sigRequirement);
     Form::checkGrade(execRequirement);
 }
 
-
-Form::Form(const Form& o): name(o.name), isSigned(o.isSigned), signatureRequirement(o.signatureRequirement), executionRequirement(o.executionRequirement) {
-}
+Form::Form(const Form& o)
+    : name(o.name),
+      isSigned(o.isSigned),
+      signatureRequirement(o.signatureRequirement),
+      executionRequirement(o.executionRequirement) {}
 
 Form::~Form() {}
-
 
 void Form::checkGrade(GradeType grade) {
     if (grade < Grade::topGrade) {
@@ -40,7 +45,8 @@ void Form::checkGrade(GradeType grade) {
 
 // ----- Deleted operations
 
-Form::Form(): name(), isSigned(), signatureRequirement(), executionRequirement() {
+Form::Form()
+    : name(), isSigned(), signatureRequirement(), executionRequirement() {
     throw std::runtime_error("cannot create form without info");
 }
 

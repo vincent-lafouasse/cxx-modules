@@ -35,6 +35,11 @@ class AForm {
         explicit GradeTooLowException(GradeType grade);
     };
 
+    class UnverifiedFormException : public std::runtime_error {
+       public:
+        explicit UnverifiedFormException();
+    };
+
    protected:
     AForm();
     virtual void executeUnchecked(const Bureaucrat&) const = 0;

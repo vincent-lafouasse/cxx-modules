@@ -48,7 +48,7 @@ void AForm::checkGrade(GradeType grade) {
 void AForm::execute(const Bureaucrat& b) const {
     if (!this->isSigned) {
         // error
-        throw GradeTooLowException(b.getGrade());
+        throw UnverifiedFormException();
     }
 
     if (b.getGrade() > this->executionRequirement) {
@@ -113,3 +113,7 @@ AForm::GradeTooHighException::GradeTooHighException(GradeType grade)
 
 AForm::GradeTooLowException::GradeTooLowException(GradeType grade)
     : std::runtime_error("Grade too low: " + toString(grade)) {}
+
+
+AForm::UnverifiedFormException::UnverifiedFormException()
+    : std::runtime_error("Cannot execute form that isnt signed") {}

@@ -61,6 +61,17 @@ Form::GradeType Form::getExecutionRequirement() const {
     return this->executionRequirement;
 }
 
+std::ostream& operator<<(std::ostream& os, const Form& f) {
+    os << "Form " << f.getName() << " {\n";
+    os << '\t'<< "Required grades:\n";
+    os << "\t\t" << "For signature:\t" << +f.getSignatureRequirement() << '\n';
+    os << "\t\t" << "For execution:\t" << +f.getExecutionRequirement() << '\n';
+    os << '\t' << (f.getSignatureStatus() ? "Signed" : "Not signed") << '\n';
+    os << "}\n";
+
+    return os;
+}
+
 // ----- Deleted operations
 
 Form::Form()

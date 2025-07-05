@@ -35,8 +35,10 @@ class AForm {
         explicit GradeTooLowException(GradeType grade);
     };
 
-   private:
+   protected:
     AForm();
+
+   private:
     AForm& operator=(const AForm&);
 
     static void checkGrade(GradeType grade);

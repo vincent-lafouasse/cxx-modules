@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
 
 namespace {
@@ -11,15 +11,9 @@ void logException(const std::exception& e) {
 }  // namespace
 
 int main() {
-    AForm f("Lobotomy", 42, 69);
+    ShrubberyCreationForm f("forest");
 
-    Bureaucrat best("best", 1);
-    Bureaucrat worst("worst", 150);
-
-    std::cout << f;
-    std::cout << best;
-    std::cout << worst;
-
-    worst.signForm(f);
-    best.signForm(f);
+    Bureaucrat poss("poss", 69);
+    poss.signForm(f);
+    f.execute(poss);
 }

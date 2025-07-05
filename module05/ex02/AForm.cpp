@@ -48,10 +48,12 @@ void AForm::checkGrade(GradeType grade) {
 void AForm::execute(const Bureaucrat& b) const {
     if (!this->isSigned) {
         // error
+        throw GradeTooLowException(b.getGrade());
     }
 
     if (b.getGrade() > this->executionRequirement) {
         // error
+        throw GradeTooLowException(b.getGrade());
     }
 
     this->executeUnchecked(b);

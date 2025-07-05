@@ -19,6 +19,19 @@ int main() {
         std::cout << poss;
         poss.signForm(f);
         f.execute(poss);
+        std::cout << std::endl;
+    }
+    {
+        ShrubberyCreationForm f("forest");
+        std::cout << f;
+        Bureaucrat poss("poss", 69);
+        std::cout << poss;
+        try {
+            f.execute(poss);
+        } catch (const std::exception& e) {
+            logException(e);
+        }
+        std::cout << std::endl;
     }
     {
         ShrubberyCreationForm f("forest");
@@ -30,6 +43,7 @@ int main() {
         } catch (const std::exception& e) {
             logException(e);
         }
+        std::cout << std::endl;
     }
     {
         ShrubberyCreationForm f("forest");
@@ -42,5 +56,6 @@ int main() {
         } catch (const std::exception& e) {
             logException(e);
         }
+        std::cout << std::endl;
     }
 }

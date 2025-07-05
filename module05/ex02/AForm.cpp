@@ -57,6 +57,7 @@ void AForm::execute(const Bureaucrat& b) const {
     }
 
     this->executeUnchecked(b);
+    std::cout << b.getName() << " executed " << this->getName() << '\n';
 }
 
 void AForm::beSigned(const Bureaucrat& b) {

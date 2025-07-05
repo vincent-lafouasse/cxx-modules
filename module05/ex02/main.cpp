@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "ShrubberyCreationForm.hpp"
 #include "Bureaucrat.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 namespace {
 void logException(const std::exception& e) {

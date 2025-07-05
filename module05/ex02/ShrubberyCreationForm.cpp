@@ -28,7 +28,8 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& o)
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-void ShrubberyCreationForm::execute(const Bureaucrat&) const /* override */ {
+void ShrubberyCreationForm::executeUnchecked(const Bureaucrat&) const
+/* override */ {
     std::string path = this->target + "_shrubbery";
     std::ofstream outfile(path.c_str());  // fallible
 

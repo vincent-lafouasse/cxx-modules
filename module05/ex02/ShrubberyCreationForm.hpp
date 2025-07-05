@@ -11,7 +11,7 @@ class ShrubberyCreationForm : public AForm {
     ShrubberyCreationForm(const ShrubberyCreationForm&);
     ~ShrubberyCreationForm();
 
-    void execute(const Bureaucrat&) const /* override */;
+    void executeUnchecked(const Bureaucrat&) const /* override */;
 
    private:
     ShrubberyCreationForm();

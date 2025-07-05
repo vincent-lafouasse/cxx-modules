@@ -16,7 +16,7 @@ class AForm {
     AForm(const AForm&);
     virtual ~AForm();
 
-    virtual void execute(const Bureaucrat&) const = 0;
+    void execute(const Bureaucrat&) const;
 
     const std::string& getName() const;
     bool getSignatureStatus() const;
@@ -37,6 +37,7 @@ class AForm {
 
    protected:
     AForm();
+    virtual void executeUnchecked(const Bureaucrat&) const = 0;
 
    private:
     AForm& operator=(const AForm&);

@@ -45,6 +45,18 @@ void AForm::checkGrade(GradeType grade) {
 
 // ----- Mutators
 
+void AForm::execute(const Bureaucrat& b) const {
+    if (!this->isSigned) {
+        // error
+    }
+
+    if (b.getGrade() > this->executionRequirement) {
+        // error
+    }
+
+    this->executeUnchecked(b);
+}
+
 void AForm::beSigned(const Bureaucrat& b) {
     if (b.getGrade() > this->signatureRequirement) {
         throw AForm::GradeTooLowException(b.getGrade());

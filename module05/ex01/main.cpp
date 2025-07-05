@@ -13,5 +13,13 @@ void logException(const std::exception& e) {
 int main() {
     Form f("Lobotomy", 42, 69);
 
+    Bureaucrat best("best", 1);
+    Bureaucrat worst("worst", 150);
+
     std::cout << f;
+    std::cout << best;
+    std::cout << worst;
+
+    worst.signForm(f);
+    best.signForm(f);
 }

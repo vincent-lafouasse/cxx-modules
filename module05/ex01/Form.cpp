@@ -43,6 +43,15 @@ void Form::checkGrade(GradeType grade) {
     }
 }
 
+// ----- Mutators
+
+void Form::beSigned(const Bureaucrat& b) {
+    if (b.getGrade() > this->signatureRequirement) {
+        throw Form::GradeTooLowException(b.getGrade());
+    }
+    this->isSigned = true;
+}
+
 // ----- Accessors
 
 const std::string& Form::getName() const {

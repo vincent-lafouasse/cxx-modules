@@ -2,6 +2,8 @@
 
 #include <sstream>
 
+#include "Form.hpp"
+
 namespace {
 std::string toString(Bureaucrat::GradeType grade) {
     std::stringstream ss;
@@ -24,6 +26,16 @@ Bureaucrat::Bureaucrat(const Bureaucrat& o) : name(o.name), grade(o.grade) {
 }
 
 Bureaucrat::~Bureaucrat() {}
+
+void Bureaucrat::signForm(Form& f) {
+    try {
+        f.beSigned(*this);
+        std::cout << name << " signed " << f.getName() << '\n';
+    } catch (const std::exception& e) {
+        std::cout << name << " couldn't sign " << f.getName();
+        std::cout << " because " << e.what() << '\n';
+    }
+}
 
 // ----- Mutators
 

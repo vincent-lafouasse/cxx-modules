@@ -22,9 +22,9 @@ void RobotomyRequestFormForm::executeUnchecked(const Bureaucrat& b) const
     int rn = std::rand() % 2;
 
     if (rn == 0) {
-        std::cout << b.getName() << " doesnt have a brain anymore\n";
+        std::cout << ":))))) --- " << b.getName() << " doesnt have a brain anymore\n";
     } else {
-        std::cout << b.getName() << " still has a brain, sadge\n";
+        std::cout << ":((((( --- " << b.getName() << " still has a brain, sadge\n";
     }
 }
 

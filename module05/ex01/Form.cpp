@@ -43,6 +43,24 @@ void Form::checkGrade(GradeType grade) {
     }
 }
 
+// ----- Accessors
+
+const std::string& Form::getName() const {
+    return this->name;
+}
+
+bool Form::getSignatureStatus() const {
+    return this->isSigned;
+}
+
+Form::GradeType Form::getSignatureRequirement() const {
+    return this->signatureRequirement;
+}
+
+Form::GradeType Form::getExecutionRequirement() const {
+    return this->executionRequirement;
+}
+
 // ----- Deleted operations
 
 Form::Form()

@@ -16,6 +16,11 @@ class Form {
     Form(const Form&);
     ~Form();
 
+    const std::string& getName() const;
+    bool getSignatureStatus() const;
+    GradeType getSignatureRequirement() const;
+    GradeType getExecutionRequirement() const;
+
     void beSigned(const Bureaucrat&);
 
     class GradeTooHighException : public std::runtime_error {

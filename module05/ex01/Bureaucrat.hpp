@@ -7,9 +7,16 @@
 
 typedef uint8_t u8;
 
+namespace Grade {
+typedef u8 Type;
+
+static const Type topGrade = 1;
+static const Type bottomGrade = 150;
+}
+
 class Bureaucrat {
    public:
-    typedef u8 GradeType;
+    typedef Grade::Type GradeType;
 
     Bureaucrat(const std::string& name, GradeType grade);
 
@@ -37,8 +44,6 @@ class Bureaucrat {
     Bureaucrat& operator=(const Bureaucrat&) /* = delete */;
 
     static void checkGrade(GradeType grade);  // throws if grade is invalid
-    static const GradeType topGrade = 1;
-    static const GradeType bottomGrade = 150;
 
     const std::string name;
     GradeType grade;

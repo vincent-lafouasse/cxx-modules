@@ -7,7 +7,7 @@
 
 class Form {
    public:
-    typedef Bureaucrat::GradeType GradeType;
+    typedef Grade::Type GradeType;
 
     Form(const std::string& name,
          GradeType sigRequirement,
@@ -32,7 +32,7 @@ class Form {
     Form();
     Form& operator=(const Form&);
 
-    void checkGrade(GradeType grade);
+    static void checkGrade(GradeType grade);
 
     const std::string name;
     bool isSigned;

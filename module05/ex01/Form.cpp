@@ -16,21 +16,24 @@ std::string toString(Form::GradeType grade) {
 
 Form::Form(const std::string& name,
      GradeType sigRequirement,
-     GradeType execRequirement);
+     GradeType execRequirement): name(name), isSigned(false), signatureRequirement(sigRequirement), executionRequirement(execRequirement) {
+    Form::checkGrade(sigRequirement);
+    Form::checkGrade(execRequirement);
+}
 
-Form::Form(const Form& o) : name(o.name), grade(o.grade) {
-    Form::checkGrade(grade);
+
+Form::Form(const Form& o): name(o.name), isSigned(o.isSigned), signatureRequirement(o.signatureRequirement), executionRequirement(o.executionRequirement) {
 }
 
 Form::~Form() {}
 
 
 void Form::checkGrade(GradeType grade) {
-    if (grade < Form::topGrade) {
+    if (grade < Grade::topGrade) {
         throw GradeTooHighException(grade);
     }
 
-    if (grade > Form::bottomGrade) {
+    if (grade > Grade::bottomGrade) {
         throw GradeTooLowException(grade);
     }
 }

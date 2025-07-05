@@ -53,11 +53,11 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& b) {
 }
 
 void Bureaucrat::checkGrade(GradeType grade) {
-    if (grade < Bureaucrat::topGrade) {
+    if (grade < Grade::topGrade) {
         throw GradeTooHighException(grade);
     }
 
-    if (grade > Bureaucrat::bottomGrade) {
+    if (grade > Grade::bottomGrade) {
         throw GradeTooLowException(grade);
     }
 }

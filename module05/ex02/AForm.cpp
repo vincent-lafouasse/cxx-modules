@@ -114,6 +114,5 @@ AForm::GradeTooHighException::GradeTooHighException(GradeType grade)
 AForm::GradeTooLowException::GradeTooLowException(GradeType grade)
     : std::runtime_error("Grade too low: " + toString(grade)) {}
 
-
 AForm::UnverifiedFormException::UnverifiedFormException()
     : std::runtime_error("Cannot execute form that isnt signed") {}

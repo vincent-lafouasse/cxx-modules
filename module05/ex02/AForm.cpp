@@ -1,9 +1,9 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #include <sstream>
 
 namespace {
-std::string toString(Form::GradeType grade) {
+std::string toString(AForm::GradeType grade) {
     std::stringstream ss;
 
     ss << +grade;
@@ -14,26 +14,26 @@ std::string toString(Form::GradeType grade) {
 
 // ----- Ctors/Dtors
 
-Form::Form(const std::string& name,
-           GradeType sigRequirement,
-           GradeType execRequirement)
+AForm::AForm(const std::string& name,
+             GradeType sigRequirement,
+             GradeType execRequirement)
     : name(name),
       isSigned(false),
       signatureRequirement(sigRequirement),
       executionRequirement(execRequirement) {
-    Form::checkGrade(sigRequirement);
-    Form::checkGrade(execRequirement);
+    AForm::checkGrade(sigRequirement);
+    AForm::checkGrade(execRequirement);
 }
 
-Form::Form(const Form& o)
+AForm::AForm(const AForm& o)
     : name(o.name),
       isSigned(o.isSigned),
       signatureRequirement(o.signatureRequirement),
       executionRequirement(o.executionRequirement) {}
 
-Form::~Form() {}
+AForm::~AForm() {}
 
-void Form::checkGrade(GradeType grade) {
+void AForm::checkGrade(GradeType grade) {
     if (grade < Grade::topGrade) {
         throw GradeTooHighException(grade);
     }
@@ -45,33 +45,33 @@ void Form::checkGrade(GradeType grade) {
 
 // ----- Mutators
 
-void Form::beSigned(const Bureaucrat& b) {
+void AForm::beSigned(const Bureaucrat& b) {
     if (b.getGrade() > this->signatureRequirement) {
-        throw Form::GradeTooLowException(b.getGrade());
+        throw AForm::GradeTooLowException(b.getGrade());
     }
     this->isSigned = true;
 }
 
 // ----- Accessors
 
-const std::string& Form::getName() const {
+const std::string& AForm::getName() const {
     return this->name;
 }
 
-bool Form::getSignatureStatus() const {
+bool AForm::getSignatureStatus() const {
     return this->isSigned;
 }
 
-Form::GradeType Form::getSignatureRequirement() const {
+AForm::GradeType AForm::getSignatureRequirement() const {
     return this->signatureRequirement;
 }
 
-Form::GradeType Form::getExecutionRequirement() const {
+AForm::GradeType AForm::getExecutionRequirement() const {
     return this->executionRequirement;
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& f) {
-    os << "Form " << f.getName() << " {\n";
+std::ostream& operator<<(std::ostream& os, const AForm& f) {
+    os << "AForm " << f.getName() << " {\n";
     os << '\t' << "Required grades:\n";
     os << "\t\t" << "For signature:\t" << +f.getSignatureRequirement() << '\n';
     os << "\t\t" << "For execution:\t" << +f.getExecutionRequirement() << '\n';
@@ -83,19 +83,19 @@ std::ostream& operator<<(std::ostream& os, const Form& f) {
 
 // ----- Deleted operations
 
-Form::Form()
+AForm::AForm()
     : name(), isSigned(), signatureRequirement(), executionRequirement() {
     throw std::runtime_error("cannot create form without info");
 }
 
-Form& Form::operator=(const Form&) {
+AForm& AForm::operator=(const AForm&) {
     throw std::runtime_error("cannot assign forms");
 }
 
 // ----- Exceptions
 
-Form::GradeTooHighException::GradeTooHighException(GradeType grade)
+AForm::GradeTooHighException::GradeTooHighException(GradeType grade)
     : std::runtime_error("Grade too high: " + toString(grade)) {}
 
-Form::GradeTooLowException::GradeTooLowException(GradeType grade)
+AForm::GradeTooLowException::GradeTooLowException(GradeType grade)
     : std::runtime_error("Grade too low: " + toString(grade)) {}

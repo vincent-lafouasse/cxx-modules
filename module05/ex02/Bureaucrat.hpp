@@ -7,7 +7,7 @@
 
 typedef uint8_t u8;
 
-class Form;
+class AForm;
 
 namespace Grade {
 typedef u8 Type;
@@ -31,7 +31,7 @@ class Bureaucrat {
     void moveUp();
     void moveDown();
 
-    void signForm(Form&);
+    void signForm(AForm&);
 
     class GradeTooHighException : public std::runtime_error {
        public:

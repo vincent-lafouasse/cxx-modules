@@ -5,16 +5,18 @@
 
 #include "Bureaucrat.hpp"
 
-class Form {
+class AForm {
    public:
     typedef Grade::Type GradeType;
 
-    Form(const std::string& name,
-         GradeType sigRequirement,
-         GradeType execRequirement);
+    AForm(const std::string& name,
+          GradeType sigRequirement,
+          GradeType execRequirement);
 
-    Form(const Form&);
-    ~Form();
+    AForm(const AForm&);
+    virtual ~AForm();
+
+    virtual void execute(const Bureaucrat&) const = 0;
 
     const std::string& getName() const;
     bool getSignatureStatus() const;
@@ -34,8 +36,8 @@ class Form {
     };
 
    private:
-    Form();
-    Form& operator=(const Form&);
+    AForm();
+    AForm& operator=(const AForm&);
 
     static void checkGrade(GradeType grade);
 
@@ -45,4 +47,4 @@ class Form {
     const GradeType executionRequirement;
 };
 
-std::ostream& operator<<(std::ostream&, const Form&);
+std::ostream& operator<<(std::ostream&, const AForm&);

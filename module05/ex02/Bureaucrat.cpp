@@ -2,7 +2,7 @@
 
 #include <sstream>
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
 namespace {
 std::string toString(Bureaucrat::GradeType grade) {
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& o) : name(o.name), grade(o.grade) {
 
 Bureaucrat::~Bureaucrat() {}
 
-void Bureaucrat::signForm(Form& f) {
+void Bureaucrat::signForm(AForm& f) {
     try {
         f.beSigned(*this);
         std::cout << name << " signed " << f.getName() << '\n';

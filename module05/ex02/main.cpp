@@ -1,7 +1,7 @@
 #include <iostream>
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 namespace {
 void logException(const std::exception& e) {
@@ -11,7 +11,7 @@ void logException(const std::exception& e) {
 }  // namespace
 
 int main() {
-    Form f("Lobotomy", 42, 69);
+    AForm f("Lobotomy", 42, 69);
 
     Bureaucrat best("best", 1);
     Bureaucrat worst("worst", 150);

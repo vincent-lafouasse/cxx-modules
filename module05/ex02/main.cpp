@@ -1,6 +1,9 @@
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
 #include "Bureaucrat.hpp"
+#include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
 namespace {
@@ -11,6 +14,7 @@ void logException(const std::exception& e) {
 }  // namespace
 
 int main() {
+    std::srand(std::time(0));
     {
         ShrubberyCreationForm f("forest");
         std::cout << f;
@@ -57,5 +61,12 @@ int main() {
             logException(e);
         }
         std::cout << std::endl;
+    }
+
+    for (int i = 0; i < 5; ++i) {
+        RobotomyRequestFormForm f("no thoughts");
+        Bureaucrat poss("poss", 1);
+        poss.signForm(f);
+        f.execute(poss);
     }
 }

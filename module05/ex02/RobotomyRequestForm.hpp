@@ -17,8 +17,8 @@ class RobotomyRequestFormForm : public AForm {
     RobotomyRequestFormForm();
     RobotomyRequestFormForm& operator=(const RobotomyRequestFormForm&);
 
-    static const GradeType sigRequirement = 145;
-    static const GradeType execRequirement = 137;
+    static const GradeType sigRequirement = 72;
+    static const GradeType execRequirement = 45;
 
     const std::string target;
 };

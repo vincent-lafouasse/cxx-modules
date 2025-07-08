@@ -3,9 +3,9 @@
 #include <iostream>
 
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 namespace {
 void logException(const std::exception& e) {

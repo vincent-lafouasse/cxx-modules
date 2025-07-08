@@ -1,6 +1,6 @@
+#include <cassert>
 #include <cstdlib>
 #include <ctime>
-#include <cassert>
 #include <iostream>
 
 #include "Intern.hpp"

@@ -5,6 +5,7 @@
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 namespace {
 void logException(const std::exception& e) {
@@ -68,5 +69,40 @@ int main() {
         Bureaucrat poss("poss", 1);
         poss.signForm(f);
         f.execute(poss);
+        std::cout << std::endl;
+    }
+
+    {
+        const AForm::GradeType grade = 26;
+        Bureaucrat b("poss", grade);
+        PresidentialPardonForm f("form");
+
+        try {
+            b.signForm(f);
+        } catch (const std::exception& e) {
+            logException(e);
+        }
+        std::cout << std::endl;
+    }
+    {
+        const AForm::GradeType grade = 6;
+        Bureaucrat b("poss", grade);
+        PresidentialPardonForm f("form");
+        b.signForm(f);
+
+        try {
+            f.execute(b);
+        } catch (const std::exception& e) {
+            logException(e);
+        }
+        std::cout << std::endl;
+    }
+    {
+        const AForm::GradeType grade = 5;
+        Bureaucrat b("poss", grade);
+        PresidentialPardonForm f("form");
+        b.signForm(f);
+        f.execute(b);
+        std::cout << std::endl;
     }
 }

@@ -28,9 +28,13 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target) cons
         const formMaker maker = Intern::factories[i].second;
 
         if (name == formName) {
-            return maker(target);
+            AForm* out = maker(target);
+            std::cout << "Intern creates " << out->getName() << std::endl;
+            return out;
         }
     }
+
+    std::cout << "Intern couldnt find form " << name << std::endl;
     return NULL;
 }
 

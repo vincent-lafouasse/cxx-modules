@@ -33,8 +33,21 @@ void MateriaSource::clearInventory() {
     }
 }
 
-void MateriaSource::learnMateria(AMateria*) {}
+void MateriaSource::learnMateria(AMateria* m) {
+    for (std::size_t i = 0; i < inventorySize; i++) {
+        if (inventory[i] == NULL) {
+            inventory[i] = m;
+            return;
+        }
+    }
+}
 
 AMateria* MateriaSource::createMateria(const std::string& type) {
+    for (std::size_t i = 0; i < inventorySize; i++) {
+        const AMateria* current = inventory[i];
+        if (current->getType() == type) {
+            return current->clone();
+        }
+    }
     return NULL;
 }

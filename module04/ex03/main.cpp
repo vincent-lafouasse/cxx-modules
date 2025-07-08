@@ -4,6 +4,7 @@
 #include "Character/Character.hpp"
 #include "Materia/Cure.hpp"
 #include "Materia/Ice.hpp"
+#include "Materia/MateriaSource.hpp"
 
 // coerces conversion
 bool stringEq(const std::string& s1, const std::string& s2) {
@@ -80,6 +81,27 @@ void checkMateriaLogs() {
     delete racc;
 }
 
+void givenTest() {
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+
+    ICharacter* me = new Character("me");
+    AMateria* tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+
+    ICharacter* bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+
+    delete bob;
+    delete me;
+    delete src;
+}
+
 int main() {
     assertBasicConstruction();
     assertCloneIsDeep();
@@ -88,4 +110,6 @@ int main() {
     memcheck::assertCharacterInventoryIsOverflowProof();
 
     checkMateriaLogs();
+
+    givenTest();
 }
